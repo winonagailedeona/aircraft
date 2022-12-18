@@ -9,7 +9,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse rounded justify-content-between" id="navbarCollapse">
-              <a href="<?= base_url('homepage') ?>" class="navbar-brand mx-5 d-none d-lg-block">
+              <a href="<?= base_url('profile') ?>" class="navbar-brand mx-5 d-none d-lg-block">
                   <h3 class="m-0 display-25 text-dark"><span class="text-color">Continen</span>Tea Café</h3>
               </a>
                 <div class="navbar-nav ml-auto py-0">
