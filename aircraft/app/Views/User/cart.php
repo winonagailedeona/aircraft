@@ -34,7 +34,7 @@ function updateCartItem(obj, rowid) {
                 <div class="card">
                     <div class="table-responsive">
                         <table class="table table-borderless table-shopping-cart">
-                            <thead class="text-muted">
+                            <thead class="text-muted" style="background-color: aqua;">
                                 <tr class="small text-uppercase">
                                     <th scope="col" width="20%">Image</th>
                                     <th scope="col" width="20%">Product</th>
