@@ -37,7 +37,7 @@
                         <?php if($sa['quantity'] <=0){?>
                         Not Available
                       <?php } ?>
-                        <a href="" class="btn btn-sm btn-dark">Order Now</a>
+                        <a href="<?= site_url('sps/'.$sa['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
               </div>
             </div>
               <?php endforeach; ?>

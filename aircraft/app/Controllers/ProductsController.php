@@ -68,6 +68,34 @@ class ProductsController extends BaseController
     return view('Menus/single', $pica);
   }
 
+  public function spm($id)
+  {
+    $meals_model = new MenuModel();
+    $meals['meals'] = $meals_model->find($id);
+    return view('Menus/singlemeals', $meals);
+  }
+
+  public function sps($id)
+  {
+    $sandwich_model = new MenuModel();
+    $sandwich['sandwich'] = $sandwich_model->find($id);
+    return view('Menus/singlesandwich', $sandwich);
+  }
+
+  public function spp($id)
+  {
+    $pasta_model = new MenuModel();
+    $pasta['pasta'] = $pasta_model->find($id);
+    return view('Menus/singlepasta', $pasta);
+  }
+
+  public function spd($id)
+  {
+    $dessert_model = new MenuModel();
+    $dessert['dessert'] = $dessert_model->find($id);
+    return view('Menus/singledessert', $dessert);
+  }
+
 }
 
 ?>

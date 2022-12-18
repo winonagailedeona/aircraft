@@ -69,7 +69,7 @@ function updateCartItem(obj, rowid) {
             </tbody>
             <tfoot>
                 <tr>
-                    <td><a href="<?php echo base_url('pica');?>" class="btn btn-sm btn-warning"><i class="fas fa-angle-left"></i> Continue Ordering</a></td>
+                    <td><a href="" class="btn btn-sm btn-warning"><i class="fas fa-angle-left"></i> Continue Ordering</a></td>
                     <td colspan="3"></td>
                     <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td><a href="" class="btn btn-sm btn-success btn-block">Checkout <i class="fas fa-angle-right"></i></a></td>

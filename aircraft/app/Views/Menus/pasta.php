@@ -37,7 +37,7 @@
                         <?php if($pr['quantity'] <=0){?>
                         Not Available
                       <?php } ?>
-                      <a href="<?= site_url('sp/'.$pr['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                      <a href="<?= site_url('spp/'.$pr['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
               </div>
             </div>
               <?php endforeach; ?>
