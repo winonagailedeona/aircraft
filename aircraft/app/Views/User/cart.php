@@ -54,9 +54,11 @@ function updateCartItem(obj, rowid) {
                                     </td>
                                     <td><?=$cart_item['prod_name']?></td>
                                     <td>₱ <?=$cart_item['price']?></td>
-                                      
-                                      <td><?=$cart_item['quantity']?></td>
-                                      <td>₱ <?=$cart_item['total']?></td>  
+                                      <!-- <td><?=$cart_item['quantity']?></td> -->
+                                      <td><input type="number" class="form-control text-center" value="1"
+        onChange="updateCartItem(this, 'c4ca4238a0b923820dcc509a6f75849b')">
+</td>
+                                      <td>₱ <?=$cart_item['total']?></td>
                                       <td>
                                        <a href=""
                                          onclick="return confirm('Are you sure you want to delete?')"

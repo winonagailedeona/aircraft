@@ -36,7 +36,7 @@
                         <?php if($con['quantity'] <=0){?>
                         Not Available
                       <?php } ?>
-                      <a href="<?= site_url('sp/'.$co['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                      <a href="" class="btn btn-sm btn-dark">Order Now</a>
               </div>
             </div>
               <?php endforeach; ?>
