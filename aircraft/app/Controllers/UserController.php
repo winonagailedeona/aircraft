@@ -16,6 +16,11 @@ class UserController extends Controller
       return view('User/orders');
     }
 
+    public function faqs()
+    {
+      return view('Menus/faqs');
+    }
+
     public function showcart()
     {
       $id = session()->get('id');

@@ -81,6 +81,7 @@ $routes->get('/userprofile', 'UserController::profile');
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');
 $routes->get('/showcart', 'UserController::showcart');
+$routes->get('/faqs', 'UserController::faqs');
 
 
 $routes->get('/cart/(:any)', 'UserController::cart/$1');

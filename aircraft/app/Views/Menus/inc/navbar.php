@@ -2,7 +2,7 @@
 <div class="container-fluid position-relative nav-bar p-0">
     <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 8;">
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
-            <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <a href="<?= base_url('profile') ?>" class="navbar-brand d-block d-lg-none">
                 <h4 class="m-0 display-15 text-primary"><span class="text-secondary">Food</span>AirCraft</h4>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
