@@ -102,8 +102,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('login'); ?>" class="nav-link">
-              <i class="nav-icon fas fa-door-open"></i>
+            <a href="<?php echo base_url('adminsign');?>" class="nav-link">
+              <i class="fas fa-power-off"></i>
               <p>
                 Logout
               </p>

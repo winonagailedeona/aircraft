@@ -149,7 +149,6 @@ body {
             <input type="submit" class="btn btn-block login-btn" type="button" value="Login">
           </form>
           <a href="#!" class="forgot-password-link">Forgot password?</a>
-          <p class="login-wrapper-footer-text text-center"><a href="<?= base_url('signin') ?>" class="text-reset"><b>Back</b></a></p>
         </div>
       </div>
       <div class="col-sm-6 px-0 d-none d-sm-block">

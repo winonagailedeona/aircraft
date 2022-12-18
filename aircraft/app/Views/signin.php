@@ -150,7 +150,6 @@ body {
           </form>
           <a href="#!" class="forgot-password-link">Forgot password?</a>
           <p class="login-wrapper-footer-text text-center">Don't have an account? <a href="<?= base_url('signup') ?>" class="text-reset"><b>Register here</b></a></p>
-          <p class="login-wrapper-footer-text text-center"><a href="<?= base_url('adminsign') ?>" class="text-reset"><b>Login as Admin</b></a></p>
 
         </div>
       </div>
