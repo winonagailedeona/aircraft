@@ -82,7 +82,7 @@ function updateCartItem(obj, rowid) {
                         <dt>Total price:</dt>
                             <dd class="text-right ml-3">₱ 69.97</dd>
                         </dl>
-                        <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> CHECKOUT </a> <a href="<?php echo base_url('pica');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
+                        <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> CHECKOUT </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
                     </div>
                 </div>
             </aside>

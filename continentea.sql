@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 18, 2022 at 10:02 AM
+-- Generation Time: Dec 18, 2022 at 10:49 AM
 -- Server version: 5.7.36
--- PHP Version: 8.0.13
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
@@ -77,7 +77,8 @@ INSERT INTO `cart` (`id`, `user_id`, `prod_name`, `image`, `price`, `quantity`, 
 (35, 3, 'Nachos', 'img/menu/nachos.jpg', 120, 5, 0, 600),
 (36, 3, 'Chili Roll', 'img/menu/chili roll.jpg', 120, 4, 0, 480),
 (38, 3, 'Nachos', 'img/menu/nachos.jpg', 120, 5, 0, 600),
-(39, 3, 'with Pork Adobo', 'img/menu/pork adobo.jpg', 160, 10, 0, 1600);
+(39, 3, 'with Pork Adobo', 'img/menu/pork adobo.jpg', 160, 10, 0, 1600),
+(40, 1, 'Wintermelon Milk Tea', 'img/menu/winter.jpg', 95, 10, 0, 950);
 
 -- --------------------------------------------------------
 
@@ -112,8 +113,8 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `quantity`, `size`,
 (14, 'Lumpiang Shanghai', 'Filipino-style spring rolls made of ground pork, chicken, or beef filling wrapped in thin crepes called lumpia wrappers.', 80, 10, '0', 'img/menu/lumpiang shanghai.jpg', 'pica', '2022-12-07 21:13:07', '2022-12-07 21:14:31'),
 (15, 'Nachos', 'A tortilla chip topped with melted cheese and often additional savory toppings', 120, 5, '', 'img/menu/nachos.jpg', 'pica', '2022-12-07 21:18:59', '2022-12-08 16:18:09'),
 (16, 'Chili Roll', 'It is a type of lumpia and it is commonly eaten as an appetizer or as a companion to beer.', 120, 4, '', 'img/menu/chili roll.jpg', 'pica', '2022-12-07 21:21:22', '2022-12-08 16:18:22'),
-(17, 'Chicken Cordon Bleu Bites', 'French-inspired poultry dish, although evidence suggests that it was actually developed in the United States by chefs imitating other stuffed meat dishes from Europe.', 120, 2, '', 'img\\menu\\menu\\chicken cordon bleu.jpg\r\n', 'pica', '2022-12-07 21:27:33', '2022-12-08 16:18:36'),
-(18, 'with fried Chicken', 'A dish consisting of chicken pieces that have been coated with seasoned flour or batter and pan-fried, deep fried, pressure fried, or air fried.', 160, 10, '', 'img\\menu\\friedch.jpg', 'meals', '2022-12-07 21:36:00', '0000-00-00 00:00:00'),
+(17, 'Chicken Cordon Bleu Bites', 'French-inspired poultry dish, although evidence suggests that it was actually developed in the United States by chefs imitating other stuffed meat dishes from Europe.', 120, 2, '', 'img/menu/menu/chicken cordon bleu.jpg\r\n', 'pica', '2022-12-07 21:27:33', '2022-12-18 02:49:02'),
+(18, 'with fried Chicken', 'A dish consisting of chicken pieces that have been coated with seasoned flour or batter and pan-fried, deep fried, pressure fried, or air fried.', 160, 10, '', 'img/menu/friedch.jpg', 'meals', '2022-12-07 21:36:00', '2022-12-18 02:49:25'),
 (19, 'with Pork Adobo', 'It is a dish composed of pork slices cooked in soy sauce, vinegar, and garlic. ', 160, 10, '', 'img/menu/pork adobo.jpg', 'meals', '2022-12-07 21:39:19', '0000-00-00 00:00:00'),
 (22, 'San Rival Cake', 'A popular Filipino layer cake consisting of cashew meringue and French buttercream.', 140, 10, '', 'img/menu/sans rival cake.jpg', 'dessert', '2022-12-07 21:57:48', '0000-00-00 00:00:00'),
 (23, 'Crinkles', 'A variation of the chocolate cookies where its texture and appearance are its main characteristics, its soft fudge-like chocolate cake in texture and have that distinctive powdered sugar coating.', 100, 10, '', 'img/menu/crinkles.jpg', 'dessert', '2022-12-07 22:04:43', '2022-12-07 22:05:59'),

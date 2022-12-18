@@ -1,6 +1,6 @@
 <!-- Topbar Start -->
 
-    <div class="container-fluid bg-primary py-3 d-none d-md-block">
+<div class="container-fluid bg-primary py-3 d-none d-md-block">
       <img class="logo"  src="img/logo.jpg" style="border-radius: 50%; width: 80px; margin-right: 5%; position: relative;">
       <a class="posi2 text-white pr-3" href="<?php echo base_url('faqs');?>" style="font-size: 16px;">FAQs</a>
       <span class="posi2 text-white" style="font-size: 16px;">|</span>
@@ -21,12 +21,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <form action="<?= base_url()?>/search" method="post" >
-              <input type="text" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
+              <input type="text" placeholder="Search.." name="search" style="width: 500px; border-radius: 8px;">
+    <button type="submit"><i class="fa fa-search" style="color: black;"></i></button>
 </form>
 
         <a class="dropdown active posi2 text-white px-3">

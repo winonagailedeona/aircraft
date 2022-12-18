@@ -89,12 +89,14 @@ $routes->get('/cartm/(:any)', 'UserController::cartm/$1');
 $routes->get('/carts/(:any)', 'UserController::carts/$1');
 $routes->get('/cartp/(:any)', 'UserController::cartp/$1');
 $routes->get('/cartd/(:any)', 'UserController::cartd/$1');
+$routes->get('/cartmi/(:any)', 'UserController::cartmi/$1');
 
 $routes->get('/sp/(:any)', 'ProductsController::sp/$1');
 $routes->get('/spm/(:any)', 'ProductsController::spm/$1');
 $routes->get('/sps/(:any)', 'ProductsController::sps/$1');
 $routes->get('/spp/(:any)', 'ProductsController::spp/$1');
 $routes->get('/spd/(:any)', 'ProductsController::spd/$1');
+$routes->get('/spmi/(:any)', 'ProductsController::spm/$1');
 
 /*
  * --------------------------------------------------------------------

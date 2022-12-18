@@ -144,6 +144,26 @@ class UserController extends Controller
       return redirect('showcart');
     }
 
+    public function cartmi($id)
+    {
+      $milktea_model = new MenuModel();
+      $milktea = $milktea_model->find($id);
+      $values = [
+        'user_id' => session()->get('id'),
+        'prod_name' => $milktea['name'],
+        'quantity' => $milktea['quantity'],
+        'image' => $milktea['image'],
+        'price' => $milktea['price'],
+        'size' => 0,
+        'total' => $milktea['price'] * $milktea['quantity']
+      ];
+      $cart_model = new CartModel();
+      var_dump($values);
+      $cart = $cart_model->insert($values);
+      
+      return redirect('showcart');
+    }
+
     
 }
 ?>

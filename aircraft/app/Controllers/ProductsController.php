@@ -96,6 +96,13 @@ class ProductsController extends BaseController
     return view('Menus/singledessert', $dessert);
   }
 
+  public function spmi($id)
+  {
+    $milktea_model = new MenuModel();
+    $milktea['milktea'] = $milktea_model->find($id);
+    return view('Menus/singlemilktea', $milktea);
+  }
+
 }
 
 ?>
