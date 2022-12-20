@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 18, 2022 at 10:49 AM
+-- Generation Time: Dec 20, 2022 at 02:44 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -57,28 +57,27 @@ DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `prod_name` varchar(255) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `price` float NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `size` int(11) NOT NULL,
+  `menuid` int(11) NOT NULL,
+  `bilang` int(11) NOT NULL,
   `total` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `user_id`, `prod_name`, `image`, `price`, `quantity`, `size`, `total`) VALUES
-(37, 3, 'Nachos', 'img/menu/nachos.jpg', 120, 5, 0, 600),
-(35, 3, 'Nachos', 'img/menu/nachos.jpg', 120, 5, 0, 600),
-(36, 3, 'Chili Roll', 'img/menu/chili roll.jpg', 120, 4, 0, 480),
-(38, 3, 'Nachos', 'img/menu/nachos.jpg', 120, 5, 0, 600),
-(39, 3, 'with Pork Adobo', 'img/menu/pork adobo.jpg', 160, 10, 0, 1600),
-(40, 1, 'Wintermelon Milk Tea', 'img/menu/winter.jpg', 95, 10, 0, 950);
+INSERT INTO `cart` (`id`, `user_id`, `menuid`, `bilang`, `total`) VALUES
+(115, 1, 23, 1, 100),
+(114, 1, 12, 1, 150),
+(113, 1, 19, 1, 160),
+(112, 1, 9, 1, 100),
+(111, 1, 15, 1, 120),
+(110, 1, 15, 1, 120),
+(109, 1, 22, 1, 140),
+(108, 1, 26, 1, 95);
 
 -- --------------------------------------------------------
 
@@ -123,7 +122,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `quantity`, `size`,
 (25, 'Hotdog Sandwich', 'A food consisting of a grilled or steamed sausage served in the slit of a partially sliced bun. ', 70, 10, '', 'img/menu/hotdog sandwich.jpg', 'sandwich', '2022-12-07 22:29:24', '0000-00-00 00:00:00'),
 (26, 'Wintermelon Milk Tea', 'Wintermelon Milk Tea has a very light and fresh flavour that\'s almost a bit grassy. The closest flavour match would be fresh cucumber.', 95, 10, '', 'img/menu/winter.jpg', 'milktea', '2022-12-18 17:42:52', '2022-12-18 17:46:35'),
 (27, 'Hokkaido Milk Tea', 'Hokkaido milk tea is earthy and sweet, but its authentic flavours depend on specific tea and sweetener ingredients. ', 105, 10, '', 'img/menu/hokkaido.jpg', 'milktea', '2022-12-18 17:49:06', '0000-00-00 00:00:00'),
-(28, 'Matcha Milk Tea', 'Matcha has a bright, vegetal, and slightly bitter taste, with notes of sweetness and umami. High quality ceremonial grade matcha is suitable to drink on its own, while culinary grade matcha can be added to lattes, smoothies, and more.', 105, 10, '', 'img/menu/matcha.jpg', 'milktea', '2022-12-18 17:49:57', '0000-00-00 00:00:00'),
+(28, 'Matcha Milk Tea', 'Matcha has a bright, vegetal, and slightly bitter taste, with notes of sweetness and umami. High quality ceremonial grade matcha is suitable to drink on its own, while culinary grade matcha can be added to lattes, smoothies, and more.', 105, 5, '', 'img/menu/matcha.jpg', 'milktea', '2022-12-18 17:49:57', '2022-12-18 05:49:09'),
 (29, 'Americano Coffee', 'An Americano is made by pouring hot water over one or two espresso shots, resulting in a drink of similar volume and strength to regular coffee.', 115, 10, '', 'img/menu/americano.jpg', 'milktea', '2022-12-18 18:00:16', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
