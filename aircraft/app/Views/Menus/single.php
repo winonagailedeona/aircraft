@@ -23,12 +23,13 @@
                 </div>
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3"><?= $pica['name']?></h4>
-                    <input type = "hidden" name="prod_name" values="<?= $pica['name']?>">
                     <p><?= $pica['description']?></p>
                     <h5 class="text-dark mb-3"><?= $pica['price']?></h5>
-                    <input type = "hidden" name="price" values="<?= $pica['price']?>">
-                    <input type="number" placeholder="1"name = "quantity" min="1" max="<?= $pica['quantity']?>">
-                    <a href="<?= site_url('cart/'.$pica['id'])?>" class="btn btn-sm btn-dark">Add to Cart</a>
+                    <form action="<?= site_url('cart')?>" method="post">
+                    <input type="number" name = "quantity" value="1" min="1" max="<?= $pica['quantity']?>">
+                    <input type = "hidden" name="id" value="<?= $pica['id']?>">
+                    <button type=submit class="btn btn-sm btn-dark">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>

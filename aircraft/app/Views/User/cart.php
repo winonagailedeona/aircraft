@@ -45,21 +45,19 @@ function updateCartItem(obj, rowid) {
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($items as $cart_item): ?>
+                            <?php foreach($cart as $cart_item): ?>
                                 <tr>
                                     <td>
                                         <figure class="itemside align-items-center">
                                             <div class="aside"><img src="<?= base_url($cart_item['image']) ?>" class="img-sm"></div>
                                         </figure>
                                     </td>
-                                    <td><?=$cart_item['prod_name']?></td>
-                                    <td>₱ <?=$cart_item['price']?></td>
-                                      <!-- <td><?=$cart_item['quantity']?></td> -->
-                                      <td><input type="number" class="form-control text-center" value="1"
-        onChange="updateCartItem(this, 'c4ca4238a0b923820dcc509a6f75849b')">
-</td>
-                                      <td>₱ <?=$cart_item['total']?></td>
-                                      <td>
+                                    <td><?=$cart_item['name']?></td>
+                                    <td>₱<?= number_format( $cart_item['price'],2 )?></td>
+                                    <td><?=$cart_item['bilang']?></td>
+                                    <td value="total">₱ <?=$cart_item['total']?></td>
+                                    
+                                    <td>
                                        <a href=""
                                          onclick="return confirm('Are you sure you want to delete?')"
                                          class="btn btn-danger btn-flat btn-addon btn-xs m-b-10">Remove</a>

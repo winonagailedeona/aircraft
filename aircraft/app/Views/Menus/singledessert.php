@@ -23,12 +23,13 @@
                 </div>
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3"><?= $dessert['name']?></h4>
-                    <input type = "hidden" name="prod_name" values="<?= $dessert['name']?>">
                     <p><?= $dessert['description']?></p>
                     <h5 class="text-dark mb-3"><?= $dessert['price']?></h5>
-                    <input type = "hidden" name="price" values="<?= $dessert['price']?>">
-                    <input type="number" placeholder="1"name = "quantity" min="1" max="<?= $dessert['quantity']?>">
-                    <a href="<?= site_url('cartd/'.$dessert['id'])?>" class="btn btn-sm btn-dark">Add to Cart</a>
+                    <form action="<?= site_url('cartd')?>" method="post">
+                    <input type="number" name = "quantity" value="1" min="1" max="<?= $dessert['quantity']?>">
+                    <input type = "hidden" name="id" value="<?= $dessert['id']?>">
+                    <button type=submit class="btn btn-sm btn-dark">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -25,9 +25,14 @@ class UserController extends Controller
     {
       $id = session()->get('id');
         $cart_model = new CartModel();
-        $cart = [
-          'items' => $cart_model->where('user_id', $id)->findAll()
-        ];
+
+        $cart['cart'] = $cart_model->select('*')
+        ->join('product', 'cart.menuid = product.id', 'right')
+        ->where('cart.user_id', $id)->get()->getResultArray(); 
+
+        $cart['total'] = $cart_model->selectSum('total')
+            ->where('user_id', $id)->get()->getResultArray();
+
         return view('User/cart', $cart);
     }
 
@@ -44,126 +49,124 @@ class UserController extends Controller
     }
     
     //ADDING TO CART
-    public function cart($id)
+    public function cart()
     {
-      $pica_model = new MenuModel();
-      $pica = $pica_model->find($id);
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $pica = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$pica['price'] * (int)$quantity;    
+      
       $values = [
         'user_id' => session()->get('id'),
-        'prod_name' => $pica['name'],
-        'quantity' => $pica['quantity'],
-        'image' => $pica['image'],
-        'price' => $pica['price'],
-        'size' => 0,
-        'total' => $pica['price'] * $pica['quantity']
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
       ];
       $cart_model = new CartModel();
-      var_dump($values);
       $cart = $cart_model->insert($values);
       
       return redirect('showcart');
     }
 
-    public function cartm($id)
+    public function cartm()
     {
-      $meals_model = new MenuModel();
-      $meals = $meals_model->find($id);
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $meals = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$meals['price'] * (int)$quantity;    
+      
       $values = [
         'user_id' => session()->get('id'),
-        'prod_name' => $meals['name'],
-        'quantity' => $meals['quantity'],
-        'image' => $meals['image'],
-        'price' => $meals['price'],
-        'size' => 0,
-        'total' => $meals['price'] * $meals['quantity']
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
       ];
       $cart_model = new CartModel();
-      var_dump($values);
       $cart = $cart_model->insert($values);
       
       return redirect('showcart');
     }
 
-    public function carts($id)
+    public function carts()
     {
-      $sandwich_model = new MenuModel();
-      $sandwich = $sandwich_model->find($id);
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $sandwich = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$sandwich['price'] * (int)$quantity;    
+      
       $values = [
         'user_id' => session()->get('id'),
-        'prod_name' => $sandwich['name'],
-        'quantity' => $sandwich['quantity'],
-        'image' => $sandwich['image'],
-        'price' => $sandwich['price'],
-        'size' => 0,
-        'total' => $sandwich['price'] * $sandwich['quantity']
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
       ];
       $cart_model = new CartModel();
-      var_dump($values);
       $cart = $cart_model->insert($values);
       
       return redirect('showcart');
     }
 
-    public function cartp($id)
+    public function cartp()
     {
-      $pasta_model = new MenuModel();
-      $pasta = $pasta_model->find($id);
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $pasta = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$pasta['price'] * (int)$quantity;    
+      
       $values = [
         'user_id' => session()->get('id'),
-        'prod_name' => $pasta['name'],
-        'quantity' => $pasta['quantity'],
-        'image' => $pasta['image'],
-        'price' => $pasta['price'],
-        'size' => 0,
-        'total' => $pasta['price'] * $pasta['quantity']
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
       ];
       $cart_model = new CartModel();
-      var_dump($values);
       $cart = $cart_model->insert($values);
       
       return redirect('showcart');
     }
 
-    public function cartd($id)
+    public function cartd()
     {
-      $dessert_model = new MenuModel();
-      $dessert = $dessert_model->find($id);
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $dessert = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$dessert['price'] * (int)$quantity;    
+      
       $values = [
         'user_id' => session()->get('id'),
-        'prod_name' => $dessert['name'],
-        'quantity' => $dessert['quantity'],
-        'image' => $dessert['image'],
-        'price' => $dessert['price'],
-        'size' => 0,
-        'total' => $dessert['price'] * $dessert['quantity']
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
       ];
       $cart_model = new CartModel();
-      var_dump($values);
       $cart = $cart_model->insert($values);
       
       return redirect('showcart');
     }
 
-    public function cartmi($id)
+    public function cartmi()
     {
-      $milktea_model = new MenuModel();
-      $milktea = $milktea_model->find($id);
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $milktea = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$milktea['price'] * (int)$quantity;    
+      
       $values = [
         'user_id' => session()->get('id'),
-        'prod_name' => $milktea['name'],
-        'quantity' => $milktea['quantity'],
-        'image' => $milktea['image'],
-        'price' => $milktea['price'],
-        'size' => 0,
-        'total' => $milktea['price'] * $milktea['quantity']
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
       ];
       $cart_model = new CartModel();
-      var_dump($values);
       $cart = $cart_model->insert($values);
       
       return redirect('showcart');
-    }
-
-    
+    }    
 }
 ?>

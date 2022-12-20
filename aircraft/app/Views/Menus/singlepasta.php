@@ -23,12 +23,13 @@
                 </div>
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3"><?= $pasta['name']?></h4>
-                    <input type = "hidden" name="prod_name" values="<?= $pasta['name']?>">
                     <p><?= $pasta['description']?></p>
                     <h5 class="text-dark mb-3"><?= $pasta['price']?></h5>
-                    <input type = "hidden" name="price" values="<?= $pasta['price']?>">
-                    <input type="number" placeholder="1"name = "quantity" min="1" max="<?= $pasta['quantity']?>">
-                    <a href="<?= site_url('cartp/'.$pasta['id'])?>" class="btn btn-sm btn-dark">Add to Cart</a>
+                    <form action="<?= site_url('cart')?>" method="post">
+                    <input type="number" name = "quantity" value="1" min="1" max="<?= $pasta['quantity']?>">
+                    <input type = "hidden" name="id" value="<?= $pasta['id']?>">
+                    <button type=submit class="btn btn-sm btn-dark">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>

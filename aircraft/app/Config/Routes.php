@@ -55,7 +55,6 @@ $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController:
 $routes->get('/signin', 'SigninController::index');
 $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 
-$routes->post('/search', 'UserController::search');
 
 $routes->get('/adminprofile', 'ProfileController::adminindex',['filter' => 'authGuard']);
 $routes->get('/adminsign', 'SigninController::admin');
@@ -65,8 +64,7 @@ $routes->get('/adminsign', 'SigninController::admin');
 //This is dashboard
 $routes->get('/admin', 'AdminController::index');
 
-//This is menu dropdown
-
+//This is menu
 $routes->get('/mealsTab', 'AdminController::mealsTable');
 $routes->post('/saveMeals', 'AdminController::saveMeals');
 
@@ -80,23 +78,24 @@ $routes->get('/addAdmin', 'AdminController::adminTable');
 $routes->get('/userprofile', 'UserController::profile');
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');
+$routes->post('/search', 'UserController::search');
 $routes->get('/showcart', 'UserController::showcart');
 $routes->get('/faqs', 'UserController::faqs');
 
 
-$routes->get('/cart/(:any)', 'UserController::cart/$1');
-$routes->get('/cartm/(:any)', 'UserController::cartm/$1');
-$routes->get('/carts/(:any)', 'UserController::carts/$1');
-$routes->get('/cartp/(:any)', 'UserController::cartp/$1');
-$routes->get('/cartd/(:any)', 'UserController::cartd/$1');
-$routes->get('/cartmi/(:any)', 'UserController::cartmi/$1');
+$routes->post('/cart', 'UserController::cart');
+$routes->post('/cartm', 'UserController::cartm');
+$routes->post('/carts', 'UserController::carts');
+$routes->post('/cartp', 'UserController::cartp');
+$routes->post('/cartd', 'UserController::cartd');
+$routes->post('/cartmi', 'UserController::cartmi');
 
 $routes->get('/sp/(:any)', 'ProductsController::sp/$1');
 $routes->get('/spm/(:any)', 'ProductsController::spm/$1');
 $routes->get('/sps/(:any)', 'ProductsController::sps/$1');
 $routes->get('/spp/(:any)', 'ProductsController::spp/$1');
 $routes->get('/spd/(:any)', 'ProductsController::spd/$1');
-$routes->get('/spmi/(:any)', 'ProductsController::spm/$1');
+$routes->get('/spmi/(:any)', 'ProductsController::spmi/$1');
 
 /*
  * --------------------------------------------------------------------
