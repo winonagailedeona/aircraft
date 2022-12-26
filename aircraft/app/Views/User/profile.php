@@ -16,7 +16,7 @@
 
 
             <form action="<?=base_url('/updateProfile')?>" method="post">
-            <input type="hidden" class="form-control" id="id" name="id" value="<?=userModel['id']?>">
+            <input type="hidden" class="form-control" id="id" name="id" value="<?=session()->get('id'); ?>">
                 <h4 class="pb-4 border-bottom">Account settings</h4>
                 <div class="py-2">
                     <div>
