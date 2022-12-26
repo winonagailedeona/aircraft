@@ -11,40 +11,41 @@
       <div class="container-fluid">
         <div class="card card-gray" >
               <div class="card-header">
-                <h3 class="card-title">Edit Profile Details</h3>
+                <h3 class="card-title">Edit Product Details</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+              <form class="form-horizontal" style="background-color: #5ac7e8">
                 <div class="card-body">
-                <div class="form-group row">
+                  <div class="form-group row">
+                  <input type="hidden" class="form-control" id="id" name="id" value="<?=$menu['id']?>">
+                    <label for="name" class="col-sm-2 col-form-label">Product Name</label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control" id="name" name="name" value="<?=$menu['name']?>">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="height: 180%; padding-bottom: 3%">
+                    <label for="description" class="col-sm-2 col-form-label">Description</label>
+                    <div  class="col-sm-7">
+                      <input style="height: 180%; " type="text" class="form-control" name="description" id="description" value="<?=$menu['description']?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="price" class="col-sm-2 col-form-label">Price</label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control" name="price" id="price" value="<?=$menu['price']?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="category" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control" name="category" id="category" value="<?=$menu['category']?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Image</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="image" name="image" placeholder="Image">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="name" class="col-sm-2 col-form-label">Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Product Name">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="email" id="category" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="position" class="col-sm-2 col-form-label">Position</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="position" id="position" placeholder="Position">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="password" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-7">
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                      <input type="text" class="form-control" name="image" id="image" value="<?=$menu['image']?>">
                     </div>
                   </div>
                   <div class="form-group row">

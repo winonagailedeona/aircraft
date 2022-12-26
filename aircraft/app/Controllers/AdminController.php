@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\AddAdminModel;
 use App\Models\MenuModel;
+use App\Models\CustomersModel;
 
 class AdminController extends BaseController
 {
@@ -11,37 +12,11 @@ class AdminController extends BaseController
         return view('Admin/index');
     }
 
+        public function profile()
+    {
+        return view('Admin/pages/profile');
+    }
     
-    //MEALS TABLE
-    public function mealsTable()
-    {
-      $me = new MenuModel();
-      $data = [
-        'meals' => $me->where('category', 'meals')->findAll()
-      ];
-      return view('Admin/pages/menus/meals/Meals', $data);
-    }
-
-    public function saveMeals()
-    {
-      $name = $this->request->getVar('name');
-      $description = $this->request->getVar('description');
-      $price = $this->request->getVar('price');
-      $quantity = $this->request->getVar('quantity');
-      $image = $this->request->getVar('image');
-
-      $me = new MenuModel();
-      $data = [
-        'name' => $name,
-        'description' => $description,
-        'price' => $price,
-        'quantity' => $quantity,
-        'image' => $image
-      ];
-      $me->save($data);
-      return redirect()->to($_SERVER['HTTP_REFERER']);
-    }
-
     //MENU TABLE
     public function menuTable()
     {
@@ -74,6 +49,13 @@ class AdminController extends BaseController
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
 
+    public function editMenu($id = null)
+    {
+      $menu = new MenuModel();
+      $data['menu'] = $menu->where('id', $id)->first();
+      return view('Admin/pages/editmenu', $data);
+    }
+
     //ADD NEW ADMIN
     public function adminTable()
     {
@@ -84,6 +66,115 @@ class AdminController extends BaseController
       return view('Admin/pages/add_new_admin', $data);
     }
 
+    public function saveAdmin()
+    {
+      $image = $this->request->getVar('image');
+      $name = $this->request->getVar('name');
+      $email = $this->request->getVar('email');
+      $password = $this->request->getVar('password');
+      $position = $this->request->getVar('position');
+
+      $ad = new AddAdminModel();
+      $data = [
+        'image' => $image,
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+        'position' => $position
+ 
+      ];
+      $ad->save($data);
+      return redirect()->to($_SERVER['HTTP_REFERER']);
+    }
+
+    public function editAdmin($id = null)
+    {
+      $admin = new AddAdminModel();
+      $data['admin'] = $admin->where('id', $id)->first();
+      return view('Admin/pages/editAdmin', $data);
+    }
+
+    // public function updateAdmin()
+    // {
+    //   $id = $this->request->getVar('id');
+    //   $image = $this->request->getVar('image');
+    //   $name = $this->request->getVar('name');
+    //   $email = $this->request->getVar('email');
+    //   $password = $this->request->getVar('password');
+    //   $position = $this->request->getVar('position');
+
+    //   $ad = new AddAdminModel();
+    //   $data = [
+    //     'id' => $id,
+    //     'image' => $image,
+    //     'name' => $name,
+    //     'email' => $email,
+    //     'password' => $password,
+    //     'position' => $position
+ 
+    //   ];
+    //   $ad->update($data);
+    //   return view('Admin/pages/add_new_admin', $data);
+    // }
+
+      public function updateAdmin()
+      {
+        $id = $this->request->getVar('id');
+        $image = $this->request->getVar('image');
+        $name = $this->request->getVar('name');
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+        $position = $this->request->getVar('position');
+
+        $admin = new AddAdminModel();
+        $data = [
+          'image' => $image,
+          'name' => $name,
+          'email' => $email,
+          'password' => $password,
+          'position' => $position
+        ];
+
+        if(isset($_POST['updateAdmin'])){
+          $admin->set($data)->where('id', $id)->update();
+        return redirect()->to('/aicraft/addAdmin');
+      }
+    }
+
+    public function deleteadmin($id = null)
+    {
+      $admin = new AddAdminModel();
+      $admin->delete(['id' => $id]);
+      return redirect()->to('/addAdmin');
+    }
+
+    // CUSTOMERS SECTION
+
+    public function customers()
+    {
+      $cus = new CustomersModel();
+      $data = [
+        'users' => $cus->findAll()
+      ];
+      return view('Admin/pages/customers', $data);
+    }
+
+    public function saveCustomer()
+    {
+      $name = $this->request->getVar('name');
+      $email = $this->request->getVar('email');
+      $password = $this->request->getVar('password');
+
+      $cus = new CustomersModel();
+      $data = [
+        'name' => $name,
+        'email' => $email,
+        'password' => $password
+ 
+      ];
+      $cus->save($data);
+      return redirect()->to($_SERVER['HTTP_REFERER']);
+    }
 
 }
 

@@ -13,7 +13,9 @@ class MenuModel extends Model
     'quantity',
     'image',
     'size',
-    'category'
+    'category',
+    'created_at',
+    'updated_at',
   ];
 }
 ?>

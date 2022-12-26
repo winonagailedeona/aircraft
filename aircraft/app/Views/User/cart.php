@@ -58,7 +58,7 @@ function updateCartItem(obj, rowid) {
                                     <td value="total">₱ <?=$cart_item['total']?></td>
                                     
                                     <td>
-                                       <a href=""
+                                       <a href="/aircraft/deletecart/<?=$cart_item['cartid']?>"
                                          onclick="return confirm('Are you sure you want to delete?')"
                                          class="btn btn-danger btn-flat btn-addon btn-xs m-b-10">Remove</a>
                                      </td>

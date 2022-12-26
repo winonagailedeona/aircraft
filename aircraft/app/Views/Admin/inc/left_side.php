@@ -60,15 +60,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tag"></i>
-              <p>
-                Promos
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="<?= base_url('customers'); ?>" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Customers
@@ -76,7 +68,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-star"></i>
               <p>
                 Product Reviews
@@ -86,7 +78,7 @@
 <br><br>
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url('adprofile'); ?>" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profile

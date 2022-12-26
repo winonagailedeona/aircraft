@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function faqs()
     {
-      return view('Menus/faqs');
+      return view('faqs');
     }
 
     public function showcart()
@@ -35,6 +35,14 @@ class UserController extends Controller
 
         return view('User/cart', $cart);
     }
+
+    public function deletecart($id = null)
+    {
+      $cart = new CartModel();
+      $cart->delete(['id' => $id]);
+      return redirect()->to('/showcart');
+    }
+
 
     public function search()
     {

@@ -59,7 +59,6 @@
                           <div class="form-group mb-4">
                             <input type="text" name="image" class="form-control" placeholder="Upload Image">
                           </div>
-
                           <button type="submit" name="submit" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Save</b></button>
                         </form>
                       </div>
@@ -78,19 +77,23 @@
                       <th>Price</th>
                       <th>Category</th>
                       <th>Image</th>
+                      <th>Created On</th>
+                      <th>Last Updated On</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                       <?php foreach ($menu as $me): ?>
                     <tr>
-                      <td><?= $me['name']?></td>
-                      <td><?= $me['description']?></td>
-                      <td><?= $me['price']?></td>
-                      <td><?= $me['category']?></td>
-                      <td><img src="<?= base_url(). '/'.$me['image']?>" width="40px" height="40px"> </td>
-                      <td><button type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><i class="fas fa-edit"></i></button></td>
-
+                      <td style="font-size: 14px;"><?= $me['name']?></td>
+                      <td style="font-size: 14px;"><?= $me['description']?></td>
+                      <td style="font-size: 14px;"><?= $me['price']?></td>
+                      <td style="font-size: 14px;"><?= $me['category']?></td>
+                      <td style="font-size: 14px;"><?= $me['created_at']?></td>
+                      <td style="font-size: 14px;"><?= $me['updated_at']?></td>
+                      <td style="font-size: 14px;"><img src="<?= base_url(). '/'.$me['image']?>" width="40px" height="40px"> </td>
+                      <td style="font-size: 14px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="/aircraft/editMenu/<?=$me['id']?>" style=" color: white;"><i class="fas fa-edit"></i></a></button>
+                    </td>
                     </tr>
                     <?php endforeach; ?>
 

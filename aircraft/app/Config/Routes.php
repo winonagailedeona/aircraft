@@ -60,19 +60,29 @@ $routes->get('/adminprofile', 'ProfileController::adminindex',['filter' => 'auth
 $routes->get('/adminsign', 'SigninController::admin');
 
 //ADMIN PANEL
+//profile
+$routes->get('/adprofile', 'AdminController::profile');
 
 //This is dashboard
 $routes->get('/admin', 'AdminController::index');
 
 //This is menu
-$routes->get('/mealsTab', 'AdminController::mealsTable');
-$routes->post('/saveMeals', 'AdminController::saveMeals');
-
 $routes->get('/menuTable', 'AdminController::menuTable');
+$routes->get('/editmenu', 'AdminController::editmenu');
 $routes->post('/saveMenu', 'AdminController::saveMenu');
+
+//This is for the Customers Section
+$routes->get('/customers', 'AdminController::customers');
+$routes->post('/saveCustomer', 'AdminController::saveCustomer');
+$routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
+
 
 //This is add new admin section
 $routes->get('/addAdmin', 'AdminController::adminTable');
+$routes->post('/saveAdmin', 'AdminController::saveAdmin');
+$routes->get('/editAdmin/(:any)', 'AdminController::editAdmin/$1');
+$routes->post('/updateAdmin', 'AdminController::updateAdmin');
+$routes->get('/deleteadmin/(:any)', 'AdminController::deleteadmin/$1');
 
 //USER
 $routes->get('/userprofile', 'UserController::profile');
@@ -80,6 +90,7 @@ $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');
 $routes->post('/search', 'UserController::search');
 $routes->get('/showcart', 'UserController::showcart');
+$routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');
 $routes->get('/faqs', 'UserController::faqs');
 
 

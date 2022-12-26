@@ -11,40 +11,41 @@
       <div class="container-fluid">
         <div class="card card-gray" >
               <div class="card-header">
-                <h3 class="card-title">Edit Profile Details</h3>
+                <h3 class="card-title">Edit Admin Details</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+              <form class="form-horizontal" action="/aircraft/updateAdmin/" style="background-color: #5ac7e8">
+              <input type="hidden" class="form-control" name="id" id="id" value="<?=$admin['id']?>">
                 <div class="card-body">
-                <div class="form-group row">
+                    <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Image</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="image" name="image" placeholder="Image">
+                      <input type="text" class="form-control" name="image" id="image" value="<?=$admin['image']?>">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Product Name">
+                      <input type="text" class="form-control" id="name" name="name" value="<?=$admin['name']?>">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" name="email" id="category" placeholder="Email">
+                      <input type="text" class="form-control" name="email" id="email" value="<?=$admin['email']?>">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="position" class="col-sm-2 col-form-label">Position</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" name="position" id="position" placeholder="Position">
+                      <input type="text" class="form-control" name="position" id="position" value="<?=$admin['position']?>">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-7">
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                      <input type="text" class="form-control" name="password" id="password" value="<?=$admin['password']?>">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -54,7 +55,11 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary float-right">Save</button>
+                  <?php if($admin): ?>
+                    <input type="submit" name="updateAdmin" value="update" class="btn btn-primary float-right"></button>
+                  <?php else: ?>
+                    <input type="submit" name="submit" value="Save" class="btn btn-primary float-right"></button>
+                  <?php endif; ?>
                 </div>
                 <!-- /.card-footer -->
               </form>
