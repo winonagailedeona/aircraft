@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 20, 2022 at 02:44 PM
+-- Generation Time: Dec 26, 2022 at 03:13 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -38,14 +38,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `image`, `name`, `email`, `position`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'img/logo.jpg', 'Smith Lake', 'smith@gmail.com', 'Staff', '12345678', '2022-11-28 11:27:10', '2022-11-28 03:25:43');
+(2, 'img/logo.jpg', 'Gaile Deona', 'winonagailedeona@gmail.com', 'Staff', 'wenonadeona', '2022-12-25 09:11:25', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -55,21 +55,21 @@ INSERT INTO `admin` (`id`, `image`, `name`, `email`, `position`, `password`, `cr
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cartid` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `menuid` int(11) NOT NULL,
   `bilang` int(11) NOT NULL,
   `total` float NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`cartid`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `user_id`, `menuid`, `bilang`, `total`) VALUES
+INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
 (115, 1, 23, 1, 100),
 (114, 1, 12, 1, 150),
 (113, 1, 19, 1, 160),
@@ -77,7 +77,8 @@ INSERT INTO `cart` (`id`, `user_id`, `menuid`, `bilang`, `total`) VALUES
 (111, 1, 15, 1, 120),
 (110, 1, 15, 1, 120),
 (109, 1, 22, 1, 140),
-(108, 1, 26, 1, 95);
+(108, 1, 26, 1, 95),
+(123, 3, 19, 4, 640);
 
 -- --------------------------------------------------------
 
