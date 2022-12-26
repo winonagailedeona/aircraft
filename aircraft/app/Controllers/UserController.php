@@ -176,5 +176,25 @@ class UserController extends Controller
       
       return redirect('showcart');
     }    
+
+    public function carto()
+    {
+      $id = $this->request->getPost('id');
+      $menu_model = new MenuModel();
+      $search = $menu_model->find($id);
+      $quantity =  $this->request->getPost('quantity');
+      $price = (float)$search['price'] * (int)$quantity;    
+      
+      $values = [
+        'user_id' => session()->get('id'),
+        'menuid' => (int)$this->request->getPost('id'),
+        'bilang' => $quantity,
+        'total' => $price
+      ];
+      $cart_model = new CartModel();
+      $cart = $cart_model->insert($values);
+      
+      return redirect('showcart');
+    }
 }
 ?>

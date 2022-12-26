@@ -89,14 +89,13 @@
                       <td style="font-size: 14px;"><?= $me['description']?></td>
                       <td style="font-size: 14px;"><?= $me['price']?></td>
                       <td style="font-size: 14px;"><?= $me['category']?></td>
+                      <td style="font-size: 14px;"><img src="<?= base_url(). '/'.$me['image']?>" width="40px" height="40px"> </td>
                       <td style="font-size: 14px;"><?= $me['created_at']?></td>
                       <td style="font-size: 14px;"><?= $me['updated_at']?></td>
-                      <td style="font-size: 14px;"><img src="<?= base_url(). '/'.$me['image']?>" width="40px" height="40px"> </td>
                       <td style="font-size: 14px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="/aircraft/editMenu/<?=$me['id']?>" style=" color: white;"><i class="fas fa-edit"></i></a></button>
                     </td>
                     </tr>
                     <?php endforeach; ?>
-
                   </table>
                 </div>
                 <!-- /.card-body -->

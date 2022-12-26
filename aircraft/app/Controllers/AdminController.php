@@ -56,6 +56,31 @@ class AdminController extends BaseController
       return view('Admin/pages/editmenu', $data);
     }
 
+    public function updateMenu()
+      {
+        $id = $this->request->getVar('id');
+        $name = $this->request->getVar('name');
+        $description = $this->request->getVar('description');
+        $price = $this->request->getVar('price');
+        $quantity = $this->request->getVar('quantity');
+        $category = $this->request->getVar('category');
+        $image = $this->request->getVar('image');
+
+        $menu = new MenuModel();
+        $data = [
+          'name' => $name,
+          'description' => $description,
+          'price' => $price,
+          'quantity' => $quantity,
+          'category' => $category,
+          'image' => $image
+        ];
+
+        $menu->set($data)->where('id', $id)->update();
+        return redirect()->to('menuTable');
+      
+    }
+
     //ADD NEW ADMIN
     public function adminTable()
     {
@@ -94,30 +119,7 @@ class AdminController extends BaseController
       return view('Admin/pages/editAdmin', $data);
     }
 
-    // public function updateAdmin()
-    // {
-    //   $id = $this->request->getVar('id');
-    //   $image = $this->request->getVar('image');
-    //   $name = $this->request->getVar('name');
-    //   $email = $this->request->getVar('email');
-    //   $password = $this->request->getVar('password');
-    //   $position = $this->request->getVar('position');
-
-    //   $ad = new AddAdminModel();
-    //   $data = [
-    //     'id' => $id,
-    //     'image' => $image,
-    //     'name' => $name,
-    //     'email' => $email,
-    //     'password' => $password,
-    //     'position' => $position
- 
-    //   ];
-    //   $ad->update($data);
-    //   return view('Admin/pages/add_new_admin', $data);
-    // }
-
-      public function updateAdmin()
+    public function updateAdmin()
       {
         $id = $this->request->getVar('id');
         $image = $this->request->getVar('image');
@@ -135,10 +137,9 @@ class AdminController extends BaseController
           'position' => $position
         ];
 
-        if(isset($_POST['updateAdmin'])){
           $admin->set($data)->where('id', $id)->update();
-        return redirect()->to('/aicraft/addAdmin');
-      }
+        return redirect()->to('/addAdmin');
+      
     }
 
     public function deleteadmin($id = null)
@@ -175,6 +176,8 @@ class AdminController extends BaseController
       $cus->save($data);
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
+
+    
 
 }
 

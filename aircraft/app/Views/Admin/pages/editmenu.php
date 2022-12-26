@@ -15,11 +15,11 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" style="background-color: #5ac7e8">
+              <form class="form-horizontal" action="<?=base_url('/updateMenu')?>" style="background-color: #5ac7e8" method="post">
                 <div class="card-body">
                   <div class="form-group row">
                   <input type="hidden" class="form-control" id="id" name="id" value="<?=$menu['id']?>">
-                    <label for="name" class="col-sm-2 col-form-label">Product Name</label>
+                    <label for="name" class="col-sm-2 col-form-label">Product Name</label> 
                     <div class="col-sm-7">
                       <input type="text" class="form-control" id="name" name="name" value="<?=$menu['name']?>">
                     </div>
@@ -55,7 +55,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary float-right">Save</button>
+                  <input type="submit" name="updateMenu" value="Update" class="btn btn-primary float-right"></button>
                 </div>
                 <!-- /.card-footer -->
               </form>

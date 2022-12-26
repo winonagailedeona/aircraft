@@ -75,7 +75,7 @@
 
 
     <!-- About Best Sellers -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
       <h4 class="section-title best text-left mb-4">Best Sellers</h3>
         <div class="container">
             <div class="row justify-content-center">
@@ -83,15 +83,15 @@
 
         </div>
     </div>
-
+ -->
 
 
     <!-- About New Offers -->
-    <div class="container-fluid py-2">
+    <!-- <div class="container-fluid py-2">
       <h4 class="section-title best text-left mb-4">New Offers</h3>
         <div class="container">
             <div class="row justify-content-center">
-            </div>
+            </div> -->
             <!-- <div class="row">
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">About Us</h4>
@@ -117,11 +117,11 @@
     </div>
 
     <!-- About Promos -->
-    <div class="container-fluid py-4">
+    <!-- <div class="container-fluid py-4">
       <h4 class="section-title best text-left mb-2">Promos</h3>
         <div class="container">
             <div class="row justify-content-center">
-            </div>
+            </div> -->
             <!-- <div class="row">
                 <div class="col-lg-4 py-5">
                     <h3 class="font-weight-bold mb-3">About Us</h4>

@@ -103,6 +103,13 @@ class ProductsController extends BaseController
     return view('Menus/singlemilktea', $milktea);
   }
 
+  public function spo($id)
+  {
+    $search_model = new MenuModel();
+    $search['search'] = $search_model->find($id);
+    return view('Menus/singlesearch', $search);
+  }
+
 }
 
 ?>

@@ -62,7 +62,7 @@
                     <tr>
                       <td><?= $cus['name']?></td>
                       <td><?= $cus['email']?></td>
-                      <td ><span class="badge bg-success">Active</span></td>
+                      <td><span class="badge bg-success">Active</span></td>
                       <td><?= $cus['created_at']?></td>
                     </tr>
                       <?php endforeach; ?>

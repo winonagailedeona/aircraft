@@ -15,26 +15,27 @@
         <div class="wrapper mt-sm-5">
 
 
-            <form action="" method="POST">
+            <form action="<?=base_url('/updateProfile')?>" method="post">
+            <input type="hidden" class="form-control" id="id" name="id" value="<?=userModel['id']?>">
                 <h4 class="pb-4 border-bottom">Account settings</h4>
                 <div class="py-2">
                     <div>
                         <label for="username">Full Name</label>
                         <input type="text" name="username"
                             class="bg-light form-control"
-                            value="">
+                            value="<?=session()->get('name'); ?>">
 
                     </div>
                     <div>
                         <label for="username">Email</label>
-                        <input type="text" name="username"
+                        <input type="email" name="username"
                             class="bg-light form-control"
-                            value="">
+                            value="<?=session()->get('email'); ?>">
 
                     </div>
                     <div class="py-3 pb-4 border-bottom">
-                        <button type="submit" class="btn btn-primary mr-3">Save Changes</button>
-                        <a href="" class="btn border button">Cancel</a>
+                        <button type="submit" name="updateProfile" class="btn btn-primary mr-3">Save Changes</button>
+                        <a href="<?php echo base_url('profile');?>" class="btn border button">Cancel</a>
                     </div>
                 </div>
             </form>

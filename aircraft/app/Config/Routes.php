@@ -59,6 +59,7 @@ $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 $routes->get('/adminprofile', 'ProfileController::adminindex',['filter' => 'authGuard']);
 $routes->get('/adminsign', 'SigninController::admin');
 
+
 //ADMIN PANEL
 //profile
 $routes->get('/adprofile', 'AdminController::profile');
@@ -68,13 +69,15 @@ $routes->get('/admin', 'AdminController::index');
 
 //This is menu
 $routes->get('/menuTable', 'AdminController::menuTable');
-$routes->get('/editmenu', 'AdminController::editmenu');
+$routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
 $routes->post('/saveMenu', 'AdminController::saveMenu');
+$routes->post('/updateMenu', 'AdminController::updateMenu');
+
 
 //This is for the Customers Section
 $routes->get('/customers', 'AdminController::customers');
 $routes->post('/saveCustomer', 'AdminController::saveCustomer');
-$routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
+
 
 
 //This is add new admin section
@@ -100,6 +103,7 @@ $routes->post('/carts', 'UserController::carts');
 $routes->post('/cartp', 'UserController::cartp');
 $routes->post('/cartd', 'UserController::cartd');
 $routes->post('/cartmi', 'UserController::cartmi');
+$routes->post('/carto', 'UserController::carto');
 
 $routes->get('/sp/(:any)', 'ProductsController::sp/$1');
 $routes->get('/spm/(:any)', 'ProductsController::spm/$1');
@@ -107,6 +111,7 @@ $routes->get('/sps/(:any)', 'ProductsController::sps/$1');
 $routes->get('/spp/(:any)', 'ProductsController::spp/$1');
 $routes->get('/spd/(:any)', 'ProductsController::spd/$1');
 $routes->get('/spmi/(:any)', 'ProductsController::spmi/$1');
+$routes->get('/spo/(:any)', 'ProductsController::spo/$1');
 
 /*
  * --------------------------------------------------------------------

@@ -15,7 +15,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="/aircraft/updateAdmin/" style="background-color: #5ac7e8">
+              <form class="form-horizontal" action="<?=base_url('/updateAdmin')?>" style="background-color: #5ac7e8" method="post">
               <input type="hidden" class="form-control" name="id" id="id" value="<?=$admin['id']?>">
                 <div class="card-body">
                     <div class="form-group row">
@@ -55,11 +55,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <?php if($admin): ?>
-                    <input type="submit" name="updateAdmin" value="update" class="btn btn-primary float-right"></button>
-                  <?php else: ?>
-                    <input type="submit" name="submit" value="Save" class="btn btn-primary float-right"></button>
-                  <?php endif; ?>
+                    <input type="submit" name="updateAdmin" value="Update" class="btn btn-primary float-right"></button>
                 </div>
                 <!-- /.card-footer -->
               </form>
