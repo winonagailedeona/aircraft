@@ -18,16 +18,16 @@
                 
                 <div class="col-lg-7" style="min-height: 500px;">
                     <div class="position-relative h-100 rounded overflow-hidden">
-                        <img class="position-absolute w-100 h-100" src="<?= base_url(search['image']) ?>" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="<?= base_url($result['image']) ?>" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3"><?= search['name']?></h4>
-                    <p><?= search['description']?></p>
-                    <h5 class="text-dark mb-3"><?= search['price']?></h5>
+                    <h4 class="font-weight-bold mb-3"><?= $result['name']?></h4>
+                    <p><?= $result['description']?></p>
+                    <h5 class="text-dark mb-3"><?= $result['price']?></h5>
                     <form action="<?= site_url('carto')?>" method="post">
-                    <input type="number" name = "quantity" value="1" min="1" max="<?= search['quantity']?>">
-                    <input type = "hidden" name="id" value="<?= search['id']?>">
+                    <input type="number" name = "quantity" value="1" min="1" max="<?= $result['quantity']?>">
+                    <input type = "hidden" name="id" value="<?= $result['id']?>">
                     <button type=submit class="btn btn-sm btn-dark">Add to Cart</button>
                     </form>
                 </div>

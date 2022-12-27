@@ -52,8 +52,6 @@ class UserController extends Controller
       $searching = array('name' => $query, 'category' => $query, '');
       $result['result'] = $search->like('name', $query)->orLike('category', $query)->orLike('description', $query)->get()->getResultArray();
       return view('Menus/others', $result);
-      
-      
     }
     
     //ADDING TO CART
@@ -180,10 +178,10 @@ class UserController extends Controller
     public function carto()
     {
       $id = $this->request->getPost('id');
-      $menu_model = new MenuModel();
-      $search = $menu_model->find($id);
+      $me = new MenuModel();
+      $result = $me->find($id);
       $quantity =  $this->request->getPost('quantity');
-      $price = (float)$search['price'] * (int)$quantity;    
+      $price = (float)$result['price'] * (int)$quantity;    
       
       $values = [
         'user_id' => session()->get('id'),

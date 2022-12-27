@@ -43,7 +43,7 @@ $routes->get('/sandwich', 'ProductsController::sandwichProducts');
 $routes->get('/pica', 'ProductsController::picaProducts');
 $routes->get('/rice', 'ProductsController::mealsProducts');
 $routes->get('/dessert', 'ProductsController::dessertProducts');
-$routes->get('/others', 'ProductsController::othersProducts');
+$routes->get('/others', 'ProductsController::allProducts');
 $routes->match(['get', 'post'], 'ProductController/store', 'ProductController::store');
 
 

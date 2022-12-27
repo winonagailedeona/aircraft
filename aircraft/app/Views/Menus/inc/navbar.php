@@ -13,13 +13,13 @@
                   <h3 class="m-0 display-25 text-dark"><span class="text-color">Continen</span>Tea Café</h3>
               </a>
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="<?= base_url('cont') ?>" class="nav-item nav-link">Continental Series</a>
+                    <a href="<?= base_url('cont') ?>" class="nav-item nav-link">Continental Tea</a>
                     <a href="<?= base_url('pica') ?>" class="nav-item nav-link">Pica</a>
                     <a href="<?= base_url('rice') ?>" class="nav-item nav-link">Rice Meals</a>
                     <a href="<?= base_url('pasta') ?>" class="nav-item nav-link">Pasta</a>
                     <a href="<?= base_url('dessert') ?>" class="nav-item nav-link">Dessert</a>
                     <a href="<?= base_url('sandwich') ?>" class="nav-item nav-link">Sandwich</a>
-                    <a href="<?= base_url('others') ?>" class="nav-item nav-link" style="display:none;">Others</a>
+                    <a href="<?= base_url('others') ?>" class="nav-item nav-link" style="display: none;">Others</a>
                 </div>
             </div>
         </nav>

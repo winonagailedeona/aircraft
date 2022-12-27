@@ -61,6 +61,15 @@ class ProductsController extends BaseController
     return view('Menus/sandwich', $data);
   }
 
+  public function allProducts()
+  {
+    $ot = new MenuModel();
+    $data = [
+      'result' => $ot->findAll()
+    ];
+    return view('Menus/others', $data);
+  }
+
   public function sp($id)
   {
     $pica_model = new MenuModel();
@@ -105,9 +114,9 @@ class ProductsController extends BaseController
 
   public function spo($id)
   {
-    $search_model = new MenuModel();
-    $search['search'] = $search_model->find($id);
-    return view('Menus/singlesearch', $search);
+    $menu_model = new MenuModel();
+    $result['result'] = $menu_model->find($id);
+    return view('Menus/singlesearch', $result);
   }
 
 }
