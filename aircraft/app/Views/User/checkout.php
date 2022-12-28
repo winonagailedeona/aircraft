@@ -30,18 +30,17 @@ function updateCartItem(obj, rowid) {
 
 <div class="container-fluid" style="padding-left: 8%; padding-right: 8%;">
         <div class="row">
-            <aside class="col-lg-9">
+            <aside class="col-lg-8">
                 <div class="card">
                     <div class="table-responsive">
                         <table class="table table-borderless table-shopping-cart">
-                            <thead class="text-dark" style="background-color: aqua;">
+                            <thead class="text-dark bg-warning" >
                                 <tr class="small text-uppercase">
                                     <th scope="col" width="20%">Image</th>
                                     <th scope="col" width="20%">Product</th>
                                     <th scope="col" width="20%">Price</th>
                                     <th scope="col" width="20%">Quantity</th>
                                     <th scope="col" width="20%">Subtotal</th>
-                                    <th scope="col" class="text-right d-none d-md-block" width="220"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,17 +53,10 @@ function updateCartItem(obj, rowid) {
                                     </td>
                                     <td><?=$cart_item['name']?></td>
                                     <td>₱ <?= number_format( $cart_item['price'],2 )?></td>
-                                    <td><input type="number" class="form-control text-center" value="<?=$cart_item['bilang']?>"
-                            onChange="">
-                    </td>
-                                    
+                                    <td><?=$cart_item['bilang']?></td>
                                     <td value="total">₱ <?=$cart_item['total']?></td>
                                     
-                                    <td>
-                                       <a href="/aircraft/deletecart/<?=$cart_item['cartid']?>"
-                                         onclick="return confirm('Are you sure you want to delete?')"
-                                         class="btn btn-danger btn-flat btn-addon btn-xs m-b-10">Remove</a>
-                                     </td>
+                                    
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -72,20 +64,22 @@ function updateCartItem(obj, rowid) {
                     </div>
                 </div>
             </aside>
-            <aside class="col-lg-3">
+            <aside class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <dl class="dlist-align">
-                        <dt style="font-size: 130%">CART SUMMARY</dt>
+                        <dt style="font-size: 130%">PAYMENT DETAILS</dt>
                         </dl>
                         <br>
-                        <dl class="dlist-align">
-                        <dt>Total price:</dt>
-                            <dd class="text-right ml-3">  <?php if($cart >0){?>  ₱ <?=$cart_item['total']?>  <?php } ?>
+                        <dl class="dlist-align text-dark">
+                        <dt>Total Payment:</dt>
+                            <dd class="text-right ml-5">  <?php if($cart >0){?>  ₱ <?=$cart_item['total']?>  <?php } ?>
                             </dd>
                         </dl>
+                        <label for="message" class="text-dark"><b>Leave a message:</b></label>
+                        <td><textarea cols="48" rows="5" type="text"></textarea></td>
                         
-                        <hr> <a href="<?php echo base_url('checkout');?>" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> CHECKOUT </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
+                        <hr> <a href="#" class="btn btn-out btn-success btn-square btn-main" data-abc="true"> PLACE ORDER</a> <a href="<?php echo base_url('showcart');?>" class="btn btn-out btn-danger btn-square btn-main mt-2" data-abc="true"> BACK TO CART</a>
                     </div>
                 </div>
             </aside>

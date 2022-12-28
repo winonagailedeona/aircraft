@@ -15,7 +15,7 @@
         <div class="wrapper mt-sm-5">
 
 
-            <form action="<?=base_url('/updateProfile')?>" method="post">
+            <form action="<?=base_url('/updateprofile')?>" method="post">
             <input type="hidden" class="form-control" id="id" name="id" value="<?=session()->get('id'); ?>">
                 <h4 class="pb-4 border-bottom">Account settings</h4>
                 <div class="py-2">
@@ -34,7 +34,7 @@
 
                     </div>
                     <div class="py-3 pb-4 border-bottom">
-                        <button type="submit" name="updateProfile" class="btn btn-primary mr-3">Save Changes</button>
+                        <input type="submit" name="updateprofile" value="Save Changes" class="btn btn-primary mr-3"></input>
                         <a href="<?php echo base_url('profile');?>" class="btn border button">Cancel</a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
 
 
             <form action="" method="POST">
-                <h4 class="pb-4 border-bottom">Password</h4>
+                <h4 class="pb-4 border-bottom">Change Password</h4>
                 <div class="py-2">
                     <div>
                         <input type="password"

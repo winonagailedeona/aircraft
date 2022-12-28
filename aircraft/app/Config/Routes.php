@@ -55,7 +55,6 @@ $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController:
 $routes->get('/signin', 'SigninController::index');
 $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 
-
 $routes->get('/adminprofile', 'ProfileController::adminindex',['filter' => 'authGuard']);
 $routes->get('/adminsign', 'SigninController::admin');
 
@@ -63,6 +62,7 @@ $routes->get('/adminsign', 'SigninController::admin');
 //ADMIN PANEL
 //profile
 $routes->get('/adprofile', 'AdminController::profile');
+$routes->post('/updateProfile', 'AdminController::updateProfile');
 
 //This is dashboard
 $routes->get('/admin', 'AdminController::index');
@@ -71,7 +71,7 @@ $routes->get('/admin', 'AdminController::index');
 $routes->get('/menuTable', 'AdminController::menuTable');
 $routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
 $routes->post('/saveMenu', 'AdminController::saveMenu');
-$routes->post('/updateMenu', 'AdminController::updateMenu');
+
 
 
 //This is for the Customers Section
@@ -89,6 +89,8 @@ $routes->get('/deleteadmin/(:any)', 'AdminController::deleteadmin/$1');
 
 //USER
 $routes->get('/userprofile', 'UserController::profile');
+$routes->get('/checkout', 'UserController::checkout');
+
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');
 $routes->post('/search', 'UserController::search');
@@ -96,7 +98,7 @@ $routes->get('/showcart', 'UserController::showcart');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');
 $routes->get('/faqs', 'UserController::faqs');
 
-
+//CART
 $routes->post('/cart', 'UserController::cart');
 $routes->post('/cartm', 'UserController::cartm');
 $routes->post('/carts', 'UserController::carts');
@@ -105,6 +107,7 @@ $routes->post('/cartd', 'UserController::cartd');
 $routes->post('/cartmi', 'UserController::cartmi');
 $routes->post('/carto', 'UserController::carto');
 
+//SINGLE PRODUCT
 $routes->get('/sp/(:any)', 'ProductsController::sp/$1');
 $routes->get('/spm/(:any)', 'ProductsController::spm/$1');
 $routes->get('/sps/(:any)', 'ProductsController::sps/$1');

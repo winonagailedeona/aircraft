@@ -130,7 +130,8 @@ body {
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 login-section-wrapper">
-        <h1 class="login-title font-weight-bold text-center text-dark"><b>Log in</b></h1>
+        <h1 class="text-center"><img  src="<?= base_url() ?>/img/logo.jpg"  alt="logo" style="border-radius: 50%; width: 150px;"></h1>
+        <h1 class="login-title font-weight-bold text-center text-dark"><b style="font-size: 30px;">Log in</b></h1>
         <?php if(session()->getFlashdata('msg')):?>
                     <div class="alert alert-warning">
                        <?= session()->getFlashdata('msg') ?>

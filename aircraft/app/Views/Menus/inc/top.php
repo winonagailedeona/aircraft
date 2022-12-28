@@ -20,7 +20,7 @@
         <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <title>Food AirCraft</title>
 </head>
-<link rel="icon" href="img/logo.jpg" type="image/x-icon">
+<link rel="icon" href="<?= base_url() ?>/img/logo.jpg" type="image/x-icon">
 <style>
 
 .search-container form {

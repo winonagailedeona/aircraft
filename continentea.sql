@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 26, 2022 at 03:13 AM
+-- Generation Time: Dec 28, 2022 at 02:03 PM
 -- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,14 +38,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `image`, `name`, `email`, `position`, `password`, `created_at`, `updated_at`) VALUES
-(2, 'img/logo.jpg', 'Gaile Deona', 'winonagailedeona@gmail.com', 'Staff', 'wenonadeona', '2022-12-25 09:11:25', '0000-00-00 00:00:00');
+(2, 'img/logo.jpg', 'Gaile Deona', 'winonagailedeona@gmail.com', 'Staff', 'wenonadeona', '2022-12-25 09:11:25', '2022-12-28 17:43:35');
 
 -- --------------------------------------------------------
 
@@ -63,22 +63,16 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`cartid`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
-(115, 1, 23, 1, 100),
-(114, 1, 12, 1, 150),
-(113, 1, 19, 1, 160),
-(112, 1, 9, 1, 100),
-(111, 1, 15, 1, 120),
-(110, 1, 15, 1, 120),
-(109, 1, 22, 1, 140),
-(108, 1, 26, 1, 95),
-(123, 3, 19, 4, 640);
+(124, 1, 11, 2, 280),
+(129, 1, 23, 3, 300),
+(137, 3, 9, 1, 100);
 
 -- --------------------------------------------------------
 
@@ -106,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `price`, `quantity`, `size`, `image`, `category`, `created_at`, `updated_at`) VALUES
-(11, 'Cheese Burger', 'A cheeseburger is a hamburger topped with cheese.', 140, 10, '', 'img/menu/cheese burger.jpg', 'sandwich', '2022-12-07 20:58:20', '0000-00-00 00:00:00'),
+(11, 'Cheese Burger', 'A cheeseburger is a hamburger topped with cheese.', 140, 0, '', 'img/menu/cheese burger.jpg', 'sandwich', '2022-12-07 20:58:20', '2022-12-26 21:41:42'),
 (10, 'Spaghetti', 'It is a staple food of traditional Italian cuisine.', 120, 10, '', 'img/menu/spagetti.jpg', 'pasta', '2022-12-07 20:57:05', '0000-00-00 00:00:00'),
 (9, 'Baked Macaroni', 'Mac and cheese is a rich and creamy dish consisting of macaroni pasta mixed with a cheesy sauce.', 100, 10, '', 'img/menu/baked macaroni.jpg', 'pasta', '2022-12-07 20:55:45', '0000-00-00 00:00:00'),
 (12, 'Chicken Burger', 'A sandwich consisting of a patty made from ground chicken, served in a bun, typically hot and often with other ingredients.', 150, 10, '', 'img/menu/chicken burger.jpg', 'sandwich', '2022-12-07 20:59:19', '0000-00-00 00:00:00'),
@@ -148,7 +142,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
-(1, 'Paulyn Familara', 'paulynfamilara@gmail.com', '$2y$10$nrkpBLzslpXhvqhlWdvq2O7MtxF7nWZWfFomjCL0u9Yex5ugGxnz6', '2022-11-22 10:22:36'),
 (2, 'Paulyn Familara', 'paulynpiegofamilara@gmail.com', '$2y$10$9oc3ehHerz8gci9YwuA9f.jaqNpWczgMGOR51183W3VEOt3p8UTaC', '2022-11-22 10:28:55'),
 (3, 'Arizza De Guzman', 'arizza@gmail.com', '$2y$10$499u5g7YIpDnPzAWFPdIguve.vJDWQESYU0ef2gzDw2W3sCbTGeCm', '2022-11-22 12:21:20'),
 (4, 'winonadeona@gmail.com', 'winona@gmail.com', '$2y$10$ZaVFaBTx62NtH7Ugm0IA5OJMGXSj86DsrmvbRgh.y9arfPhpdVcM.', '2022-11-22 12:30:05'),

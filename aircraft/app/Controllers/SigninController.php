@@ -51,35 +51,35 @@ class SigninController extends Controller
     }
 
 
-    public function loginAdmin()
-    {
-        $session = session();
-        $adminModel = new AdminModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
+    // public function loginAdmin()
+    // {
+    //     $session = session();
+    //     $adminModel = new AdminModel();
+    //     $email = $this->request->getVar('email');
+    //     $password = $this->request->getVar('password');
 
-        $data = $adminModel->where('email', $email)->first();
+    //     $data = $adminModel->where('email', $email)->first();
 
-        if($data){
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
-            if($authenticatePassword){
-                $ses_data = [
-                    'id' => $data['id'],
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'isLoggedIn' => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('/adminprofile');
+    //     if($data){
+    //         $pass = $data['password'];
+    //         $authenticatePassword = password_verify($password, $pass);
+    //         if($authenticatePassword){
+    //             $ses_data = [
+    //                 'id' => $data['id'],
+    //                 'name' => $data['name'],
+    //                 'email' => $data['email'],
+    //                 'isLoggedIn' => TRUE
+    //             ];
+    //             $session->set($ses_data);
+    //             return redirect()->to('/adminprofile');
 
-            }else{
-                $session->setFlashdata('msg', 'Password is incorrect.');
-                return redirect()->to('/adminsign');
-            }
-        }else{
-            $session->setFlashdata('msg', 'Email does not exist.');
-            return redirect()->to('/adminsign');
-        }
-    }
+    //         }else{
+    //             $session->setFlashdata('msg', 'Password is incorrect.');
+    //             return redirect()->to('/adminsign');
+    //         }
+    //     }else{
+    //         $session->setFlashdata('msg', 'Email does not exist.');
+    //         return redirect()->to('/adminsign');
+    //     }
+    // }
 }

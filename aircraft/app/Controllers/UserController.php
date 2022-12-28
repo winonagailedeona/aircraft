@@ -3,6 +3,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\CartModel;
 use App\Models\MenuModel;
+use App\Models\UserModel;
 
 class UserController extends Controller
 {
@@ -10,6 +11,45 @@ class UserController extends Controller
     {
       return view('User/profile');
     }
+
+    public function checkout()
+    {
+      $id = session()->get('id');
+        $cart_model = new CartModel();
+
+        $cart['cart'] = $cart_model->select('*')
+        ->join('product', 'cart.menuid = product.id', 'right')
+        ->where('cart.user_id', $id)->get()->getResultArray(); 
+
+        $cart['total'] = $cart_model->selectSum('total')
+            ->where('user_id', $id)->get()->getResultArray();
+
+        return view('User/checkout', $cart);
+    }
+
+    // public function editprofile($id = null)
+    // {
+    //   $userModel = new UserModel();
+    //   $user['user'] = $userModel->where('id', $id)->first();
+    //   return view('User/profile', $data);
+    // }
+
+    // public function updateprofile()
+    //   {
+    //     $id = $this->request->getVar('id');
+    //     $name = $this->request->getVar('name');
+    //     $email = $this->request->getVar('email');
+
+    //     $userModel = new UserModel();
+    //     $data = [
+    //       'name' => $name,
+    //       'email' => $email
+    //     ];
+
+    //     $userModel->set($data)->where('id', $id)->update();
+    //     return redirect()->to('userprofile');
+      
+    // }
 
     public function orders()
     {

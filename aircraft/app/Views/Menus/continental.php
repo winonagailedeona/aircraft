@@ -12,7 +12,7 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mypage">
         <div class="container text-center">
-            <h1 class="text-white display-3">Continental Series</h1>
+            <h1 class="text-white display-3">Continental Tea</h1>
             <div class="d-inline-flex align-items-center text-white">
                 <i class="fa fa-circle"></i>
             </div>

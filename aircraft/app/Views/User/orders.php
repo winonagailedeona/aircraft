@@ -20,8 +20,8 @@
                         <th>Item</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>Status</th>
                         <th>Order Date</th>
+                        <th>Status</th>                        
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,12 +30,9 @@
                         <td>Pasta</td>
                         <td>3</td>
                         <td>₱ 120.00</td>
-
-
+                        <td>12-12-22</td>
                         <td> <button type="button" class="btn btn-danger"> <i class="far fa-times-circle"></i> Cancelled</button>
                         </td>
-
-                        <td>12-12-22</td>
                         <td>
                             <a href=""class="btn btn-danger"><i class="fas fa-trash-alt"></i> Cancel</a>
                         </td>
@@ -65,7 +62,7 @@
                         <td>Burger</td>
                         <td>4</td>
                         <td>₱ 50.00</td>
-                        <td> <button type="button" class="btn btn-success"><i class="fas fa-check"></i>Received</button>
+                        <td> <button type="button" class="btn btn-success"><i class="fas fa-check"></i> Received</button>
                         <td><a href="" class="btn btn-info"><i class="fas fa-file-alt"></i> Invoice</a></td>
                     </tr>
                 </tbody>

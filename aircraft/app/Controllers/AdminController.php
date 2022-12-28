@@ -17,6 +17,7 @@ class AdminController extends BaseController
         return view('Admin/pages/profile');
     }
     
+    
     //MENU TABLE
     public function menuTable()
     {

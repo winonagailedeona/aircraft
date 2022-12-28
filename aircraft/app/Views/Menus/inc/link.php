@@ -1,7 +1,7 @@
 <!-- Topbar Start -->
 
 <div class="container-fluid bg-primary py-3 d-none d-md-block">
-      <img class="logo"  src="img/logo.jpg" style="border-radius: 50%; width: 80px; margin-right: 5%; position: relative;">
+      <img class="logo"  src="<?= base_url() ?>/img/logo.jpg" style="border-radius: 50%; width: 80px; margin-right: 5%; position: relative;">
       <a class="posi2 text-white pr-3" href="<?php echo base_url('faqs');?>" style="font-size: 16px;">FAQs</a>
       <span class="posi2 text-white" style="font-size: 16px;">|</span>
       <a class="posi2 text-white px-3" href="" style="font-size: 16px;">About us</a>
@@ -33,8 +33,7 @@
                 <?=session()->get('name'); ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('userprofile');?>"><i
-                        class="fas fa-user-circle"></i> My Profile</a>
+                <a class="dropdown-item" href="<?php echo base_url('userprofile');?>"><i class="fas fa-user-circle"></i> My Profile</a>
                 <hr>
                 <a class="dropdown-item" href="<?php echo base_url('orders');?>"><i class="fas fa-shopping-bag"></i> Orders</a>
                 <hr>
@@ -46,3 +45,6 @@
       </div>
     </div>
     <!-- Topbar End -->
+
+
+
