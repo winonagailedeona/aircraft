@@ -54,13 +54,16 @@
 .text-color {
   color: #3998ba;
 }
+
 .na {
   border-radius: 10px;
 }
+
 .mypage {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(<?= base_url() ?>/img/drinks.jpg), no-repeat center center;
   background-size: cover;
 }
+
 .des {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(<?= base_url() ?>/img/dessert.jpg), no-repeat center center;
   background-size: cover;
@@ -83,6 +86,10 @@
 }
 .pic {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(<?= base_url() ?>/img/pica.jpg), no-repeat center center;
+  background-size: cover;
+}
+.about {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(<?= base_url() ?>/img/continentea.jpg), no-repeat center center;
   background-size: cover;
 }
 

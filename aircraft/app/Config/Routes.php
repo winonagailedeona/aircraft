@@ -97,6 +97,7 @@ $routes->post('/search', 'UserController::search');
 $routes->get('/showcart', 'UserController::showcart');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');
 $routes->get('/faqs', 'UserController::faqs');
+$routes->get('/about', 'UserController::about');
 
 //CART
 $routes->post('/cart', 'UserController::cart');

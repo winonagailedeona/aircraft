@@ -12,6 +12,11 @@ class UserController extends Controller
       return view('User/profile');
     }
 
+    public function about()
+    {
+      return view('about');
+    }
+
     public function checkout()
     {
       $id = session()->get('id');

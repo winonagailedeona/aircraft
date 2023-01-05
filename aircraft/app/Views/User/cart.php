@@ -45,6 +45,7 @@ function updateCartItem(obj, rowid) {
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php if($cart > 0){?>
                             <?php foreach($cart as $cart_item): ?>
                                 <tr>
                                     <td>
@@ -67,6 +68,11 @@ function updateCartItem(obj, rowid) {
                                      </td>
                                 </tr>
                             <?php endforeach; ?>
+                            <?php } else { ?>
+                <tr>
+                    <td><p style="color: #212529;">No Items In Your Cart!!</p></td>
+                </tr>
+                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -81,8 +87,10 @@ function updateCartItem(obj, rowid) {
                         <br>
                         <dl class="dlist-align">
                         <dt>Total price:</dt>
+                        <?php foreach($cart as $cart_item): ?>
                             <dd class="text-right ml-3">  <?php if($cart >0){?>  ₱ <?=$cart_item['total']?>  <?php } ?>
                             </dd>
+                        <?php endforeach; ?>
                         </dl>
                         
                         <hr> <a href="<?php echo base_url('checkout');?>" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> CHECKOUT </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
