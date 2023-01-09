@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 28, 2022 at 02:03 PM
+-- Generation Time: Jan 09, 2023 at 09:44 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.0.13
 
@@ -62,17 +62,32 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `total` float NOT NULL,
   PRIMARY KEY (`cartid`),
   KEY `user_id` (`user_id`),
-  KEY `user_id_2` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
+  KEY `user_id_2` (`user_id`),
+  KEY `menuid` (`menuid`)
+) ENGINE=MyISAM AUTO_INCREMENT=158 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
-(124, 1, 11, 2, 280),
-(129, 1, 23, 3, 300),
-(137, 3, 9, 1, 100);
+(157, 3, 16, 1, 120),
+(156, 3, 15, 4, 480),
+(155, 3, 14, 1, 80);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout`
+--
+
+DROP TABLE IF EXISTS `checkout`;
+CREATE TABLE IF NOT EXISTS `checkout` (
+  `user_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  KEY `user_id` (`user_id`),
+  KEY `menu_id` (`menu_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -104,9 +119,9 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `quantity`, `size`,
 (10, 'Spaghetti', 'It is a staple food of traditional Italian cuisine.', 120, 10, '', 'img/menu/spagetti.jpg', 'pasta', '2022-12-07 20:57:05', '0000-00-00 00:00:00'),
 (9, 'Baked Macaroni', 'Mac and cheese is a rich and creamy dish consisting of macaroni pasta mixed with a cheesy sauce.', 100, 10, '', 'img/menu/baked macaroni.jpg', 'pasta', '2022-12-07 20:55:45', '0000-00-00 00:00:00'),
 (12, 'Chicken Burger', 'A sandwich consisting of a patty made from ground chicken, served in a bun, typically hot and often with other ingredients.', 150, 10, '', 'img/menu/chicken burger.jpg', 'sandwich', '2022-12-07 20:59:19', '0000-00-00 00:00:00'),
-(14, 'Lumpiang Shanghai', 'Filipino-style spring rolls made of ground pork, chicken, or beef filling wrapped in thin crepes called lumpia wrappers.', 80, 10, '0', 'img/menu/lumpiang shanghai.jpg', 'pica', '2022-12-07 21:13:07', '2022-12-07 21:14:31'),
-(15, 'Nachos', 'A tortilla chip topped with melted cheese and often additional savory toppings', 120, 5, '', 'img/menu/nachos.jpg', 'pica', '2022-12-07 21:18:59', '2022-12-08 16:18:09'),
-(16, 'Chili Roll', 'It is a type of lumpia and it is commonly eaten as an appetizer or as a companion to beer.', 120, 4, '', 'img/menu/chili roll.jpg', 'pica', '2022-12-07 21:21:22', '2022-12-08 16:18:22'),
+(14, 'Lumpiang Shanghai', 'Filipino-style spring rolls made of ground pork, chicken, or beef filling wrapped in thin crepes called lumpia wrappers.', 80, 9, '0', 'img/menu/lumpiang shanghai.jpg', 'pica', '2022-12-07 21:13:07', '2023-01-09 16:05:17'),
+(15, 'Nachos', 'A tortilla chip topped with melted cheese and often additional savory toppings', 120, 1, '', 'img/menu/nachos.jpg', 'pica', '2022-12-07 21:18:59', '2023-01-09 16:28:58'),
+(16, 'Chili Roll', 'It is a type of lumpia and it is commonly eaten as an appetizer or as a companion to beer.', 120, 3, '', 'img/menu/chili roll.jpg', 'pica', '2022-12-07 21:21:22', '2023-01-09 16:27:25'),
 (17, 'Chicken Cordon Bleu Bites', 'French-inspired poultry dish, although evidence suggests that it was actually developed in the United States by chefs imitating other stuffed meat dishes from Europe.', 120, 2, '', 'img/menu/menu/chicken cordon bleu.jpg\r\n', 'pica', '2022-12-07 21:27:33', '2022-12-18 02:49:02'),
 (18, 'with fried Chicken', 'A dish consisting of chicken pieces that have been coated with seasoned flour or batter and pan-fried, deep fried, pressure fried, or air fried.', 160, 10, '', 'img/menu/friedch.jpg', 'meals', '2022-12-07 21:36:00', '2022-12-18 02:49:25'),
 (19, 'with Pork Adobo', 'It is a dish composed of pork slices cooked in soy sauce, vinegar, and garlic. ', 160, 10, '', 'img/menu/pork adobo.jpg', 'meals', '2022-12-07 21:39:19', '0000-00-00 00:00:00'),
