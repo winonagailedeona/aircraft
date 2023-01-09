@@ -28,6 +28,7 @@
                     <form action="<?= site_url('cart')?>" method="post">
                     <input type="number" name = "quantity" value="1" min="1" max="<?= $pica['quantity']?>">
                     <input type = "hidden" name="id" value="<?= $pica['id']?>">
+                
                     <button type=submit class="btn btn-sm btn-dark">Add to Cart</button>
                     </form>
                 </div>

@@ -58,7 +58,6 @@ $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 $routes->get('/adminprofile', 'ProfileController::adminindex',['filter' => 'authGuard']);
 $routes->get('/adminsign', 'SigninController::admin');
 
-
 //ADMIN PANEL
 //profile
 $routes->get('/adprofile', 'AdminController::profile');
@@ -89,7 +88,7 @@ $routes->get('/deleteadmin/(:any)', 'AdminController::deleteadmin/$1');
 
 //USER
 $routes->get('/userprofile', 'UserController::profile');
-$routes->get('/checkout', 'UserController::checkout');
+$routes->match(['get', 'post'], '/checkout', 'UserController::checkout');
 
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');

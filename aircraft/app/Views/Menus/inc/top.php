@@ -12,13 +12,22 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <link href="<?php echo base_url('/css/style.css'); ?>" rel="stylesheet">
+    <link href="<?php
+
+use App\Models\CheckoutModel;
+
+ echo base_url('/css/style.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('/css/style.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.min.css';?>">
         <script src="<?php echo base_url().'assets/js/jquery-3.6.0.min.js';?>"></script>
         <script src="<?php echo base_url().'assets/js/bootstrap.min.js';?>"></script>
         <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <title>Food AirCraft</title>
+
+      <?php if(!empty(session()->get('checkout'))) {
+        $checkout = new CheckoutModel();
+        $checkout->where('user_id', session()->get('id'))->delete();
+        }?>
 </head>
 <link rel="icon" href="<?= base_url() ?>/img/logo.jpg" type="image/x-icon">
 <style>

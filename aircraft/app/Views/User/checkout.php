@@ -1,4 +1,7 @@
+
+
 <?= $this->include('Menus/inc/top') ?>
+
 
 <body>
     <!-- Topbar Start -->
@@ -27,44 +30,71 @@ function updateCartItem(obj, rowid) {
         });
 }
 </script>
-
+<?= $subtotal = 0 ?>
 <div class="container-fluid" style="padding-left: 8%; padding-right: 8%;">
         <div class="row">
-            <aside class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <dl class="dlist-align">
-                        <dt style="font-size: 130%">PAYMENT DETAILS</dt>
-                        </dl>
-                        <br>
-                        <div class="table-responsive">
+            <aside class="col-lg-9">
+                <div class="card ">
+                    <div class="table-responsive">
                         <table class="table table-borderless table-shopping-cart">
-                            <thead class="text-dark" style="background-color: aqua;">
+                            <thead class="text-dark bg-warning">
                                 <tr class="small text-uppercase">
+                                    <th scope="col" width="20%">Image</th>
                                     <th scope="col" width="20%">Product</th>
-                                    <th scope="col" width="20%"></th>
+                                    <th scope="col" width="20%">Price</th>
+                                    <th scope="col" width="20%">Quantity</th>
+                                    <th scope="col" width="20%">Subtotal</th>
+                                    <th scope="col" class="text-right d-none d-md-block" width="220"></th>
                                 </tr>
                             </thead>
                             <tbody>
+            
+
+                            <?php if($cart > 0){?>
+                                
                             <?php foreach($cart as $cart_item): ?>
                                 <tr>
+                                    <td>
+                                        <figure class="itemside align-items-center">
+                                            <div class="aside"><img src="<?= base_url($cart_item['image']) ?>" class="img-sm"></div>
+                                        </figure>
+                                    </td>
                                     <td><?=$cart_item['name']?></td>
-                                    <td>₱ <?= number_format( $cart_item['price'],2 )?> x <?=$cart_item['bilang']?></td>
+                                    <td>₱ <?= number_format( $cart_item['price'],2 )?></td>
+                                    <td><input type="number" class="form-control text-center" value="<?=$cart_item['bilang']?>"
+                            onChange="">
+                    </td>
+                                    
+                                    <td value="total">₱ <?=$cart_item['bilang'] * $cart_item['price']?></td>
+                                    
                                 </tr>
+                                <?php $subtotal += ($cart_item['bilang'] * $cart_item['price']) ?>
                             <?php endforeach; ?>
+                            <?php } else { ?>
+                <tr>
+                    <td><p style="color: #212529;">No Items In Your Cart!!</p></td>
+                </tr>
+                <?php } ?>
                             </tbody>
                         </table>
                     </div>
-                    <br>
-                        <dl class="dlist-align text-dark">
-                        <dt>Total Payment:</dt>
-                            <dd class="text-right ml-5">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><?php if($cart >0){?>  ₱ <?=$cart_item['total']?>  <?php } ?></b>
+                </div>
+            </aside>
+            <aside class="col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <dl class="dlist-align">
+                        <dt style="font-size: 130%">CART SUMMARY</dt>
+                        </dl>
+                        <br>
+                        <dl class="dlist-align">
+                        <dt>Total price:</dt>
+                            <dd class="text-right ml-3">  <?php if($cart >0){ echo '₱' . $subtotal;} ?>
                             </dd>
                         </dl>
                         <label for="message" class="text-dark"><b>Leave a message:</b></label>
-                        <td><textarea cols="48" rows="5" type="text"></textarea></td>
-                        
-                        <hr> <a href="#" class="btn btn-out btn-success btn-square btn-main" data-abc="true"> PLACE ORDER</a> <a href="<?php echo base_url('showcart');?>" class="btn btn-out btn-danger btn-square btn-main mt-2" data-abc="true"> BACK TO CART</a>
+                        <td><textarea cols="45" rows="5" type="text"></textarea></td>
+                        <hr> <a href="<?php echo base_url('checkout');?>" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> PLACE ORDER </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
                     </div>
                 </div>
             </aside>
@@ -79,3 +109,4 @@ function updateCartItem(obj, rowid) {
 
 <!-- About End -->
 <?= $this->include('Menus/inc/end') ?>
+
