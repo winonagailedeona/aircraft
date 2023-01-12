@@ -41,5 +41,4 @@
 <script src="dist/js/adminlte.js"></script>
 
 <script src="dist/js/pages/dashboard.js"></script>
-</body>
-</html>
+

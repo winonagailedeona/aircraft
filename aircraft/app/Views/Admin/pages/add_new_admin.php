@@ -113,5 +113,6 @@
       </script>
   </div>
 </body>
-<?= $this->include('Admin/inc/end')?>
+
 <?= $this->include('Admin/inc/footer')?>
+<?= $this->include('Admin/inc/end')?>

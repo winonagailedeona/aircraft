@@ -63,5 +63,6 @@
       </div><!-- /.container-fluid -->
     </section>
 </div>
-  <?= $this->include('Admin/inc/end')?>
+
 <?= $this->include('Admin/inc/footer')?>
+<?= $this->include('Admin/inc/end')?>

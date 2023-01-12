@@ -77,7 +77,8 @@ $routes->post('/saveMenu', 'AdminController::saveMenu');
 $routes->get('/customers', 'AdminController::customers');
 $routes->post('/saveCustomer', 'AdminController::saveCustomer');
 
-
+//Orders
+$routes->get('/adorders', 'AdminController::orders');
 
 //This is add new admin section
 $routes->get('/addAdmin', 'AdminController::adminTable');

@@ -178,7 +178,10 @@ class AdminController extends BaseController
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
 
-    
+    public function orders()
+    {
+      return view('Admin/pages/orders');
+    }
 
 }
 

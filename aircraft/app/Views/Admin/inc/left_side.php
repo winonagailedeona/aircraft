@@ -44,7 +44,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('orders'); ?>" class="nav-link">
+            <a href="<?= base_url('adorders'); ?>" class="nav-link">
               <i class="nav-icon fas fa-cart-plus"></i>
               <p>
                 Orders

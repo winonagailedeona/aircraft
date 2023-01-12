@@ -116,67 +116,57 @@
 
   <div class="row">
     <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i> A simple
-        question?</h6>
+      <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i> What makes your milk tea special?</h6>
       <p>
-        <strong><u>Absolutely!</u></strong> We work with top payment companies which guarantees
-        your safety and
-        security. All billing information is stored on our payment processing partner.
+        Our milktea are fully made with love that makes tastes something special.
       </p>
     </div>
 
     <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="fas fa-question text-primary pe-2"></i> A question
-        that is longer then the previous one?</h6>
+      <h6 class="mb-3 text-primary"><i class="fas fa-question text-primary pe-2"></i> How can I pay</h6>
       <p>
-        <strong><u>Yes, it is possible!</u></strong> You can cancel your subscription anytime in
-        your account. Once the subscription is
-        cancelled, you will not be charged next month.
+        You can pay through the counter we didnt accept online payment.
       </p>
     </div>
 
     <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="fas fa-user text-primary pe-2"></i> A simple
-        question?</h6>
+      <h6 class="mb-3 text-primary"><i class="fas fa-user text-primary pe-2"></i> How can I order?</h6>
       <p>
-        Currently, we only offer monthly subscription. You can upgrade or cancel your monthly
-        account at any time with no further obligation.
+        You can order via online or in visit our cafe .
       </p>
     </div>
 
     <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> A simple
-        question?</h6>
+      <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> Do you offer delivery order?</h6>
       <p>
-        Yes. Go to the billing section of your dashboard and update your payment information.
+        No. We only offer pickup and dine in only.
       </p>
     </div>
 
     <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="fas fa-home text-primary pe-2"></i> A simple
-        question?</h6>
-      <p><strong><u>Unfortunately no</u>.</strong> We do not issue full or partial refunds for any
-        reason.</p>
+      <h6 class="mb-3 text-primary"><i class="fas fa-home text-primary pe-2"></i> Do you offer promos?</h6>
+      <p> Yes. We offer promos such as buy 1 take 1 in limited time only. </p>
     </div>
 
     <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="fas fa-question text-primary pe-2"></i> Another
-        question that is longer than usual</h6>
+      <h6 class="mb-3 text-primary"><i class="fas fa-question text-primary pe-2"></i> What is your office hours?</h6>
       <p>
-        Of course! We are happy to offer a free plan to anyone who wants to try our service.
+        Monday to Friday
+         <br>
+        10:30 AM-8:30PM
+        <br>
+        Saturday
+        <br>
+        10:AM-9:00 PM
+        <br>
+        Sunday
+        <br>
+        2:00-9:00 PM
       </p>
     </div>
   </div>
   <br>
   <div class="form-style-3">
-<form>
-<fieldset><legend>Still have questions? Feel free to message us to get answer!</legend>
-<label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
-<label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="field2" value="" /></label>
-<label for="field6"><span>Message <span class="required">*</span></span><textarea name="field6" class="textarea-field"></textarea></label>
-<label><span> </span><input type="submit" value="Submit" /></label>
-</fieldset>
-</form>
 </div>
 </section>
 </div>
