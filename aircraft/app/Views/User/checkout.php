@@ -90,7 +90,7 @@ function updateCartItem(obj, rowid) {
                             </dd>
                         </dl>
                         <label for="message" class="text-dark"><b>Leave a message:</b></label>
-                        <td><textarea cols="33" rows="5" type="text"></textarea></td>
+                        <td><textarea style="width: 100%" rows="5" type="text"></textarea></td>
                         <hr> <a href="<?php echo base_url('checkout');?>" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> PLACE ORDER </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
                     </div>
                 </div>

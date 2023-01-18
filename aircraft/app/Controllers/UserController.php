@@ -337,4 +337,12 @@ class UserController extends Controller
 
     return redirect('showcart');
   }
+
+  public function deletecartitem($cartid = null)
+  {
+    $cartitem = new CartModel();
+    $cartitem->delete(['cartid' => $cartid]);
+    return redirect()->to('/showcart');
+  }
+
 }
