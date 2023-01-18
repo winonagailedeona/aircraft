@@ -243,19 +243,34 @@ class UserController extends Controller
   public function carts()
   {
     $id = $this->request->getPost('id');
+    $userid = session()->get('id');
     $menu_model = new MenuModel();
+    $cart_model = new CartModel();
     $sandwich = $menu_model->find($id);
     $quantity =  $this->request->getPost('quantity');
     $price = (float)$sandwich['price'] * (int)$quantity;
 
+    $resultExist = $cart_model->where('user_id', $userid)->where('menuid', $id)->find();
+    $productInfo = $menu_model->find($id);
+
     $values = [
       'user_id' => session()->get('id'),
-      'menuid' => (int)$this->request->getPost('id'),
+      'menuid' => (int)$id,
       'bilang' => $quantity,
       'total' => $price
     ];
-    $cart_model = new CartModel();
-    $cart = $cart_model->insert($values);
+    if(count($resultExist) == 0 && $productInfo['quantity'] != 0){
+   
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->insert($values);
+    }
+    elseif(count($resultExist) > 0 && $productInfo['quantity'] != 0){
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->set('bilang', $resultExist[0]['bilang'] + $quantity)->set('total', $resultExist[0]['total'] + $price)->where('user_id', $userid)->where('menuid', $id)->update();
+    }
+    else{
+      echo 'out of stock';
+    }
 
     return redirect('showcart');
   }

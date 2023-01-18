@@ -201,7 +201,7 @@
                         <dl class="dlist-align">
                             <dt>Total price:</dt>
                             <?php foreach ($total as $sum) : ?>
-                                <dd class="text-right ml-3"><?= $total[0]['total'] ?></dd>
+                                <dd class="text-right ml-3">₱<?= $total[0]['total'] ?></dd>
                             <?php endforeach; ?>
                         </dl>
 
