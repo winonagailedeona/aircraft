@@ -71,8 +71,6 @@ $routes->get('/menuTable', 'AdminController::menuTable');
 $routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
 $routes->post('/saveMenu', 'AdminController::saveMenu');
 
-
-
 //This is for the Customers Section
 $routes->get('/customers', 'AdminController::customers');
 $routes->post('/saveCustomer', 'AdminController::saveCustomer');

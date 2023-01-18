@@ -191,7 +191,7 @@
                         </form>
                     </div>
             </aside>
-            <aside class="col-lg-3">
+                <aside class="col-lg-3">
                 <div class="card">
                     <div class="card-body">
                         <dl class="dlist-align">

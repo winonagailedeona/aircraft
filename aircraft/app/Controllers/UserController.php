@@ -168,22 +168,74 @@ class UserController extends Controller
     return redirect('showcart');
   }
 
+  public function cartmi()
+  {
+    $id = $this->request->getPost('id');
+    $userid = session()->get('id');
+    $menu_model = new MenuModel();
+    $cart_model = new CartModel();
+    $milktea = $menu_model->find($id);
+    $quantity =  $this->request->getPost('quantity');
+    $price = (float)$milktea['price'] * (int)$quantity;
+
+    $resultExist = $cart_model->where('user_id', $userid)->where('menuid', $id)->find();
+    $productInfo = $menu_model->find($id);
+
+    $values = [
+      'user_id' => session()->get('id'),
+      'menuid' => (int)$id,
+      'bilang' => $quantity,
+      'total' => $price
+    ];
+    
+    if(count($resultExist) == 0 && $productInfo['quantity'] != 0){
+   
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->insert($values);
+    }
+    elseif(count($resultExist) > 0 && $productInfo['quantity'] != 0){
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->set('bilang', $resultExist[0]['bilang'] + $quantity)->set('total', $resultExist[0]['total'] + $price)->where('user_id', $userid)->where('menuid', $id)->update();
+    }
+    else{
+      echo 'out of stock';
+    }
+
+    return redirect('showcart');
+  }
+
   public function cartm()
   {
     $id = $this->request->getPost('id');
+    $userid = session()->get('id');
     $menu_model = new MenuModel();
+    $cart_model = new CartModel();
     $meals = $menu_model->find($id);
     $quantity =  $this->request->getPost('quantity');
     $price = (float)$meals['price'] * (int)$quantity;
 
+    $resultExist = $cart_model->where('user_id', $userid)->where('menuid', $id)->find();
+    $productInfo = $menu_model->find($id);
+
     $values = [
       'user_id' => session()->get('id'),
-      'menuid' => (int)$this->request->getPost('id'),
+      'menuid' => (int)$id,
       'bilang' => $quantity,
       'total' => $price
     ];
-    $cart_model = new CartModel();
-    $cart = $cart_model->insert($values);
+
+    if(count($resultExist) == 0 && $productInfo['quantity'] != 0){
+   
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->insert($values);
+    }
+    elseif(count($resultExist) > 0 && $productInfo['quantity'] != 0){
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->set('bilang', $resultExist[0]['bilang'] + $quantity)->set('total', $resultExist[0]['total'] + $price)->where('user_id', $userid)->where('menuid', $id)->update();
+    }
+    else{
+      echo 'out of stock';
+    }
 
     return redirect('showcart');
   }
@@ -248,42 +300,40 @@ class UserController extends Controller
     return redirect('showcart');
   }
 
-  public function cartmi()
-  {
-    $id = $this->request->getPost('id');
-    $menu_model = new MenuModel();
-    $milktea = $menu_model->find($id);
-    $quantity =  $this->request->getPost('quantity');
-    $price = (float)$milktea['price'] * (int)$quantity;
-
-    $values = [
-      'user_id' => session()->get('id'),
-      'menuid' => (int)$this->request->getPost('id'),
-      'bilang' => $quantity,
-      'total' => $price
-    ];
-    $cart_model = new CartModel();
-    $cart = $cart_model->insert($values);
-
-    return redirect('showcart');
-  }
+  
 
   public function carto()
   {
     $id = $this->request->getPost('id');
+    $userid = session()->get('id');
     $me = new MenuModel();
+    $cart_model = new CartModel();
     $result = $me->find($id);
     $quantity =  $this->request->getPost('quantity');
     $price = (float)$result['price'] * (int)$quantity;
 
+    $resultExist = $cart_model->where('user_id', $userid)->where('menuid', $id)->find();
+    $productInfo = $me->find($id);
+
     $values = [
       'user_id' => session()->get('id'),
-      'menuid' => (int)$this->request->getPost('id'),
+      'menuid' => (int)$id,
       'bilang' => $quantity,
       'total' => $price
     ];
-    $cart_model = new CartModel();
-    $cart = $cart_model->insert($values);
+
+    if(count($resultExist) == 0 && $productInfo['quantity'] != 0){
+   
+      $me->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->insert($values);
+    }
+    elseif(count($resultExist) > 0 && $productInfo['quantity'] != 0){
+      $me->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->set('bilang', $resultExist[0]['bilang'] + $quantity)->set('total', $resultExist[0]['total'] + $price)->where('user_id', $userid)->where('menuid', $id)->update();
+    }
+    else{
+      echo 'out of stock';
+    }
 
     return redirect('showcart');
   }

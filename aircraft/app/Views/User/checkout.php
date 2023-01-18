@@ -30,7 +30,7 @@ function updateCartItem(obj, rowid) {
         });
 }
 </script>
-<?= $subtotal = 0 ?>
+<b style="color: white;"><?= $subtotal = 0 ?></b>
 <div class="container-fluid" style="padding-left: 8%; padding-right: 8%;">
         <div class="row">
             <aside class="col-lg-9">
@@ -39,12 +39,11 @@ function updateCartItem(obj, rowid) {
                         <table class="table table-borderless table-shopping-cart">
                             <thead class="text-dark bg-warning">
                                 <tr class="small text-uppercase">
-                                    <th scope="col" width="20%">Image</th>
-                                    <th scope="col" width="20%">Product</th>
-                                    <th scope="col" width="20%">Price</th>
-                                    <th scope="col" width="20%">Quantity</th>
-                                    <th scope="col" width="20%">Subtotal</th>
-                                    <th scope="col" class="text-right d-none d-md-block" width="220"></th>
+                                    <th class="text-center" scope="col" width="20%">Image</th>
+                                    <th class="text-center" scope="col" width="20%">Product</th>
+                                    <th class="text-center" scope="col" width="20%">Price</th>
+                                    <th class="text-center" scope="col" width="20%">Quantity</th>
+                                    <th class="text-center" scope="col" width="20%">Subtotal</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,11 +60,9 @@ function updateCartItem(obj, rowid) {
                                     </td>
                                     <td><?=$cart_item['name']?></td>
                                     <td>₱ <?= number_format( $cart_item['price'],2 )?></td>
-                                    <td><input type="number" class="form-control text-center" value="<?=$cart_item['bilang']?>"
-                            onChange="">
-                    </td>
+                                    <td class="text-center"><?=$cart_item['bilang']?></td>
                                     
-                                    <td value="total">₱ <?=$cart_item['bilang'] * $cart_item['price']?></td>
+                                    <td class="text-center" value="total">₱ <?=$cart_item['bilang'] * $cart_item['price']?></td>
                                     
                                 </tr>
                                 <?php $subtotal += ($cart_item['bilang'] * $cart_item['price']) ?>
@@ -93,7 +90,7 @@ function updateCartItem(obj, rowid) {
                             </dd>
                         </dl>
                         <label for="message" class="text-dark"><b>Leave a message:</b></label>
-                        <td><textarea cols="45" rows="5" type="text"></textarea></td>
+                        <td><textarea cols="33" rows="5" type="text"></textarea></td>
                         <hr> <a href="<?php echo base_url('checkout');?>" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> PLACE ORDER </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
                     </div>
                 </div>
