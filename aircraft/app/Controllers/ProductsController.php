@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 use App\Models\MenuModel;
+use App\Models\PlaceOrderModel;
+use App\Models\CartModel;
+use App\Models\CheckoutModel;
 
 class ProductsController extends BaseController
 {
@@ -117,6 +120,28 @@ class ProductsController extends BaseController
     $menu_model = new MenuModel();
     $result['result'] = $menu_model->find($id);
     return view('Menus/singlesearch', $result);
+  }
+
+  public function placeorder() 
+  {
+        $order_model = new \App\Models\PlaceOrderModel();
+        $cart_model = new CartModel();
+        $menuid = $this->request->getPost('menuid[]');
+        $total = $this->request->getPost('total[]');
+
+        for($i = 0; $i < count($menuid); $i++){
+            $data = [
+                'menuid' => $menuid[$i],
+                'user_id' => session()->get('id'),
+                'total' => $total[$i]      
+            ];
+            if($order_model->insert($data) == 0){
+                
+                $cart_model->where('menuid',  $menuid[$i])->where('user_id', session()->get('id'))->delete();
+                
+            }
+        }
+        return redirect()->route('orders');
   }
 
 }

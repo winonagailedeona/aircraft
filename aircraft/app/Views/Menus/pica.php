@@ -31,7 +31,7 @@
                       <div class="position-relative bg-primary mt-n3 mb-1 p-2" style="width: 300px; height: 200px;">
                         <img class="w-100 h-100" src="<?= $pi['image']?>" style="object-fit: cover;">
                       </div>
-                        <h5 class="font-weight-bold mb-4"><?= $pi['name']?></h5>
+                        <h5 class="font-weight-bold mb-4"><?= $pi['productname']?></h5>
                         <?php if($pi['quantity'] <=0){?>
                         Not Available
                       <?php } ?>

@@ -52,6 +52,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?= base_url('processorders'); ?>" class="nav-link">
+              <i class="nav-icon fas fa-cart-plus"></i>
+              <p>
+                Processing Orders
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?= base_url('menuTable'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -86,16 +94,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('addAdmin'); ?>" class="nav-link active">
-              <i class="nav-icon fas fa-user-plus"></i>
-              <p>
-                Add New Admin
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo base_url('adminsign');?>" class="nav-link">
-              <i class="fas fa-power-off"></i>
+            <a href="<?= base_url('adminsign'); ?>" class="nav-link active">
+              <i class="nav-icon fas fa-power-off"></i>
               <p>
                 Logout
               </p>

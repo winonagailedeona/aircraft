@@ -48,30 +48,30 @@ function updateCartItem(obj, rowid) {
                             </thead>
                             <tbody>
             
+                            <form action="placeorder" method="post">
+														<?php if (count($cart) > 0) : ?>
+															<?php foreach ($cart as $cart_item) : ?>
+																<tr class="table-body-row">
+																	<input type="hidden" name="menuid[]" value="<?= $cart_item['menuid'] ?>"></input>
+																	<input type="hidden" name="total[]" value="<?= $cart_item['total'] ?>"></input>
+																	<td>
+                                                                        <figure class="itemside align-items-center">
+                                                                        <div class="aside"><img src="<?= base_url($cart_item['image']) ?>" class="img-sm"></div>
+                                                                        </figure>
+                                                                    </td>
+                                                                    <td><?=$cart_item['productname']?></td>
+                                                                    <td>₱ <?= number_format( $cart_item['price'],2 )?></td>
+                                                                    <td class="text-center"><?=$cart_item['bilang']?></td>
+                                                                    
+                                                                    <td class="text-center" value="total">₱ <?=$cart_item['bilang'] * $cart_item['price']?></td>
+                                    
+                                                                </tr>
+                                                                <?php $subtotal += ($cart_item['bilang'] * $cart_item['price']) ?>
+															<?php endforeach; ?>
 
-                            <?php if($cart > 0){?>
-                                
-                            <?php foreach($cart as $cart_item): ?>
-                                <tr>
-                                    <td>
-                                        <figure class="itemside align-items-center">
-                                            <div class="aside"><img src="<?= base_url($cart_item['image']) ?>" class="img-sm"></div>
-                                        </figure>
-                                    </td>
-                                    <td><?=$cart_item['name']?></td>
-                                    <td>₱ <?= number_format( $cart_item['price'],2 )?></td>
-                                    <td class="text-center"><?=$cart_item['bilang']?></td>
-                                    
-                                    <td class="text-center" value="total">₱ <?=$cart_item['bilang'] * $cart_item['price']?></td>
-                                    
-                                </tr>
-                                <?php $subtotal += ($cart_item['bilang'] * $cart_item['price']) ?>
-                            <?php endforeach; ?>
-                            <?php } else { ?>
-                <tr>
-                    <td><p style="color: #212529;">No Items In Your Cart!!</p></td>
-                </tr>
-                <?php } ?>
+														<?php endif; ?>
+														<button type="submit" id="submit" style="display:none;"></button>
+													</form>                           
                             </tbody>
                         </table>
                     </div>
@@ -89,9 +89,7 @@ function updateCartItem(obj, rowid) {
                             <dd class="text-right ml-3">  <?php if($cart >0){ echo '₱' . $subtotal;} ?>
                             </dd>
                         </dl>
-                        <label for="message" class="text-dark"><b>Leave a message:</b></label>
-                        <td><textarea style="width: 100%" rows="5" type="text"></textarea></td>
-                        <hr> <a href="<?php echo base_url('checkout');?>" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> PLACE ORDER </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
+                        <hr> <a href="#" id="placeorder" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> PLACE ORDER </a> <a href="<?php echo base_url('profile');?>" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Ordering</a>
                     </div>
                 </div>
             </aside>
@@ -104,6 +102,12 @@ function updateCartItem(obj, rowid) {
 <!-- Back to Top -->
 <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+<script src="https://code.jquery.com/jquery-3.5.0.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
+<script>
+    $('#placeorder').click(function(){
+        $('#submit').click();
+        $('#info').click();
+    })
+</script>
 <!-- About End -->
 <?= $this->include('Menus/inc/end') ?>
-

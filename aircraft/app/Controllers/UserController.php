@@ -7,6 +7,7 @@ use App\Models\CartModel;
 use App\Models\MenuModel;
 use App\Models\UserModel;
 use App\Models\CheckoutModel;
+use App\Models\PlaceOrderModel;
 
 class UserController extends Controller
 {
@@ -31,24 +32,21 @@ class UserController extends Controller
     $cart_model = new CartModel();
     $cart_id = $this->request->getPost('id[]');
     // var_dump($cart_id);
-    $cart_user_id = [
-      'cart.user_id' => $id,
-      'cart.menuid' => $cart_id,
-    ];
+    
     if(isset($cart_id)){
       $checkout_model = new CheckoutModel();
 
 
     for($i = 0; $i < count($cart_id); $i++)
     {
-      $checkout_model->insert(array('menu_id' => $cart_id[$i], 'user_id' => $id));
+      $checkout_model->insert(array('menuid' => $cart_id[$i], 'user_id' => $id));
 
-    }
+    } 
 
 
     $cart["cart"] = $checkout_model->select('*')
-      ->join('product', 'checkout.menu_id = product.id', 'right')
-      ->join('cart', 'checkout.menu_id = cart.menuid', 'right')
+      ->join('product', 'checkout.menuid = product.id', 'right')
+      ->join('cart', 'checkout.menuid = cart.menuid', 'right')
       ->where('checkout.user_id', $id)->get()->getResultArray();
 
 
@@ -88,7 +86,14 @@ class UserController extends Controller
 
   public function orders()
   {
-    return view('User/orders');
+    $placeorder = new PlaceOrderModel();
+    $data = [
+      'placeorder' => $placeorder->select('*')
+      ->join('product', 'product.id = orders.menuid', 'right')
+      ->where('orders.user_id', session()->get('id'))
+    ];
+    // var_dump($data);
+    return view('User/orders', $data);
   }
 
   public function faqs()

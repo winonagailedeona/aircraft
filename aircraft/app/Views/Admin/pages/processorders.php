@@ -28,12 +28,13 @@
                         <th>Image</th>
                         <th>Product Name</th>
                         <th>Customer Name</th>
-                        <th>Email</th>
+                        <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Status</th>
-                        <th>Order-Date</th>
-                        <th>Actions</th>
+                        <th>Payment</th>
+                        <th>Processed-Date</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -42,48 +43,20 @@
                         <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
                         <td><?= $orders['productname']?></td>
                         <td><?= $orders['name']?></td>
-                        <td><?= $orders['email']?></td>
                         <td><?= $orders['quantity']?></td>
                         <td><?= $orders['total']?></td>
+                        <td><?= $orders['total']?></td>
                         <td> <button type="button" class="btn btn-success"><span class="fa fa-check-circle"aria-hidden="true"></span> Delivered</button></td>
-                        <td><?= $orders['created_at']?></td>
-
+                        <td></td>
+                        <td><?= $orders['updated_at']?></td>
                         <td>
-                        <a href="<?= site_url('accept/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i>Accept</a>
+                        <a href="" class="btn-sm btn-primary"><i class="fas fa-check"> </i>Accept</a>
                         <!-- <a href=""class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Process</a>
                             <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a> -->
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                    <!-- <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"
-                                    aria-hidden="true"></span> On the way!</button></td>
-                        <td></td>
-                        <td>
-                        <a href=""class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Process</a>
-                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td> <button type="button" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelled</button></td>
-                        <td></td>
-                        <td>
-                            <a href=""class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Process</a>
-                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
-                        </td>
-                    </tr> -->
+                    
                   </table>
                 </div>
                 <!-- /.card-body -->

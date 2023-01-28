@@ -7,7 +7,7 @@ class MenuModel extends Model
   protected $table = 'product';
   protected $primaryKey = 'id';
   protected $allowedFields = [
-    'name',
+    'productname',
     'description',
     'price',
     'quantity',

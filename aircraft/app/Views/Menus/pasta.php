@@ -33,7 +33,7 @@
                       <div class="position-relative bg-primary mt-n3 mb-1 p-2" style="width: 300px; height: 200px;">
                         <img class="w-100 h-100" src="<?= $pr['image']?>" style="object-fit: cover;">
                       </div>
-                        <h5 class="font-weight-bold mb-4"><?= $pr['name']?></h5>
+                        <h5 class="font-weight-bold mb-4"><?= $pr['productname']?></h5>
                         <?php if($pr['quantity'] <=0){?>
                         Not Available
                       <?php } ?>

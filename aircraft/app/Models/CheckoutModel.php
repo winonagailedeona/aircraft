@@ -10,6 +10,6 @@ class CheckoutModel extends Model
     protected $table            = 'checkout';
 
     protected $returnType       = 'array';
-    protected $allowedFields    = ['user_id', 'menu_id'];
+    protected $allowedFields    = ['user_id', 'menuid'];
 
 }

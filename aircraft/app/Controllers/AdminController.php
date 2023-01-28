@@ -3,13 +3,28 @@
 namespace App\Controllers;
 use App\Models\AddAdminModel;
 use App\Models\MenuModel;
-use App\Models\CustomersModel;
+// use App\Models\CustomersModel;
+use App\Models\PlaceOrderModel;
+use App\Models\UserModel;
 
 class AdminController extends BaseController
 {
+  public function admlogin()
+  {
+    return view('adminlogin');
+  }
+
     public function index()
     {
-        return view('Admin/index');
+        $usermodel = new UserModel();
+        $data['users'] = $usermodel->selectCount('id', 'totalusers')->first(); 
+        $menumodel = new MenuModel();
+        $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
+        // $pendingmodel = new PlaceOrderModel();
+        // $data['pending'] = $pendingmodel->selectCount('id', 'totalpending')->first(); 
+        // $processedmodel = new MenuModel();
+        // $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
+        return view('Admin/index', $data);
     }
 
         public function profile()
@@ -82,79 +97,13 @@ class AdminController extends BaseController
       
     }
 
-    //ADD NEW ADMIN
-    public function adminTable()
-    {
-      $ad = new AddAdminModel();
-      $data = [
-        'admin' => $ad->findAll()
-      ];
-      return view('Admin/pages/add_new_admin', $data);
-    }
 
-    public function saveAdmin()
-    {
-      $image = $this->request->getVar('image');
-      $name = $this->request->getVar('name');
-      $email = $this->request->getVar('email');
-      $password = $this->request->getVar('password');
-      $position = $this->request->getVar('position');
-
-      $ad = new AddAdminModel();
-      $data = [
-        'image' => $image,
-        'name' => $name,
-        'email' => $email,
-        'password' => $password,
-        'position' => $position
- 
-      ];
-      $ad->save($data);
-      return redirect()->to($_SERVER['HTTP_REFERER']);
-    }
-
-    public function editAdmin($id = null)
-    {
-      $admin = new AddAdminModel();
-      $data['admin'] = $admin->where('id', $id)->first();
-      return view('Admin/pages/editAdmin', $data);
-    }
-
-    public function updateAdmin()
-      {
-        $id = $this->request->getVar('id');
-        $image = $this->request->getVar('image');
-        $name = $this->request->getVar('name');
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-        $position = $this->request->getVar('position');
-
-        $admin = new AddAdminModel();
-        $data = [
-          'image' => $image,
-          'name' => $name,
-          'email' => $email,
-          'password' => $password,
-          'position' => $position
-        ];
-
-          $admin->set($data)->where('id', $id)->update();
-        return redirect()->to('/addAdmin');
-      
-    }
-
-    public function deleteadmin($id = null)
-    {
-      $admin = new AddAdminModel();
-      $admin->delete(['id' => $id]);
-      return redirect()->to('/addAdmin');
-    }
 
     // CUSTOMERS SECTION
 
     public function customers()
     {
-      $cus = new CustomersModel();
+      $cus = new UserModel();
       $data = [
         'users' => $cus->findAll()
       ];
@@ -167,7 +116,7 @@ class AdminController extends BaseController
       $email = $this->request->getVar('email');
       $password = $this->request->getVar('password');
 
-      $cus = new CustomersModel();
+      $cus = new UserModel();
       $data = [
         'name' => $name,
         'email' => $email,
@@ -178,10 +127,41 @@ class AdminController extends BaseController
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
 
+    
     public function orders()
     {
-      return view('Admin/pages/orders');
+      $order_model = new PlaceOrderModel();
+        $data = [
+            'placeorder' => $order_model->select('*')
+            ->join('product', 'product.id = orders.menuid', 'right')
+            ->join('users', 'users.id = orders.user_id', 'right')
+            ->where('status', 'PENDING')
+            ->get()->getResultArray()
+        ];
+        // var_dump($data);
+      return view('Admin/pages/orders', $data);
     }
+
+    public function accept($id, $user_id){
+      $placeorder = new PlaceOrderModel();
+      $placeorder->set('status', 'To Be Pick Up')->where('user_id', $user_id)
+      ->where('menuid', $id)->update();
+
+      return redirect()->route('orders');
+  }
+
+  public function process()
+  {
+    $order_model = new PlaceOrderModel();
+        $data = [
+            'placeorder' => $order_model->select('*')
+            ->join('product', 'product.id = orders.menuid', 'right')
+            ->join('users', 'users.id = orders.user_id', 'right')
+            ->where('status', 'To Be Pick Up')
+            ->get()->getResultArray()
+        ];
+      return view('Admin/pages/processorders', $data);
+  }
 
 }
 

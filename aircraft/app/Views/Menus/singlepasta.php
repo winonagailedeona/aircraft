@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3"><?= $pasta['name']?></h4>
+                    <h4 class="font-weight-bold mb-3"><?= $pasta['productname']?></h4>
                     <p><?= $pasta['description']?></p>
                     <h5 class="text-dark mb-3"><?= $pasta['price']?></h5>
                     <form action="<?= site_url('cart')?>" method="post">

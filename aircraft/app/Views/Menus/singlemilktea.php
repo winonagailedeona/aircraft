@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3"><?= $milktea['name']?></h4>
+                    <h4 class="font-weight-bold mb-3"><?= $milktea['productname']?></h4>
                     <p><?= $milktea['description']?></p>
                     <h5 class="text-dark mb-3"><?= $milktea['price']?></h5>
                     <form action="<?= site_url('cartmi')?>" method="post">

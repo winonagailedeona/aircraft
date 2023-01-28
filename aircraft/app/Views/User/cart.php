@@ -164,7 +164,7 @@
                                                         <div class="aside"><img src="<?= base_url($cart_item['image']) ?>" class="img-sm"></div>
                                                     </figure>
                                                 </td>
-                                                <td><?= $cart_item['name'] ?></td>
+                                                <td><?= $cart_item['productname'] ?></td>
                                                 <td>₱ <?= number_format($cart_item['price'], 2) ?></td>
                                                 <td><?= $cart_item['bilang'] ?></td>
 

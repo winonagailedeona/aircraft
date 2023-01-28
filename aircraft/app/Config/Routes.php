@@ -55,8 +55,14 @@ $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController:
 $routes->get('/signin', 'SigninController::index');
 $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 
-$routes->get('/adminprofile', 'ProfileController::adminindex',['filter' => 'authGuard']);
-$routes->get('/adminsign', 'SigninController::admin');
+$routes->get('/adlogin', 'AdminController::admlogin');
+$routes->match(['get', 'post'], 'SigninController/signinAuth', 'SigninController::signinAuth');
+$routes->get('/signin', 'SigninController::admin');
+$routes->get('/adprofile', 'ProfileController::admin',['filter' => 'authGuard']);
+
+
+
+
 
 //ADMIN PANEL
 //profile
@@ -80,7 +86,7 @@ $routes->get('/adorders', 'AdminController::orders');
 
 //This is add new admin section
 $routes->get('/addAdmin', 'AdminController::adminTable');
-$routes->post('/saveAdmin', 'AdminController::saveAdmin');
+$routes->post('/saveAdmin', 'SignupController::saveAdmin');
 $routes->get('/editAdmin/(:any)', 'AdminController::editAdmin/$1');
 $routes->post('/updateAdmin', 'AdminController::updateAdmin');
 $routes->get('/deleteadmin/(:any)', 'AdminController::deleteadmin/$1');
@@ -88,6 +94,8 @@ $routes->get('/deleteadmin/(:any)', 'AdminController::deleteadmin/$1');
 //USER
 $routes->get('/userprofile', 'UserController::profile');
 $routes->match(['get', 'post'], '/checkout', 'UserController::checkout');
+$routes->post('/placeorder', 'ProductsController::placeorder');
+$routes->get('/accept/(:any)', 'AdminController::accept/$1');
 
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');
@@ -114,6 +122,9 @@ $routes->get('/spp/(:any)', 'ProductsController::spp/$1');
 $routes->get('/spd/(:any)', 'ProductsController::spd/$1');
 $routes->get('/spmi/(:any)', 'ProductsController::spmi/$1');
 $routes->get('/spo/(:any)', 'ProductsController::spo/$1');
+
+//ADMIN ORDERS
+$routes->get('/processorders', 'AdminController::process');
 
 /*
  * --------------------------------------------------------------------
