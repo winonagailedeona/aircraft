@@ -103,9 +103,9 @@ class AdminController extends BaseController
 
     public function customers()
     {
-      $cus = new UserModel();
+      $users = new UserModel();
       $data = [
-        'users' => $cus->findAll()
+        'users' => $user->findAll()
       ];
       return view('Admin/pages/customers', $data);
     }
@@ -114,21 +114,21 @@ class AdminController extends BaseController
     {
       $name = $this->request->getVar('name');
       $email = $this->request->getVar('email');
-      $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+      $password = $this->request->getVar('password');
 
-      $cus = new UserModel();
+      $users = new UserModel();
       $data = [
         'name' => $name,
         'email' => $email,
         'password' => $password
  
       ];
-      $cus->save($data);
+      $users->save($data);
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
 
     
-    public function orders()
+    public function myorders()
     {
       $order_model = new PlaceOrderModel();
         $data = [
@@ -192,12 +192,13 @@ public function cancelled()
       return view('Admin/pages/cancelorders', $data);
   }
 
-  public function blocked($id){
-    $cus = new UserModel();
-    $cus->set('status', 'BLOCKED')->where('id')->where('id', $id)->update();
+//   public function blocked($id, $user_id){
+//     $cus = new UserModel();
+//     $cus->set('status', 'BLOCKED')->where('id',id)
+//     ->where('user_id', $id)->update();
 
-    return redirect()->route('customers');
-}
+//     return redirect()->route('customers');
+// }
 
 }
 

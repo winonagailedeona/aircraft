@@ -123,7 +123,7 @@ class ProductsController extends BaseController
 
   public function placeorder() 
   {
-        $order_model = new \App\Models\PlaceOrderModel();
+        $order_model = new PlaceOrderModel();
         $cart_model = new CartModel();
         $menuid = $this->request->getPost('menuid[]');
         $total = $this->request->getPost('total[]');

@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 
 class CustomersModel extends Model
 {
-  protected $table = 'users';
+  protected $table = 'userll';
   protected $primaryKey = 'id';
   protected $allowedFields = [
     'name',

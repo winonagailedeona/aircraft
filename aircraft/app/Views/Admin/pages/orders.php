@@ -42,7 +42,7 @@
                         <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
                         <td><?= $orders['productname']?></td>
                         <td><?= $orders['name']?></td>
-                        <td><?= $orders['contact']?></td>
+                        <td><?= $orders['contactno']?></td>
                         <td><?= $orders['quantity']?></td>
                         <td><?= $orders['total']?></td>
                         <td> <button type="button" class="btn btn-danger"><span></span>PENDING</button></td>
