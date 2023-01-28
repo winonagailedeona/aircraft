@@ -34,7 +34,7 @@
                         <p><b>Add Product</b></p>
                         <form action="saveMenu" method="post">
                           <div class="form-group mb-4">
-                            <input type="text" name="name" class="form-control" value="" placeholder="Product Name" required>
+                            <input type="text" name="productname" class="form-control" value="" placeholder="Product Name" required>
                           </div>
                           <div class="form-group mb-4">
                             <input type="text" name="description" class="form-control" placeholder="Product Description" required>
@@ -85,7 +85,7 @@
                     <tbody>
                       <?php foreach ($menu as $me): ?>
                     <tr>
-                      <td style="font-size: 14px;"><?= $me['name']?></td>
+                      <td style="font-size: 14px;"><?= $me['productname']?></td>
                       <td style="font-size: 14px;"><?= $me['description']?></td>
                       <td style="font-size: 14px;"><?= $me['price']?></td>
                       <td style="font-size: 14px;"><?= $me['category']?></td>

@@ -32,7 +32,6 @@
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Status</th>
-                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,12 +43,8 @@
                         <td><?= $orders['contactno']?></td>
                         <td><?= $orders['quantity']?></td>
                         <td><?= $orders['total']?></td>
-                        <td><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
+                        <td><button type="button" class="btn btn-secondary"> CANCELLED</button></td>
 
-                        
-                        <td>
-                        <a href="<?= site_url('processed/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Ready To Serve</a>
-                        </td>
                     </tr>
                     <?php endforeach; ?>
                     

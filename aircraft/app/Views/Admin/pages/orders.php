@@ -28,7 +28,7 @@
                         <th>Image</th>
                         <th>Product Name</th>
                         <th>Customer Name</th>
-                        <th>Email</th>
+                        <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Status</th>
@@ -42,14 +42,15 @@
                         <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
                         <td><?= $orders['productname']?></td>
                         <td><?= $orders['name']?></td>
-                        <td><?= $orders['email']?></td>
+                        <td><?= $orders['contact']?></td>
                         <td><?= $orders['quantity']?></td>
                         <td><?= $orders['total']?></td>
-                        <td> <button type="button" class="btn btn-success"><span class="fa fa-check-circle"aria-hidden="true"></span> Delivered</button></td>
+                        <td> <button type="button" class="btn btn-danger"><span></span>PENDING</button></td>
                         <td><?= $orders['created_at']?></td>
 
                         <td>
-                        <a href="<?= site_url('accept/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i>Accept</a>
+                        <a href="<?= site_url('accept/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Confirm</a>
+                        <a href="<?= site_url('cancel/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-secondary"><i class="fas fa-times"> </i> Cancel</a>
                         <!-- <a href=""class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Process</a>
                             <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a> -->
                         </td>

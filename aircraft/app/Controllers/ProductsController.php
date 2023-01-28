@@ -54,7 +54,6 @@ class ProductsController extends BaseController
     return view('Menus/pica', $data);
   }
 
- 
   public function sandwichProducts()
   {
     $sa = new MenuModel();

@@ -11,6 +11,8 @@ use App\Models\PlaceOrderModel;
 
 class UserController extends Controller
 {
+
+
   public function profile()
   {
     return view('User/profile');
@@ -21,17 +23,26 @@ class UserController extends Controller
     return view('about');
   }
 
-  // public function checkoutDelete()
-  // {
+  public function faqs()
+  {
+    return view('faqs');
+  }
 
-  // }
+  public function search()
+  {
+
+    $query = $this->request->getVar('search');
+    $search = new MenuModel();
+    $searching = array('name' => $query, 'category' => $query, '');
+    $result['result'] = $search->like('name', $query)->orLike('category', $query)->orLike('description', $query)->get()->getResultArray();
+    return view('Menus/others', $result);
+  }
 
   public function checkout()
   {
     $id = session()->get('id');
     $cart_model = new CartModel();
     $cart_id = $this->request->getPost('id[]');
-    // var_dump($cart_id);
     
     if(isset($cart_id)){
       $checkout_model = new CheckoutModel();
@@ -43,13 +54,10 @@ class UserController extends Controller
 
     } 
 
-
     $cart["cart"] = $checkout_model->select('*')
       ->join('product', 'checkout.menuid = product.id', 'right')
       ->join('cart', 'checkout.menuid = cart.menuid', 'right')
       ->where('checkout.user_id', $id)->get()->getResultArray();
-
-
 
      return view('User/checkout', $cart);
 
@@ -60,30 +68,6 @@ class UserController extends Controller
     
   }
 
-  // public function editprofile($id = null)
-  // {
-  //   $userModel = new UserModel();
-  //   $user['user'] = $userModel->where('id', $id)->first();
-  //   return view('User/profile', $data);
-  // }
-
-  // public function updateprofile()
-  //   {
-  //     $id = $this->request->getVar('id');
-  //     $name = $this->request->getVar('name');
-  //     $email = $this->request->getVar('email');
-
-  //     $userModel = new UserModel();
-  //     $data = [
-  //       'name' => $name,
-  //       'email' => $email
-  //     ];
-
-  //     $userModel->set($data)->where('id', $id)->update();
-  //     return redirect()->to('userprofile');
-
-  // }
-
   public function orders()
   {
     $placeorder = new PlaceOrderModel();
@@ -92,13 +76,7 @@ class UserController extends Controller
       ->join('product', 'product.id = orders.menuid', 'right')
       ->where('orders.user_id', session()->get('id'))
     ];
-    // var_dump($data);
     return view('User/orders', $data);
-  }
-
-  public function faqs()
-  {
-    return view('faqs');
   }
 
   public function showcart()
@@ -114,22 +92,7 @@ class UserController extends Controller
     $cart['total'] = $cart_model->selectSum('total')
       ->where('user_id', $id)->get()->getResultArray();
 
-    //  var_dump($cart['cart']);
-
     return view('User/cart', $cart);
-  }
-
-
-
-
-  public function search()
-  {
-
-    $query = $this->request->getVar('search');
-    $search = new MenuModel();
-    $searching = array('name' => $query, 'category' => $query, '');
-    $result['result'] = $search->like('name', $query)->orLike('category', $query)->orLike('description', $query)->get()->getResultArray();
-    return view('Menus/others', $result);
   }
 
   //ADDING TO CART
@@ -167,8 +130,6 @@ class UserController extends Controller
     else{
       echo 'out of stock';
     }
-      
-
 
     return redirect('showcart');
   }
@@ -283,19 +244,34 @@ class UserController extends Controller
   public function cartp()
   {
     $id = $this->request->getPost('id');
+    $userid = session()->get('id');
     $menu_model = new MenuModel();
+    $cart_model = new CartModel();
     $pasta = $menu_model->find($id);
     $quantity =  $this->request->getPost('quantity');
     $price = (float)$pasta['price'] * (int)$quantity;
 
+    $resultExist = $cart_model->where('user_id', $userid)->where('menuid', $id)->find();
+    $productInfo = $menu_model->find($id);
+
     $values = [
       'user_id' => session()->get('id'),
-      'menuid' => (int)$this->request->getPost('id'),
+      'menuid' => (int)$id,
       'bilang' => $quantity,
       'total' => $price
     ];
-    $cart_model = new CartModel();
-    $cart = $cart_model->insert($values);
+    if(count($resultExist) == 0 && $productInfo['quantity'] != 0){
+   
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->insert($values);
+    }
+    elseif(count($resultExist) > 0 && $productInfo['quantity'] != 0){
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->set('bilang', $resultExist[0]['bilang'] + $quantity)->set('total', $resultExist[0]['total'] + $price)->where('user_id', $userid)->where('menuid', $id)->update();
+    }
+    else{
+      echo 'out of stock';
+    }
 
     return redirect('showcart');
   }
@@ -303,24 +279,37 @@ class UserController extends Controller
   public function cartd()
   {
     $id = $this->request->getPost('id');
+    $userid = session()->get('id');
     $menu_model = new MenuModel();
+    $cart_model = new CartModel();
     $dessert = $menu_model->find($id);
     $quantity =  $this->request->getPost('quantity');
     $price = (float)$dessert['price'] * (int)$quantity;
 
+    $resultExist = $cart_model->where('user_id', $userid)->where('menuid', $id)->find();
+    $productInfo = $menu_model->find($id);
+
     $values = [
       'user_id' => session()->get('id'),
-      'menuid' => (int)$this->request->getPost('id'),
+      'menuid' => (int)$id,
       'bilang' => $quantity,
       'total' => $price
     ];
-    $cart_model = new CartModel();
-    $cart = $cart_model->insert($values);
+    if(count($resultExist) == 0 && $productInfo['quantity'] != 0){
+   
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->insert($values);
+    }
+    elseif(count($resultExist) > 0 && $productInfo['quantity'] != 0){
+      $menu_model->set('quantity', $productInfo['quantity'] - $quantity)->where('id', $id)->update();
+      $cart_model->set('bilang', $resultExist[0]['bilang'] + $quantity)->set('total', $resultExist[0]['total'] + $price)->where('user_id', $userid)->where('menuid', $id)->update();
+    }
+    else{
+      echo 'out of stock';
+    }
 
     return redirect('showcart');
   }
-
-  
 
   public function carto()
   {
@@ -358,6 +347,7 @@ class UserController extends Controller
     return redirect('showcart');
   }
 
+  //DELETING FROM CART
   public function deletecartitem($cartid = null)
   {
     $cartitem = new CartModel();

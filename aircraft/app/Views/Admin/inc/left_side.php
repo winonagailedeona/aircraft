@@ -47,7 +47,7 @@
             <a href="<?= base_url('adorders'); ?>" class="nav-link">
               <i class="nav-icon fas fa-cart-plus"></i>
               <p>
-                Orders
+                New Orders
               </p>
             </a>
           </li>
@@ -56,6 +56,14 @@
               <i class="nav-icon fas fa-cart-plus"></i>
               <p>
                 Processing Orders
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('cancelorders'); ?>" class="nav-link">
+              <i class="nav-icon fas fa-cart-plus"></i>
+              <p>
+                Cancelled Orders
               </p>
             </a>
           </li>
@@ -85,14 +93,14 @@
           </li>
 <br><br>
           <li class="nav-header">SETTINGS</li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="<?= base_url('adprofile'); ?>" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profile
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="<?= base_url('adminsign'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-power-off"></i>

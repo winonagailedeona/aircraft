@@ -46,8 +46,7 @@ $routes->get('/dessert', 'ProductsController::dessertProducts');
 $routes->get('/others', 'ProductsController::allProducts');
 $routes->match(['get', 'post'], 'ProductController/store', 'ProductController::store');
 
-
-//LOGIN AND REGISTER
+//LOGIN AND REGISTER USER
 $routes->get('/', 'SigninController::index');
 $routes->get('/signup', 'SignupController::index');
 $routes->match(['get', 'post'], 'SignupController/store', 'SignupController::store');
@@ -55,19 +54,11 @@ $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController:
 $routes->get('/signin', 'SigninController::index');
 $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 
+//LOGIN ADMIN
 $routes->get('/adlogin', 'AdminController::admlogin');
 $routes->match(['get', 'post'], 'SigninController/signinAuth', 'SigninController::signinAuth');
 $routes->get('/signin', 'SigninController::admin');
 $routes->get('/adprofile', 'ProfileController::admin',['filter' => 'authGuard']);
-
-
-
-
-
-//ADMIN PANEL
-//profile
-$routes->get('/adprofile', 'AdminController::profile');
-$routes->post('/updateProfile', 'AdminController::updateProfile');
 
 //This is dashboard
 $routes->get('/admin', 'AdminController::index');
@@ -83,24 +74,22 @@ $routes->post('/saveCustomer', 'AdminController::saveCustomer');
 
 //Orders
 $routes->get('/adorders', 'AdminController::orders');
+$routes->get('/processorders', 'AdminController::processing');
+$routes->get('/cancelorders', 'AdminController::cancelled');
 
-//This is add new admin section
-$routes->get('/addAdmin', 'AdminController::adminTable');
-$routes->post('/saveAdmin', 'SignupController::saveAdmin');
-$routes->get('/editAdmin/(:any)', 'AdminController::editAdmin/$1');
-$routes->post('/updateAdmin', 'AdminController::updateAdmin');
-$routes->get('/deleteadmin/(:any)', 'AdminController::deleteadmin/$1');
 
 //USER
 $routes->get('/userprofile', 'UserController::profile');
 $routes->match(['get', 'post'], '/checkout', 'UserController::checkout');
-$routes->post('/placeorder', 'ProductsController::placeorder');
-$routes->get('/accept/(:any)', 'AdminController::accept/$1');
 
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/search', 'UserController::search');
 $routes->post('/search', 'UserController::search');
 $routes->get('/showcart', 'UserController::showcart');
+$routes->post('/placeorder', 'ProductsController::placeorder');
+$routes->get('/accept/(:any)', 'AdminController::accept/$1');
+$routes->get('/cancel/(:any)', 'AdminController::cancel/$1');
+$routes->get('/processed/(:any)', 'AdminController::processed/$1');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');
 $routes->get('/faqs', 'UserController::faqs');
 $routes->get('/about', 'UserController::about');
@@ -123,8 +112,6 @@ $routes->get('/spd/(:any)', 'ProductsController::spd/$1');
 $routes->get('/spmi/(:any)', 'ProductsController::spmi/$1');
 $routes->get('/spo/(:any)', 'ProductsController::spo/$1');
 
-//ADMIN ORDERS
-$routes->get('/processorders', 'AdminController::process');
 
 /*
  * --------------------------------------------------------------------

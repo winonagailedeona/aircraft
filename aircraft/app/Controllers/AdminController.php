@@ -135,7 +135,7 @@ class AdminController extends BaseController
             'placeorder' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
-            ->where('status', 'PENDING')
+            ->where('status', 'Order Placed')
             ->get()->getResultArray()
         ];
         // var_dump($data);
@@ -144,23 +144,52 @@ class AdminController extends BaseController
 
     public function accept($id, $user_id){
       $placeorder = new PlaceOrderModel();
-      $placeorder->set('status', 'To Be Pick Up')->where('user_id', $user_id)
+      $placeorder->set('status', 'Order Confirmed')->where('user_id', $user_id)
       ->where('menuid', $id)->update();
 
-      return redirect()->route('orders');
+      return redirect()->route('adorders');
   }
 
-  public function process()
+  public function cancel($id, $user_id){
+    $placeorder = new PlaceOrderModel();
+    $placeorder->set('status', 'Order Cancelled')->where('user_id', $user_id)
+    ->where('menuid', $id)->update();
+
+    return redirect()->route('adorders');
+}
+
+  public function processing()
   {
     $order_model = new PlaceOrderModel();
         $data = [
             'placeorder' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
-            ->where('status', 'To Be Pick Up')
+            ->where('status', 'Ready To Serve')
             ->get()->getResultArray()
         ];
       return view('Admin/pages/processorders', $data);
+  }
+  
+  public function processed($id, $user_id){
+    $placeorder = new PlaceOrderModel();
+    $placeorder->set('status', 'Ready To Serve')->where('user_id', $user_id)
+    ->where('menuid', $id)->update();
+
+    return redirect()->route('processorders');
+}
+
+public function cancelled()
+  {
+    $order_model = new PlaceOrderModel();
+        $data = [
+            'placeorder' => $order_model->select('*')
+            ->join('product', 'product.id = orders.menuid', 'right')
+            ->join('users', 'users.id = orders.user_id', 'right')
+            ->where('status', 'Order Cancelled')
+            ->get()->getResultArray()
+        ];
+      return view('Admin/pages/cancelorders', $data);
   }
 
 }
