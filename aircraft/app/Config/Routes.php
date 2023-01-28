@@ -89,6 +89,8 @@ $routes->get('/showcart', 'UserController::showcart');
 $routes->post('/placeorder', 'ProductsController::placeorder');
 $routes->get('/accept/(:any)', 'AdminController::accept/$1');
 $routes->get('/cancel/(:any)', 'AdminController::cancel/$1');
+$routes->get('/blocked/(:any)', 'AdminController::blocked/$1');
+
 $routes->get('/processed/(:any)', 'AdminController::processed/$1');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');
 $routes->get('/faqs', 'UserController::faqs');

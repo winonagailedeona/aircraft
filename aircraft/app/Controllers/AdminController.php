@@ -114,7 +114,7 @@ class AdminController extends BaseController
     {
       $name = $this->request->getVar('name');
       $email = $this->request->getVar('email');
-      $password = $this->request->getVar('password');
+      $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
 
       $cus = new UserModel();
       $data = [
@@ -191,6 +191,13 @@ public function cancelled()
         ];
       return view('Admin/pages/cancelorders', $data);
   }
+
+  public function blocked($id){
+    $cus = new UserModel();
+    $cus->set('status', 'BLOCKED')->where('id')->where('id', $id)->update();
+
+    return redirect()->route('customers');
+}
 
 }
 

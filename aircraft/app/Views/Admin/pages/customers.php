@@ -37,7 +37,7 @@
                             <input type="email" name="email" class="form-control" placeholder="Email" required>
                           </div>
                           <div class="form-group mb-4">
-                            <input type="password" name="email" class="form-control" placeholder="Password" required>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
                           </div>
                           <button type="submit" name="submit" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Save</b></button>
                         </form>
@@ -55,6 +55,7 @@
                       <th>Email</th>
                       <th>Status</th>
                       <th>Created On</th>
+                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -62,8 +63,12 @@
                     <tr>
                       <td><?= $cus['name']?></td>
                       <td><?= $cus['email']?></td>
-                      <td><span class="badge bg-success">Active</span></td>
+                      <td><span class="badge bg-success"><?= $cus['status']?></span></td>
                       <td><?= $cus['created_at']?></td>
+                      <td>
+                        <a href="<?= site_url('blocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Block</a>
+                        
+                        </td>
                     </tr>
                       <?php endforeach; ?>
 

@@ -53,7 +53,7 @@
           </li>
           <li class="nav-item">
             <a href="<?= base_url('processorders'); ?>" class="nav-link">
-              <i class="nav-icon fas fa-cart-plus"></i>
+              <i class="nav-icon fas fa-cog"></i>
               <p>
                 Processing Orders
               </p>
@@ -61,7 +61,7 @@
           </li>
           <li class="nav-item">
             <a href="<?= base_url('cancelorders'); ?>" class="nav-link">
-              <i class="nav-icon fas fa-cart-plus"></i>
+              <i class="nav-icon fas fa-ban"></i>
               <p>
                 Cancelled Orders
               </p>
