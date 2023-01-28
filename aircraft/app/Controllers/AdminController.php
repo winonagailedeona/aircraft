@@ -103,9 +103,9 @@ class AdminController extends BaseController
 
     public function customers()
     {
-      $users = new UserModel();
+      $cus = new UserModel();
       $data = [
-        'users' => $user->findAll()
+        'users' => $cus->findAll()
       ];
       return view('Admin/pages/customers', $data);
     }
@@ -116,14 +116,14 @@ class AdminController extends BaseController
       $email = $this->request->getVar('email');
       $password = $this->request->getVar('password');
 
-      $users = new UserModel();
+      $cus = new UserModel();
       $data = [
         'name' => $name,
         'email' => $email,
         'password' => $password
  
       ];
-      $users->save($data);
+      $cus->save($data);
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
 

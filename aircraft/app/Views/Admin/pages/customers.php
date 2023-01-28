@@ -63,7 +63,7 @@
                     <tr>
                       <td><?= $cus['name']?></td>
                       <td><?= $cus['email']?></td>
-                      <td><span class="badge bg-success"><?= $cus['status']?></span></td>
+                      <td><span class="badge bg-success"><?= $cus['state']?></span></td>
                       <td><?= $cus['created_at']?></td>
                       <td>
                         <a href="<?= site_url('blocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Block</a>
