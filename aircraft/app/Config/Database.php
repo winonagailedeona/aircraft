@@ -34,7 +34,7 @@ class Database extends Config
         'DSN'      => '',
         'hostname' => 'localhost',
         'username' => 'root',
-        'password' => 'paulyn',
+        'password' => '',
         'database' => 'continentea',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',

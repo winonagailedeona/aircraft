@@ -43,16 +43,25 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="<?= base_url('adorders'); ?>" class="nav-link">
+          <li class="nav-item menu-open">
+            <a class="nav-link">
+              <i class="nav-icon fas fa-clipboard"></i>
+              <p>
+                Orders
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+            <a href="<?= base_url('adorders'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-cart-plus"></i>
               <p>
                 New Orders
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="<?= base_url('processorders'); ?>" class="nav-link">
+              <li class="nav-item">
+            <a href="<?= base_url('processorders'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Processing Orders
@@ -60,16 +69,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('cancelorders'); ?>" class="nav-link">
+            <a href="<?= base_url('cancelorders'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-ban"></i>
               <p>
                 Cancelled Orders
               </p>
             </a>
           </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="<?= base_url('menuTable'); ?>" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-list"></i>
               <p>
                 Menu
               </p>
