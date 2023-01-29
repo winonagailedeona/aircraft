@@ -40,34 +40,6 @@
                 </tbody>
             </table>
         </div>
-        <br><br>
-        <h2 class="text-center">Purchased History</h2>
-        <div class="table-responsive-sm">
-            <table class="table table-bordered table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Invoice</th>
-                    </tr>
-                </thead>
-                <tbody id="myTable">
-
-                    <tr>
-
-                        <td>12-11-22</td>
-                        <td>Burger</td>
-                        <td>4</td>
-                        <td>₱ 50.00</td>
-                        <td> <button type="button" class="btn btn-success"><i class="fas fa-check"></i> Received</button>
-                        <td><a href="" class="btn btn-info"><i class="fas fa-file-alt"></i> Invoice</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 <!-- Footer Start -->

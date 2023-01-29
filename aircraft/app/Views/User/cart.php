@@ -176,10 +176,9 @@
                                             </tr>
                                         <?php endforeach; ?>
 
-                                    <?php } else { ?>
+                                    <?php } else ($cart = 0) ?> <?php {?>
                                         <tr>
-                                            <td>
-                                                <p style="color: #212529;">No Items In Your Cart!!</p>
+                                            <td colspan="6"><h3> No Items In Your Cart!</h3>
                                             </td>
                                         </tr>
                                     <?php } ?>

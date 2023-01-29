@@ -29,7 +29,7 @@
 <script src="dist/js/adminlte.js"></script>
 
 <script src="dist/js/pages/dashboard.js"></script>
-
+<script src="plugins/chart.js/Chart.min.js"></script>
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
