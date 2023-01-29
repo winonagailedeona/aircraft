@@ -22,15 +22,17 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <button id="myBtn" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Add Product</b></button>
-
-                  <!-- Start of Modal Section -->
-                  <div id="myModal" class="modal">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <span class="close">&times;</span>
-                      </div>
-                      <div class="modal-body">
+                  <button data-toggle="modal" data-target="#modal-default" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Add Product</b></button>
+                  <div class="modal fade" id="modal-default">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Add Author</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
                         <p><b>Add Product</b></p>
                         <form action="saveMenu" method="post">
                           <div class="form-group mb-4">
@@ -59,15 +61,18 @@
                           <div class="form-group mb-4">
                             <input type="text" name="image" class="form-control" placeholder="Upload Image">
                           </div>
-                          <button type="submit" name="submit" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Save</b></button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <?= $this->include('Admin/pages/inc/script_modal')?>
-                  <!-- End of Modal Section -->
 
-                  <br>
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+<button type="submit"  class="btn btn-outline-primary" >Save</button>
+</form>
+</div>
+</div>
+
+</div>
+
+</div><br>
                   <table id="example2" class="table table-bordered table-hover">
                     <br>
                     <thead>

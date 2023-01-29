@@ -20,16 +20,18 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                <button id="myBtn" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Add Customer</b></button>
-                  <!-- Start of Modal Section -->
-                  <div id="myModal" class="modal">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <span class="close">&times;</span>
-                      </div>
-                      <div class="modal-body">
-                        <p><b>Add Customer</b></p>
-                        <form action="saveCustomer" method="post">
+                <button data-toggle="modal" data-target="#modal-default" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Add Customer</b></button>
+                  <div class="modal fade" id="modal-default">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Add Author</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="saveCustomer" method="post">
                           <div class="form-group mb-4">
                             <input type="text" name="name" class="form-control" placeholder="Name" required>
                           </div>
@@ -39,11 +41,18 @@
                           <div class="form-group mb-4">
                             <input type="password" name="password" class="form-control" placeholder="Password" required>
                           </div>
-                          <button type="submit" name="submit" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Save</b></button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+<button type="submit"  class="btn btn-outline-primary" >Save</button>
+</form>
+</div>
+</div>
+
+</div>
+
+</div>
                   <?= $this->include('Admin/pages/inc/script_modal')?>
                   <!-- End of Modal Section -->
                   <br>
@@ -63,7 +72,14 @@
                     <tr>
                       <td><?= $cus['name']?></td>
                       <td><?= $cus['email']?></td>
-                      <td><span class="badge bg-success"><?= $cus['state']?></span></td>
+                      <?php $status=$cus['state']; 
+                            if($status=="ACTIVE" or $status=="BLOCKED") { ?>
+                    <?php if($status=="ACTIVE") { ?>
+                        <td> <span class="badge bg-success"> ACTIVE</span></td>
+                        <?php }?>
+                        <?php if($status=="BLOCKED") { ?>
+                        <td> <span class="badge bg-danger">BLOCKED</span></td>
+                        <?php }} ?>
                       <td><?= $cus['created_at']?></td>
                       <td>
                         <a href="<?= site_url('blocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Block</a>

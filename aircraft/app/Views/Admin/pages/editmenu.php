@@ -21,7 +21,7 @@
                   <input type="hidden" class="form-control" id="id" name="id" value="<?=$menu['id']?>">
                     <label for="name" class="col-sm-2 col-form-label">Product Name</label> 
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="name" name="name" value="<?=$menu['name']?>">
+                      <input type="text" class="form-control" id="name" name="name" value="<?=$menu['productname']?>">
                     </div>
                   </div>
                   <div class="form-group row" style="height: 180%; padding-bottom: 3%">

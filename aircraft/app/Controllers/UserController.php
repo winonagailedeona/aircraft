@@ -79,6 +79,11 @@ class UserController extends Controller
     return view('User/orders', $data);
   }
 
+  public function ordershistory()
+  {
+    return view('User/orderhistory');
+  }
+
   public function showcart()
   {
     session()->set('checkout', 'here');

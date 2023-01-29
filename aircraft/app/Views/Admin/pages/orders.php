@@ -8,7 +8,6 @@
       <!-- Content Header (Page header) -->
       <br>
       <br>
-
       <!-- Main content -->
       <section class="content" >
         <div class="container-fluid">
@@ -22,7 +21,6 @@
                 <!-- <div class="card-body" style="background-color: #3C8DBC"> -->
                 <div class="card-body">
                   <table id="example1" class="table table-bordered table-hover">
-                    <br>
                     <thead>
                     <tr>
                         <th>Image</th>
@@ -100,6 +98,7 @@
       </script>
     <!-- data tables specific script -->
   </div>
+  
 </body>
 <?= $this->include('Admin/inc/footer')?>
 <?= $this->include('Admin/inc/end')?>

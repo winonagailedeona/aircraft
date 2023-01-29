@@ -22,7 +22,6 @@
                 <!-- <div class="card-body" style="background-color: #3C8DBC"> -->
                 <div class="card-body">
                   <table id="example1" class="table table-bordered table-hover">
-                    <br>
                     <thead>
                     <tr>
                         <th>Image</th>

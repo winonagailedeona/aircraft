@@ -33,11 +33,13 @@
                 <?=session()->get('name'); ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('userprofile');?>"><i class="fas fa-user-circle"></i> My Profile</a>
+                <a class="dropdown-item" href="<?php echo base_url('userprofile');?>"><i class="fas fa-user-circle"></i>  My Profile</a>
                 <hr>
-                <a class="dropdown-item" href="<?php echo base_url('orders');?>"><i class="fas fa-shopping-bag"></i> Orders</a>
+                <a class="dropdown-item" href="<?php echo base_url('orders');?>"><i class="fas fa-shopping-bag"></i>  Recent Orders</a>
                 <hr>
-                <a class="dropdown-item" href="<?php echo base_url('signin');?>"><i class="fas fa-power-off"></i> Logout</a>
+                <a class="dropdown-item" href="<?php echo base_url('ordershistory');?>"><i class="fas fa-clipboard-check"></i>  Orders History</a>
+                <hr>
+                <a class="dropdown-item" href="<?php echo base_url('signin');?>"><i class="fas fa-power-off"></i>  Logout</a>
             </div>
         </a>&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="posi2 text-white" style="font-size: 16px;">|</span>
