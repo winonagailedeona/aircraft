@@ -62,6 +62,8 @@ class AdminController extends BaseController
         'image' => $image
       ];
       $me->save($data);
+      $session = session();
+      $session->setFlashdata('mssg', 'Successfully Added!');
       return redirect()->to($_SERVER['HTTP_REFERER']);
     }
 
@@ -75,7 +77,7 @@ class AdminController extends BaseController
     public function updateMenu()
       {
         $id = $this->request->getVar('id');
-        $name = $this->request->getVar('name');
+        $productname = $this->request->getVar('productname');
         $description = $this->request->getVar('description');
         $price = $this->request->getVar('price');
         $quantity = $this->request->getVar('quantity');
@@ -84,7 +86,7 @@ class AdminController extends BaseController
 
         $menu = new MenuModel();
         $data = [
-          'name' => $name,
+          'productname' => $productname,
           'description' => $description,
           'price' => $price,
           'quantity' => $quantity,
@@ -93,6 +95,8 @@ class AdminController extends BaseController
         ];
 
         $menu->set($data)->where('id', $id)->update();
+        $session = session();
+        $session->setFlashdata('msg', 'Updated Successfully!');
         return redirect()->to('menuTable');
       
     }
@@ -186,7 +190,7 @@ public function cancelled()
             'placeorder' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
-            ->where('status', 'Order Cancelled')
+            ->where('status', 'Cancelled by Seller')
             ->get()->getResultArray()
         ];
       return view('Admin/pages/cancelorders', $data);

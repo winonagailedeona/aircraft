@@ -19,6 +19,15 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title"><b>Menu Products</b></h3>
+                  <?php if(session()->getFlashdata('msg', 'Updated Successfully!')):?>
+            <div class="alert alert-success">
+            <?= session()->getFlashdata('msg', 'Updated Successfully!')?></div>
+            <?php endif; ?>
+            <?php if (!empty(session()->getFlashdata('mssg', 'Successfully Added!'))) : ?>
+              <div class="alert alert-success">
+                <?= session()->getFlashdata('mssg', 'Successfully Added!') ?>
+              </div>
+            <?php endif; ?>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

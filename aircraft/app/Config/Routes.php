@@ -67,6 +67,8 @@ $routes->get('/admin', 'AdminController::index');
 $routes->get('/menuTable', 'AdminController::menuTable');
 $routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
 $routes->post('/saveMenu', 'AdminController::saveMenu');
+$routes->post('/updateMenu', 'AdminController::updateMenu');
+
 
 //This is for the Customers Section
 $routes->get('/customers', 'AdminController::customers');
@@ -90,6 +92,7 @@ $routes->get('/showcart', 'UserController::showcart');
 $routes->post('/placeorder', 'ProductsController::placeorder');
 $routes->get('/accept/(:any)', 'AdminController::accept/$1');
 $routes->get('/cancel/(:any)', 'AdminController::cancel/$1');
+$routes->get('/cancelledbyuser/(:any)', 'UserController::cancelledbyuser/$1');
 $routes->get('/blocked/(:any)', 'AdminController::blocked/$1');
 
 $routes->get('/processed/(:any)', 'AdminController::processed/$1');

@@ -34,10 +34,11 @@
                         <img class="w-100 h-100" src="<?= $pr['image']?>" style="object-fit: cover;">
                       </div>
                         <h5 class="font-weight-bold mb-4"><?= $pr['productname']?></h5>
-                        <?php if($pr['quantity'] <=0){?>
-                        Not Available
-                      <?php } ?>
-                      <a href="<?= site_url('spp/'.$pr['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                        <?php if($pr['quantity'] > 0){?>
+                          <a href="<?= site_url('spp/'.$pr['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                      <?php } else {?>
+                        <b>Not Available</b>
+                        <?php }?>
               </div>
             </div>
               <?php endforeach; ?>

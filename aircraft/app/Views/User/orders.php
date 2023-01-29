@@ -17,26 +17,29 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
                         <th>Order Date</th>
-                        <th>Status</th>                        
+                        <th></th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Status</th>  
+                        <th>To Pay</th>                      
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
+                <?php foreach($placeorder as $orders): ?>
                     <tr>
-                        <td>Pasta</td>
-                        <td>3</td>
-                        <td>₱ 120.00</td>
-                        <td>12-12-22</td>
-                        <td> <button type="button" class="btn btn-danger"> <i class="far fa-times-circle"></i> Cancelled</button>
-                        </td>
+                        <td><?= $orders['created_at']?></td>
+                        <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
+                        <td><?= $orders['productname']?></td>
+                        <td><?= $orders['quantity']?></td>
+                        <td class="text-dark"><?= $orders['status']?></td>
+                        <td><?= $orders['total']?></td>
                         <td>
-                            <a href=""class="btn btn-danger"><i class="fas fa-trash-alt"></i> Cancel</a>
+                        <a href="<?= site_url('cancelledbyuser/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-secondary"><i class="fas fa-times"> </i> Cancel</a>
                         </td>
                     </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

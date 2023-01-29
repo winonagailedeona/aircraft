@@ -33,8 +33,8 @@ class UserController extends Controller
 
     $query = $this->request->getVar('search');
     $search = new MenuModel();
-    $searching = array('name' => $query, 'category' => $query, '');
-    $result['result'] = $search->like('name', $query)->orLike('category', $query)->orLike('description', $query)->get()->getResultArray();
+    $searching = array('productname' => $query, 'category' => $query, '');
+    $result['result'] = $search->like('productname', $query)->orLike('category', $query)->orLike('description', $query)->get()->getResultArray();
     return view('Menus/others', $result);
   }
 
@@ -68,14 +68,19 @@ class UserController extends Controller
     
   }
 
+  //RECENT ORDERS
+ 
+
   public function orders()
-  {
-    $placeorder = new PlaceOrderModel();
+  {$placeorder = new PlaceOrderModel();
     $data = [
-      'placeorder' => $placeorder->select('*')
-      ->join('product', 'product.id = orders.menuid', 'right')
-      ->where('orders.user_id', session()->get('id'))
+        'placeorder' => $placeorder->select('*')
+        ->join('product', 'product.id = orders.menuid', 'right')
+        ->where('orders.user_id',  session()->get('id'))
+        ->where('status', 'Order Placed')
+        ->get()->getResultArray()
     ];
+    // var_dump($data);
     return view('User/orders', $data);
   }
 
@@ -359,5 +364,14 @@ class UserController extends Controller
     $cartitem->delete(['cartid' => $cartid]);
     return redirect()->to('/showcart');
   }
+
+  public function cancelledbyuser($id, $user_id){
+    $placeorder = new PlaceOrderModel();
+    $placeorder->set('status', 'Cancelled by User')->where('user_id', $user_id)
+    ->where('menuid', $id)->update();
+
+    return redirect()->route('orders');
+}
+  
 
 }

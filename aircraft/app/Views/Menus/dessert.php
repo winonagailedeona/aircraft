@@ -33,10 +33,11 @@
                         <img class="w-100 h-100" src="<?= $de['image']?>" style="object-fit: cover;">
                       </div>
                         <h5 class="font-weight-bold mb-4"><?= $de['productname']?></h5>
-                        <?php if($de['quantity'] <=0){?>
-                        Not Available
-                      <?php } ?>
-                      <a href="<?= site_url('spd/'.$de['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                        <?php if($de['quantity'] > 0){?>
+                          <a href="<?= site_url('spd/'.$de['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                      <?php } else {?>
+                        <b>Not Available</b>
+                        <?php }?>
               </div>
             </div>
               <?php endforeach; ?>

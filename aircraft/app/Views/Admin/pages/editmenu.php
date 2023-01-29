@@ -19,9 +19,9 @@
                 <div class="card-body">
                   <div class="form-group row">
                   <input type="hidden" class="form-control" id="id" name="id" value="<?=$menu['id']?>">
-                    <label for="name" class="col-sm-2 col-form-label">Product Name</label> 
+                    <label for="product" class="col-sm-2 col-form-label">Product Name</label> 
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="name" name="name" value="<?=$menu['productname']?>">
+                      <input type="text" class="form-control" id="productname" name="productname" value="<?=$menu['productname']?>">
                     </div>
                   </div>
                   <div class="form-group row" style="height: 180%; padding-bottom: 3%">
@@ -40,6 +40,12 @@
                     <label for="category" class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-7">
                       <input type="text" class="form-control" name="category" id="category" value="<?=$menu['category']?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+                    <div class="col-sm-7">
+                      <input type="number" class="form-control" name="quantity" id="quantity" value="<?=$menu['quantity']?>">
                     </div>
                   </div>
                   <div class="form-group row">

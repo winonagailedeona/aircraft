@@ -8,7 +8,7 @@ class CartModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'cart';
-    protected $primaryKey       = 'cartid';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';

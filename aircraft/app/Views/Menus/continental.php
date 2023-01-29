@@ -33,10 +33,12 @@
                         <img class="w-100 h-100" src="<?= $con['image']?>" style="object-fit: cover;">
                       </div>
                         <h5 class="font-weight-bold mb-4"><?= $con['productname']?></h5>
-                        <?php if($con['quantity'] <=0){?>
-                        Not Available
-                      <?php } ?>
-                      <a href="<?= site_url('spmi/'.$con['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                        <?php if($con['quantity'] > 0){?>
+                          <a href="<?= site_url('spmi/'.$con['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                      <?php } else {?>
+                        <b>Not Available</b>
+                        <?php }?>
+                      
               </div>
             </div>
               <?php endforeach; ?>

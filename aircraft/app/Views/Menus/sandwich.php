@@ -34,10 +34,12 @@
                         <img class="w-100 h-100" src="<?= $sa['image']?>" style="object-fit: cover;">
                       </div>
                         <h5 class="font-weight-bold mb-4"><?= $sa['productname']?></h5>
-                        <?php if($sa['quantity'] <=0){?>
-                        Not Available
-                      <?php } ?>
-                        <a href="<?= site_url('sps/'.$sa['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                        <?php if($sa['quantity'] > 0){?>
+                          <a href="<?= site_url('sps/'.$sa['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+
+                      <?php } else {?>
+                        <b>Not Available</b>
+                        <?php }?>
               </div>
             </div>
               <?php endforeach; ?>

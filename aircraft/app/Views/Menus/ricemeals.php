@@ -33,10 +33,11 @@
                         <img class="w-100 h-100" src="<?= $me['image']?>" style="object-fit: cover;">
                       </div>
                         <h5 class="font-weight-bold mb-4"><?= $me['productname']?></h5>
-                        <?php if($me['quantity'] <=0){?>
-                        Not Available
-                      <?php } ?>
-                        <a href="<?= site_url('spm/'.$me['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                        <?php if($me['quantity'] > 0){?>
+                          <a href="<?= site_url('spm/'.$me['id'])?>" class="btn btn-sm btn-dark">Order Now</a>
+                      <?php } else {?>
+                        <b>Not Available</b>
+                        <?php }?>
               </div>
             </div>
               <?php endforeach; ?>
