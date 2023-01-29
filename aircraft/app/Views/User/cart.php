@@ -175,13 +175,13 @@
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
+                                        <?php } if (empty($cart_item)): ?>
+        <tr>
+            <td colspan="7" class="text-center"><br> <h3>Your cart is empty.</h3> </td>
+        </tr>
+    <?php endif; ?>
 
-                                    <?php } else ($cart = 0) ?> <?php {?>
-                                        <tr>
-                                            <td colspan="6"><h3> No Items In Your Cart!</h3>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
+                                     
 
                                 </tbody>
 
