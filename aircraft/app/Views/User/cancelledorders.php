@@ -14,7 +14,7 @@
     <div class="container shadow-container">
         <h2 class="text-center">Recent Orders</h2><br>
         <div class="row" style="padding-left: 10%; padding-right: 10%;">
-    <div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('orders');?>" style="font-size:smaller; background-color: #2b9bc2" class="btn btn-app">
+    <div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('orders');?>" style="font-size:smaller;" class="btn btn-app">
 <span style="font-size: 5px;" class="badge bg-teal"></span>
 Placed Orders
 </a></div>
@@ -26,10 +26,10 @@ Confirmed Orders
 <span class="badge bg-teal"></span>
 Orders Ready
 </a></div>
-<div class="col-3"><a href="<?php echo base_url('cancelledorders');?>" style="font-size:smaller;" class="btn btn-app bg-secondary">
+<div class="col-3"><a href="<?php echo base_url('cancelledorders');?>" style="font-size:smaller; background-color: #2b9bc2" class="btn btn-app bg-secondary">
 <span class="badge bg-teal"></span>
 Cancelled Orders
-</a></div></div><br><br>
+</a></div></div><br>
         <div class="table-responsive-sm">
             <table class="table table-bordered table-hover table-striped">
                 <thead>
@@ -53,7 +53,7 @@ Cancelled Orders
                         <td class="text-dark"><?= $orders['status']?></td>
                         <td><?= $orders['total']?></td>
                         <td>
-                        <a href="<?= site_url('cancelledbyuser/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm" style="background-color: #E96232; color:black;"><i class="fas fa-times"> </i> Cancel</a>
+                        <a href="<?= site_url('cancelledbyuser/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-secondary"><i class="fas fa-times"> </i> Cancel</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

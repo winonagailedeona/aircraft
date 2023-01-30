@@ -85,6 +85,9 @@ $routes->get('/userprofile', 'UserController::profile');
 $routes->match(['get', 'post'], '/checkout', 'UserController::checkout');
 
 $routes->get('/orders', 'UserController::orders');
+$routes->get('/confirmedorders', 'UserController::confirmedorders');
+$routes->get('/readyorders', 'UserController::readyorders');
+$routes->get('/cancelledorders', 'UserController::cancelledorders');
 $routes->get('/ordershistory', 'UserController::ordershistory');
 $routes->get('/search', 'UserController::search');
 $routes->post('/search', 'UserController::search');

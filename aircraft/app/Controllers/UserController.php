@@ -84,6 +84,45 @@ class UserController extends Controller
     return view('User/orders', $data);
   }
 
+  public function confirmedorders()
+  {$placeorder = new PlaceOrderModel();
+    $data = [
+        'placeorder' => $placeorder->select('*')
+        ->join('product', 'product.id = orders.menuid', 'right')
+        ->where('orders.user_id',  session()->get('id'))
+        ->where('status', 'Order Confirmed')
+        ->get()->getResultArray()
+    ];
+    // var_dump($data);
+    return view('User/orders', $data);
+  }
+
+  public function cancelledorders()
+  {$placeorder = new PlaceOrderModel();
+    $data = [
+        'placeorder' => $placeorder->select('*')
+        ->join('product', 'product.id = orders.menuid', 'right')
+        ->where('orders.user_id',  session()->get('id'))
+        ->where('status', 'CANCELLED')
+        ->get()->getResultArray()
+    ];
+    // var_dump($data);
+    return view('User/orders', $data);
+  }
+
+  public function readyorders()
+  {$placeorder = new PlaceOrderModel();
+    $data = [
+        'placeorder' => $placeorder->select('*')
+        ->join('product', 'product.id = orders.menuid', 'right')
+        ->where('orders.user_id',  session()->get('id'))
+        ->where('status', 'To Be Pick Up')
+        ->get()->getResultArray()
+    ];
+    // var_dump($data);
+    return view('User/orders', $data);
+  }
+
   public function ordershistory()
   {
     return view('User/orderhistory');
