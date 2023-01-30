@@ -124,10 +124,7 @@ class UserController extends Controller
     return view('User/readyorders', $data);
   }
 
-  public function ordershistory()
-  {
-    return view('User/orderhistory');
-  }
+  
 
   public function showcart()
   {
@@ -143,6 +140,20 @@ class UserController extends Controller
       ->where('user_id', $id)->get()->getResultArray();
 
     return view('User/cart', $cart);
+  }
+
+  public function ordershistory()
+  {
+    $placeorder = new PlaceOrderModel();
+    $data = [
+        'placeorder' => $placeorder->select('*')
+        ->join('product', 'product.id = orders.menuid', 'right')
+        ->where('orders.user_id',  session()->get('id'))
+        ->where('status', 'Receive')
+        ->get()->getResultArray()
+    ];
+
+    return view('User/orderhistory', $data);
   }
 
   //ADDING TO CART
@@ -411,6 +422,14 @@ class UserController extends Controller
     ->where('menuid', $id)->update();
 
     return redirect()->route('orders');
+}
+
+public function receive($id, $user_id){
+  $placeorder = new PlaceOrderModel();
+  $placeorder->set('status', 'Receive')->where('user_id', $user_id)
+  ->where('menuid', $id)->update();
+
+  return redirect()->route('ordershistory');
 }
   
 

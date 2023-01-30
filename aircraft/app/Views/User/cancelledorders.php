@@ -10,6 +10,7 @@
     <!-- Navbar End -->
     <br>
     <div class="container mt-3">
+    <h3 class="text-center">Orders</h3>
     <br>
     <div class="card text-center" style="height: 80px;">
     <div style="height: 20px; padding-left: 5%; ">
@@ -160,7 +161,7 @@ Cancelled Orders
                                                 </a>
                                                 <div class="media-body">
                                                     <p>
-                                                        <span class="float-right text-info">Cancelled <i class="icofont-check-circled text-success"></i></span>
+                                                        <span class="float-right text-info">Cancelled on <?= $orders['updatedd_at'] ?> <i class="icofont-check-circled text-success"></i></span>
             </p>
                                                     <h6 class="mb-2">
                                                         <p class="text-black"><?= $orders['productname'] ?></p>
@@ -169,7 +170,6 @@ Cancelled Orders
                                                     <p class="text-dark">x <?= $orders['quantity'] ?>
                                                     </p>
                                                     <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['createdd_at'] ?></p>
-                                                    <p class="text-info mb-3"><i class="icofont-list"></i>ORDER CANCELLED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['updatedd_at'] ?></p>
 
                                                     <hr>
                                                     <div class="float-right">

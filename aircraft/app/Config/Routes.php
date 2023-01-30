@@ -96,6 +96,8 @@ $routes->post('/placeorder', 'ProductsController::placeorder');
 $routes->get('/accept/(:any)', 'AdminController::accept/$1');
 $routes->get('/cancel/(:any)', 'AdminController::cancel/$1');
 $routes->get('/cancelledbyuser/(:any)', 'UserController::cancelledbyuser/$1');
+$routes->get('/receive/(:any)', 'UserController::receive/$1');
+
 $routes->get('/blocked/(:any)', 'AdminController::blocked/$1');
 
 $routes->get('/processed/(:any)', 'AdminController::processed/$1');

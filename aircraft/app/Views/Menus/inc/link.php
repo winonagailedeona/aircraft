@@ -37,7 +37,7 @@
                 <hr>
                 <a class="dropdown-item" href="<?php echo base_url('orders');?>"><i class="fas fa-shopping-bag"></i>  Orders</a>
                 <hr>
-                <a class="dropdown-item" href="<?php echo base_url('ordershistory');?>"><i class="fas fa-clipboard-check"></i>  Orders History</a>
+                <a class="dropdown-item" href="<?php echo base_url('ordershistory');?>"><i class="fas fa-clipboard-check"></i>  Purchased History</a>
                 <hr>
                 <a class="dropdown-item" href="<?php echo base_url('signin');?>"><i class="fas fa-power-off"></i>  Logout</a>
             </div>
