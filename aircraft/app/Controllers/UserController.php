@@ -104,7 +104,7 @@ class UserController extends Controller
         'placeorder' => $placeorder->select('*')
         ->join('product', 'product.id = orders.menuid', 'right')
         ->where('orders.user_id',  session()->get('id'))
-        ->where('status', 'CANCELLED')
+        ->where('status', 'Cancelled by User')
         ->get()->getResultArray()
     ];
     // var_dump($data);
