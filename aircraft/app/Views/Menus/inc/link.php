@@ -35,7 +35,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="<?php echo base_url('userprofile');?>"><i class="fas fa-user-circle"></i>  My Profile</a>
                 <hr>
-                <a class="dropdown-item" href="<?php echo base_url('orders');?>"><i class="fas fa-shopping-bag"></i>  Recent Orders</a>
+                <a class="dropdown-item" href="<?php echo base_url('orders');?>"><i class="fas fa-shopping-bag"></i>  Orders</a>
                 <hr>
                 <a class="dropdown-item" href="<?php echo base_url('ordershistory');?>"><i class="fas fa-clipboard-check"></i>  Orders History</a>
                 <hr>

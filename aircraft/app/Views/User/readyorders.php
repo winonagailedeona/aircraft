@@ -9,27 +9,34 @@
     <?= $this->include('Menus/inc/navbar') ?>
     <!-- Navbar End -->
     <br><br>
-<div class="container mt-3">
-<br>
-    <div class="container shadow-container">
-        <h2 class="text-center">Recent Orders</h2><br>
-        <div class="row" style="padding-left: 10%; padding-right: 10%;">
-    <div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('orders');?>" style="font-size:smaller;" class="btn btn-app bg-secondary">
+    <div class="container mt-3">
+    <br>
+    <div class="card text-center" style="height: 80px;">
+    <div style="height: 20px; padding-left: 5%; ">
+    </div>
+        <div class="row">
+        <div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('orders');?>" style="font-size: 16px; background-color: white" class="btn btn-app" >
 <span style="font-size: 5px;" class="badge bg-teal"></span>
 Placed Orders
 </a></div>
-<div class="col-3" style="padding-right: 5%; "><a href="<?php echo base_url('confirmedorders');?>" style="font-size: 77%;" class="btn btn-app bg-secondary">
+<div class="col-3" style="padding-right: 5%; "><a href="<?php echo base_url('confirmedorders');?>" style="font-size: 16px; background-color: white" class="btn btn-app">
 <span class="badge bg-teal"></span>
 Confirmed Orders
 </a></div>
-<div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('readyorders');?>" style="font-size:smaller; background-color: #2b9bc2" class="btn btn-app">
+<div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('readyorders');?>" style="font-size: 16px; " class="btn btn-app bg-secondary">
 <span class="badge bg-teal"></span>
 Orders Ready
 </a></div>
-<div class="col-3"><a href="<?php echo base_url('cancelledorders');?>" style="font-size:smaller;" class="btn btn-app bg-secondary">
+<div class="col-3"><a href="<?php echo base_url('cancelledorders');?>" style="font-size: 16px; background-color: white" class="btn btn-app">
 <span class="badge bg-teal"></span>
 Cancelled Orders
-</a></div></div><br><br>
+</a></div>
+
+
+        </div>
+
+    </div>
+        <br><br>
         <div class="table-responsive-sm">
             <table class="table table-bordered table-hover table-striped">
                 <thead>
