@@ -9,3 +9,4 @@
   <!-- /.control-sidebar -->
 <!-- ./wrapper -->
 
+</div>

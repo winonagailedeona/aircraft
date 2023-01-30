@@ -398,10 +398,10 @@ class UserController extends Controller
   }
 
   //DELETING FROM CART
-  public function deletecartitem($cartid = null)
+  public function deletecart($id = null)
   {
-    $cartitem = new CartModel();
-    $cartitem->delete(['cartid' => $cartid]);
+    $cart = new CartModel();
+    $cart->delete(['cartid' => $id]);
     return redirect()->to('/showcart');
   }
 

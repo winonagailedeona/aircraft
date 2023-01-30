@@ -5,7 +5,7 @@
     <?= $this->include('Admin/inc/left_side')?>
     <?= $this->include('Admin/pages/dashboard')?>
   </div>
-</body>
+
 
 <?= $this->include('Admin/inc/footer')?>
 <?= $this->include('Admin/inc/end')?>
