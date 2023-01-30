@@ -94,7 +94,7 @@ class UserController extends Controller
         ->get()->getResultArray()
     ];
     // var_dump($data);
-    return view('User/orders', $data);
+    return view('User/confirmedorders', $data);
   }
 
   public function cancelledorders()
@@ -107,7 +107,7 @@ class UserController extends Controller
         ->get()->getResultArray()
     ];
     // var_dump($data);
-    return view('User/orders', $data);
+    return view('User/cancelledorders', $data);
   }
 
   public function readyorders()
@@ -120,7 +120,7 @@ class UserController extends Controller
         ->get()->getResultArray()
     ];
     // var_dump($data);
-    return view('User/orders', $data);
+    return view('User/readyorders', $data);
   }
 
   public function ordershistory()

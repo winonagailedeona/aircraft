@@ -14,7 +14,7 @@
     <div class="container shadow-container">
         <h2 class="text-center">Recent Orders</h2><br>
         <div class="row" style="padding-left: 10%; padding-right: 10%;">
-    <div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('orders');?>" style="font-size:smaller; " class="btn btn-app">
+    <div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('orders');?>" style="font-size:smaller;" class="btn btn-app bg-secondary">
 <span style="font-size: 5px;" class="badge bg-teal"></span>
 Placed Orders
 </a></div>
@@ -22,14 +22,14 @@ Placed Orders
 <span class="badge bg-teal"></span>
 Confirmed Orders
 </a></div>
-<div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('readyorders');?>" style="font-size:smaller; background-color: #2b9bc2" class="btn btn-app bg-secondary">
+<div class="col-3" style="padding-right: 5%;"><a href="<?php echo base_url('readyorders');?>" style="font-size:smaller; background-color: #2b9bc2" class="btn btn-app">
 <span class="badge bg-teal"></span>
 Orders Ready
 </a></div>
-<div class="col-3"><a href="<?php echo base_url('cancelled orders');?>" style="font-size:smaller;" class="btn btn-app bg-secondary">
+<div class="col-3"><a href="<?php echo base_url('cancelledorders');?>" style="font-size:smaller;" class="btn btn-app bg-secondary">
 <span class="badge bg-teal"></span>
 Cancelled Orders
-</a></div></div><br>
+</a></div></div><br><br>
         <div class="table-responsive-sm">
             <table class="table table-bordered table-hover table-striped">
                 <thead>
@@ -44,7 +44,8 @@ Cancelled Orders
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                <?php foreach($placeorder as $orders): ?>
+                <?php if ($placeorder > 0) { ?>
+                    <?php foreach($placeorder as $orders): ?>
                     <tr>
                         <td><?= $orders['created_at']?></td>
                         <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
@@ -53,10 +54,16 @@ Cancelled Orders
                         <td class="text-dark"><?= $orders['status']?></td>
                         <td><?= $orders['total']?></td>
                         <td>
-                        <a href="<?= site_url('cancelledbyuser/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-secondary"><i class="fas fa-times"> </i> Cancel</a>
+                        <a href="<?= site_url('cancelledbyuser/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-success"><i class="fas fa-check"> </i> to Serve/Pick Up</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
+                                        <?php } if (empty($orders)): ?>
+        <tr>
+            <td colspan="7" class="text-center"><br> <h3>Empty!</h3> </td>
+        </tr>
+    <?php endif; ?>
+
                 </tbody>
             </table><br>
         </div>

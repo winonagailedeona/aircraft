@@ -44,7 +44,8 @@ Cancelled Orders
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                <?php foreach($placeorder as $orders): ?>
+                <?php if ($placeorder > 0) { ?>
+                    <?php foreach($placeorder as $orders): ?>
                     <tr>
                         <td><?= $orders['created_at']?></td>
                         <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
@@ -57,6 +58,11 @@ Cancelled Orders
                         </td>
                     </tr>
                 <?php endforeach; ?>
+                                        <?php } if (empty($orders)): ?>
+        <tr>
+            <td colspan="7" class="text-center"><br> <h3>Empty!</h3> </td>
+        </tr>
+    <?php endif; ?>
                 </tbody>
             </table><br>
         </div>
