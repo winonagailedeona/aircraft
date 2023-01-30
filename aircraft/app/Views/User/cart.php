@@ -176,8 +176,11 @@
                                             </tr>
                                         <?php endforeach; ?>
                                         <?php } if (empty($cart_item)): ?>
+                                            
         <tr>
-            <td colspan="7" class="text-center"><br> <h3>Your cart is empty.</h3> </td>
+        
+            <td colspan="7" class="text-center"><br><br><br><br><br><br><br><br> <h5 class="text-muted">Your cart is empty.</h5> 
+        <img src="<?=base_url() ?> /dist/img/blue.png" alt="" style="height: 100px; width: 100px;"><br><br><br><br><br><br><br></td>
         </tr>
     <?php endif; ?>
 
