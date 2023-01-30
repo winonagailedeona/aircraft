@@ -166,9 +166,6 @@ Cancelled Orders
                                                         <a href="#"></a>
                                                         <a href="#" class="text-black"><?= $orders['productname'] ?></a>
                                                     </h6>
-                                                    <p class="text-gray mb-1"><i class="icofont-location-arrow"></i> <?= $orders['description'] ?>
-                                                    </p>
-
                                                     <p class="text-dark">x <?= $orders['quantity'] ?>
                                                     </p>
                                                     <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['created_at'] ?></p>
