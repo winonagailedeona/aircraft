@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cartid` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `menuid` int(11) NOT NULL,
   `bilang` int(11) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `user_id`, `menuid`, `bilang`, `total`) VALUES
+INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
 (190, 6, 23, 1, 100),
 (191, 6, 27, 1, 105),
 (192, 6, 16, 1, 120);
