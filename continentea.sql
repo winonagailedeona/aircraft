@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 29, 2023 at 11:36 PM
--- Server version: 5.7.36
--- PHP Version: 8.0.13
+-- Generation Time: Jan 30, 2023 at 09:53 AM
+-- Server version: 8.0.27
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(150) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
   `password` varchar(150) DEFAULT NULL,
@@ -45,23 +45,22 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
-  `cartid` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `menuid` int(11) NOT NULL,
-  `bilang` int(11) NOT NULL,
+  `cartid` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `menuid` int NOT NULL,
+  `bilang` int NOT NULL,
   `total` float NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`cartid`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`),
   KEY `menuid` (`menuid`)
-) ENGINE=MyISAM AUTO_INCREMENT=194 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=197 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
-(190, 6, 23, 1, 100),
 (191, 6, 27, 1, 105),
 (192, 6, 16, 1, 120);
 
@@ -73,11 +72,11 @@ INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
 
 DROP TABLE IF EXISTS `checkout`;
 CREATE TABLE IF NOT EXISTS `checkout` (
-  `user_id` int(11) NOT NULL,
-  `menuid` int(11) NOT NULL,
+  `user_id` int NOT NULL,
+  `menuid` int NOT NULL,
   KEY `user_id` (`user_id`),
   KEY `menu_id` (`menuid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -87,9 +86,9 @@ CREATE TABLE IF NOT EXISTS `checkout` (
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
-  `user_id` int(11) NOT NULL,
-  `menuid` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
+  `user_id` int NOT NULL,
+  `menuid` int NOT NULL,
+  `total` int NOT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'Order Placed',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP
@@ -102,22 +101,25 @@ CREATE TABLE IF NOT EXISTS `orders` (
 INSERT INTO `orders` (`user_id`, `menuid`, `total`, `status`, `created_at`, `updated_at`) VALUES
 (6, 25, 70, '', '2023-01-28 00:16:08', '2023-01-28 00:16:08'),
 (6, 12, 150, 'Order Confirmed', '2023-01-28 00:40:17', '2023-01-28 05:35:32'),
-(6, 23, 100, 'Ready To Serve', '2023-01-28 00:43:40', '2023-01-28 05:50:31'),
+(6, 23, 100, 'Cancelled by User', '2023-01-28 00:43:40', '2023-01-30 00:55:08'),
 (6, 27, 315, 'CANCELLED', '2023-01-28 04:11:39', '2023-01-28 04:52:18'),
 (6, 10, 120, 'To Be Pick Up', '2023-01-28 05:29:37', '2023-01-28 05:29:46'),
-(6, 26, 95, 'PENDING', '2023-01-28 05:29:37', '2023-01-28 05:29:37'),
+(6, 26, 95, 'Order Cancelled', '2023-01-28 05:29:37', '2023-01-30 01:05:57'),
 (6, 19, 160, 'PENDING', '2023-01-28 05:29:37', '2023-01-28 05:29:37'),
 (6, 9, 100, 'PENDING', '2023-01-28 05:29:37', '2023-01-28 05:29:37'),
 (6, 21, 160, 'Order Cancelled', '2023-01-28 05:34:09', '2023-01-28 06:01:15'),
 (6, 12, 150, 'Order Confirmed', '2023-01-28 05:34:09', '2023-01-28 05:35:32'),
-(9, 23, 100, 'Order Placed', '2023-01-28 08:34:35', '2023-01-28 08:34:35'),
-(6, 26, 380, 'Order Placed', '2023-01-28 08:46:42', '2023-01-28 08:46:42'),
+(9, 23, 100, 'Order Cancelled', '2023-01-28 08:34:35', '2023-01-30 01:05:54'),
+(6, 26, 380, 'Order Cancelled', '2023-01-28 08:46:42', '2023-01-30 01:05:57'),
 (6, 19, 160, 'Order Placed', '2023-01-28 09:07:08', '2023-01-28 09:07:08'),
 (3, 16, 360, 'Order Placed', '2023-01-28 19:13:07', '2023-01-28 19:13:07'),
 (3, 21, 160, 'Order Placed', '2023-01-28 19:13:34', '2023-01-28 19:13:34'),
 (6, 27, 525, 'Order Placed', '2023-01-29 04:45:00', '2023-01-29 04:45:00'),
 (6, 27, 105, 'Order Placed', '2023-01-29 04:49:08', '2023-01-29 04:49:08'),
-(10, 14, 80, 'Cancelled by User', '2023-01-29 17:14:14', '2023-01-29 17:32:04');
+(10, 14, 80, 'Cancelled by User', '2023-01-29 17:14:14', '2023-01-29 17:32:04'),
+(6, 23, 100, 'Cancelled by User', '2023-01-30 00:55:03', '2023-01-30 00:55:08'),
+(3, 9, 100, 'Order Placed', '2023-01-30 03:24:16', '2023-01-30 03:24:16'),
+(3, 14, 80, 'Order Placed', '2023-01-30 03:26:48', '2023-01-30 03:26:48');
 
 -- --------------------------------------------------------
 
@@ -127,11 +129,11 @@ INSERT INTO `orders` (`user_id`, `menuid`, `total`, `status`, `created_at`, `upd
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `productname` text NOT NULL,
   `description` text NOT NULL,
   `price` float NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `quantity` int NOT NULL,
   `size` varchar(20) NOT NULL,
   `image` text NOT NULL,
   `category` varchar(30) NOT NULL,
@@ -147,9 +149,9 @@ CREATE TABLE IF NOT EXISTS `product` (
 INSERT INTO `product` (`id`, `productname`, `description`, `price`, `quantity`, `size`, `image`, `category`, `created_at`, `updated_at`) VALUES
 (11, 'Cheese Burger', 'A cheeseburger is a hamburger topped with cheese.', 140, 0, '', 'img/menu/cheese burger.jpg', 'sandwich', '2022-12-07 20:58:20', '2022-12-26 21:41:42'),
 (10, 'Spaghetti', 'It is a staple food of traditional Italian cuisine.', 120, 8, '', 'img/menu/spagetti.jpg', 'pasta', '2022-12-07 20:57:05', '2023-01-28 18:21:40'),
-(9, 'Baked Macaroni', 'Mac and cheese is a rich and creamy dish consisting of macaroni pasta mixed with a cheesy sauce.', 100, 8, '', 'img/menu/baked macaroni.jpg', 'pasta', '2022-12-07 20:55:45', '2023-01-28 17:41:27'),
+(9, 'Baked Macaroni', 'Mac and cheese is a rich and creamy dish consisting of macaroni pasta mixed with a cheesy sauce.', 100, 7, '', 'img/menu/baked macaroni.jpg', 'pasta', '2022-12-07 20:55:45', '2023-01-30 17:24:08'),
 (12, 'Chicken Burger', 'A sandwich consisting of a patty made from ground chicken, served in a bun, typically hot and often with other ingredients.', 150, 3, '', 'img/menu/chicken burger.jpg', 'sandwich', '2022-12-07 20:59:19', '2023-01-28 15:18:45'),
-(14, 'Lumpiang Shanghai', 'Filipino-style spring rolls made of ground pork, chicken, or beef filling wrapped in thin crepes called lumpia wrappers.', 80, 8, '0', 'img/menu/lumpiang shanghai.jpg', 'pica', '2022-12-07 21:13:07', '2023-01-30 07:13:02'),
+(14, 'Lumpiang Shanghai', 'Filipino-style spring rolls made of ground pork, chicken, or beef filling wrapped in thin crepes called lumpia wrappers.', 80, 6, '0', 'img/menu/lumpiang shanghai.jpg', 'pica', '2022-12-07 21:13:07', '2023-01-30 17:26:23'),
 (15, 'Nachos', 'A tortilla chip topped with melted cheese and often additional savory toppings', 120, 0, '', 'img/menu/nachos.jpg', 'pica', '2022-12-07 21:18:59', '2023-01-23 17:23:15'),
 (16, 'Chili Roll', 'It is a type of lumpia and it is commonly eaten as an appetizer or as a companion to beer.', 120, 0, '', 'img/menu/chili roll.jpg', 'pica', '2022-12-07 21:21:22', '2023-01-29 18:59:24'),
 (17, 'Chicken Cordon Bleu Bites', 'French-inspired poultry dish, although evidence suggests that it was actually developed in the United States by chefs imitating other stuffed meat dishes from Europe.', 120, 2, '', 'img/menu/menu/chicken cordon bleu.jpg\r\n', 'pica', '2022-12-07 21:27:33', '2022-12-18 02:49:02'),
@@ -173,7 +175,7 @@ INSERT INTO `product` (`id`, `productname`, `description`, `price`, `quantity`, 
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(150) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
   `contactno` varchar(11) DEFAULT NULL,
