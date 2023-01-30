@@ -43,48 +43,53 @@
               </p>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link">
+            <a href="<?= base_url('menuTable'); ?>" class="nav-link ">
+              <i class="text-dark nav-icon fas fa-list"></i>
+              <p class="text-dark">
+                Menu
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">
               <i class="nav-icon fas fa-clipboard"></i>
-              <p>
+              <p class="text-white">
                 Orders
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-            <a href="<?= base_url('adorders'); ?>" class="nav-link active">
-              <i class="nav-icon fas fa-cart-plus"></i>
-              <p>
-                New Orders
+            <a href="<?= base_url('adorders'); ?>" class="nav-link">
+              <i class="text-dark nav-icon fas fa-cart-plus"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+              <p class="text-dark">
+                New
               </p>
             </a>
           </li>
               <li class="nav-item">
-            <a href="<?= base_url('processorders'); ?>" class="nav-link active">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Processing Orders
+            <a href="<?= base_url('processorders'); ?>" class="nav-link">
+              <i class="text-dark nav-icon fas fa-cog"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+              <p class="text-dark">
+                Processing
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('cancelorders'); ?>" class="nav-link active">
-              <i class="nav-icon fas fa-ban"></i>
-              <p>
-                Cancelled Orders
+            <a href="<?= base_url('cancelorders'); ?>" class="nav-link">
+              <i class="text-dark nav-icon fas fa-ban"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+
+              <p class="text-dark">
+                Cancelled
               </p>
             </a>
           </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url('menuTable'); ?>" class="nav-link active">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Menu
-              </p>
-            </a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url('customers'); ?>" class="nav-link ">
