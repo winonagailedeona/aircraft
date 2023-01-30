@@ -159,22 +159,23 @@ Cancelled Orders
                                                     <img class="mr-4" src="<?= base_url() . '/' . $orders['image'] ?>" alt="Generic placeholder image">
                                                 </a>
                                                 <div class="media-body">
-                                                    <a href="#">
+                                                    <p>
                                                         <span class="float-right text-info">Cancelled <i class="icofont-check-circled text-success"></i></span>
-                                                    </a>
+            </p>
                                                     <h6 class="mb-2">
-                                                        <a href="#"></a>
-                                                        <a href="#" class="text-black"><?= $orders['productname'] ?></a>
+                                                        <p class="text-black"><?= $orders['productname'] ?></p>
                                                     </h6>
 
                                                     <p class="text-dark">x <?= $orders['quantity'] ?>
                                                     </p>
-                                                    <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['created_at'] ?></p>
+                                                    <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['createdd_at'] ?></p>
+                                                    <p class="text-info mb-3"><i class="icofont-list"></i>ORDER CANCELLED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['updatedd_at'] ?></p>
+
                                                     <hr>
                                                     <div class="float-right">
                                                         <a class="btn btn-sm btn-primary" href=""> BUY AGAIN</a>
                                                     </div>
-                                                    <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> Total:</span> ₱<?= $orders['total'] ?>
+                                                    <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Total:</span> ₱<?= $orders['total'] ?>
                                                     </p>
                                                 </div>
                                             </div>
@@ -191,7 +192,12 @@ Cancelled Orders
                     <?php endforeach; ?>
                 <?php }
             if (empty($orders)) : ?>
-                    <h3 class="text-info" style="height: 20px; padding-left: 45%; padding-right: 40%; ">Empty!</h3>
+                    <div class="bg-white card mb-4 order-list shadow-sm">
+                                        <div style="height: 500px;">
+                                        
+                                    <h5 style="margin-top: 20%;" class="text-muted text-center">No Orders Yet!</h5></div>
+                                    
+                                    </div>
                 <?php endif; ?>
                     </div>
 <!-- Footer Start -->
