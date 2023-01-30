@@ -173,7 +173,6 @@ Cancelled Orders
                                                     <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['created_at'] ?></p>
                                                     <hr>
                                                     <div class="float-right">
-                                                        <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> HELP</a>
                                                     </div>
                                                     <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> Total:</span> ₱<?= $orders['total'] ?>
                                                     </p>

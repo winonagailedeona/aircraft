@@ -117,7 +117,7 @@ class UserController extends Controller
         'placeorder' => $placeorder->select('*')
         ->join('product', 'product.id = orders.menuid', 'right')
         ->where('orders.user_id',  session()->get('id'))
-        ->where('status', 'To Be Pick Up')
+        ->where('status', 'Ready To Serve')
         ->get()->getResultArray()
     ];
     // var_dump($data);
