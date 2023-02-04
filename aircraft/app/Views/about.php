@@ -12,7 +12,7 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid about" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3 mt-lg-5">About</h1>
+            <h1 class="text-white display-3 mt-lg-5">About Us</h1>
             <div class="d-inline-flex align-items-center text-white">
                 <p class="m-0"><a class="text-white" href="<?= base_url('profile') ?>" >Home</a></p>
                 &nbsp;&nbsp;<i class="fa fa-circle"></i>&nbsp;&nbsp;

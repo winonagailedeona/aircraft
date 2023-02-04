@@ -24,7 +24,7 @@
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3"><?= $pica['productname']?></h4>
                     <p><?= $pica['description']?></p>
-                    <h5 class="text-dark mb-3"><?= $pica['price']?></h5>
+                    <h5 class="text-dark mb-3"> ₱ <?= $pica['price']?>.00</h5>
                     <form action="<?= site_url('cart')?>" method="post">
                     <input type="number" name = "quantity" value="1" min="1" max="<?= $pica['quantity']?>">
                     <input type = "hidden" name="id" value="<?= $pica['id']?>">

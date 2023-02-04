@@ -17,7 +17,7 @@
                     <img class="w-100" src="img/continentea.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h2 class="siz text-white text-uppercase mb-md-3" style="font-family: 'Merienda', cursive;">Welcome Aboard</h2>
+                            <h4 class="siz text-white text-uppercase mb-md-3">Welcome Aboard</h4>
                             <h1 class="sizz text-justify text-white ">Fly with us and have a better experience of continental foods</h1>
                         </div>
                     </div>

@@ -35,6 +35,9 @@ class SigninController extends Controller
                     $session->setFlashdata('msssg', 'Your account has been blocked by admin.');
                     return redirect()->to('/signin');
                 }
+                else if ($data['usertype'] == 'ADMIN'){
+                    return redirect()->to('/admin');
+                }
                 else{
                     $session->set($ses_data);
                     return redirect()->to('/profile');

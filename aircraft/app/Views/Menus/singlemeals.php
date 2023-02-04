@@ -24,7 +24,7 @@
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3"><?= $meals['productname']?></h4>
                     <p><?= $meals['description']?></p>
-                    <h5 class="text-dark mb-3"><?= $meals['price']?></h5>
+                    <h5 class="text-dark mb-3"> ₱ <?= $meals['price']?>.00</h5>
                     <form action="<?= site_url('cartm')?>" method="post">
                     <input type="number" name = "quantity" value="1" min="1" max="<?= $meals['quantity']?>">
                     <input type = "hidden" name="id" value="<?= $meals['id']?>">
