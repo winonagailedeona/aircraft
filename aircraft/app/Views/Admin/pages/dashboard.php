@@ -27,7 +27,8 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>12</h3>
+            <h3><?= $users; ?></h3>
+
 
               <p>Total Users</p>
             </div>
@@ -42,7 +43,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3><?= $product; ?></h3>
+              <h3><?= $products; ?></h3>
 
               <p>Total Products</p>
             </div>
@@ -60,7 +61,7 @@
             <div class="inner">
               <h3><?= $orderstat; ?></h3>
 
-              <p>Total Orders Placed</p>
+              <p>Total Processing Orders</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

@@ -13,16 +13,38 @@ class UserController extends Controller
 {
 
 
-  public function profile()
-  {
-    $id = session()->get('id');
+  public function profile(){
     $user_model = new UserModel();
-
-    $data["pro"] = $user_model->select('*')
-    ->where('id', $id)->get()->getResultArray();
-
-    return view('User/profile', $data);
+    $data['profile'] = $user_model->where('id', session()->get('id'))->first();
+    // var_dump($data['profile']);
+      return view('User/profile', $data);
   }
+
+  public function update_profile($id)
+  {
+      $usermodel = new UserModel();
+      $data = [
+          'name' => $this->request->getPost('name'),
+          'username' => $this->request->getPost('username'),
+          'address' => $this->request->getPost('address'),
+          'contactno' => $this->request->getPost('contactno'),
+      ];
+      $usermodel->update($id, $data);
+      $session = session();
+      $session->setFlashdata('msg', 'Updated Successfully!');
+      return redirect()->route('userprofile', $data);
+  }
+
+  // public function profile()
+  // {
+  //   $id = session()->get('id');
+  //   $user_model = new UserModel();
+
+  //   $data["pro"] = $user_model->select('*')
+  //   ->where('id', $id)->get()->getResultArray();
+
+  //   return view('User/profile', $data);
+  // }
 
 
   public function about()

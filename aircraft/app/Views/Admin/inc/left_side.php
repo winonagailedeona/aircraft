@@ -64,7 +64,7 @@
             <li class="nav-item">
             <a href="<?= base_url('adorders'); ?>" class="nav-link">
               <i class="text-dark nav-icon fas fa-cart-plus"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-primary navbar-badge"><?= $pending; ?></span>
               <p class="text-dark">
                 New
               </p>
@@ -73,7 +73,7 @@
               <li class="nav-item">
             <a href="<?= base_url('processorders'); ?>" class="nav-link">
               <i class="text-dark nav-icon fas fa-cog"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-success navbar-badge"><?= $orderstat; ?></span>
               <p class="text-dark">
                 Processing
               </p>
@@ -82,7 +82,7 @@
           <li class="nav-item">
             <a href="<?= base_url('cancelorders'); ?>" class="nav-link">
               <i class="text-dark nav-icon fas fa-ban"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-danger navbar-badge"><?= $cancelled; ?></span>
 
               <p class="text-dark">
                 Cancelled

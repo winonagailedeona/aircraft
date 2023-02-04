@@ -26,25 +26,22 @@ class AdminController extends BaseController
   {
     $db = \Config\Database::connect();
     $builder = $db->table('product');
+    $builderr = $db->table('users');
     $countpro = $builder->countAll();
+    $countuser = $builderr->countAll();
 
+      $usermodel = new UserModel();
       $productmodel = new MenuModel();
       $placeordermodel = new PlaceOrderModel();
 
       $data = [
-        'products' => $productmodel->where('id')->get()->getNumRows(),
+        'users' => $countuser,
+        'products' => $countpro,
         'orderstat' => $placeordermodel->where('status', 'Order Confirmed')->get()->getNumRows(),
         'pending' => $placeordermodel->where('status', 'Order Placed')->get()->getNumRows(),
-        'product' => $countpro,
+        'cancelled' => $placeordermodel->where('status', 'Cancelled by User')->get()->getNumRows(),
       ];
       
-      // ['users'] = $usermodel->selectCount('id', 'totalusers')->first(); 
-      // $menumodel = new MenuModel();
-      // $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
-      // $pendingmodel = new PlaceOrderModel();
-      // $data['pending'] = $pendingmodel->selectCount('id', 'totalpending')->first(); 
-      // $processedmodel = new MenuModel();
-      // $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
       return view('Admin/index', $data);
   }
 

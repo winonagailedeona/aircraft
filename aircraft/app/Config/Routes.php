@@ -84,6 +84,7 @@ $routes->get('/historyorders', 'AdminController::myhistory');
 
 //USER
 $routes->get('/userprofile', 'UserController::profile');
+$routes->match(['get', 'post'], '/userprofile/(:any)', 'UserController::profile/$1');
 $routes->match(['get', 'post'], '/checkout', 'UserController::checkout');
 
 $routes->get('/orders', 'UserController::orders');
@@ -106,6 +107,8 @@ $routes->get('/processed/(:any)', 'AdminController::processed/$1');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');
 $routes->get('/faqs', 'UserController::faqs');
 $routes->get('/about', 'UserController::about');
+$routes->put('/update_profile/(:any)', 'UserController::update_profile/$1');
+
 
 //CART
 $routes->post('/cart', 'UserController::cart');
