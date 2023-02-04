@@ -14,7 +14,7 @@
           <img src="<?=base_url() ?> /dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="" class="d-block">Admin</a>
+          <a href="" class="d-block">Admin: <?=session()->get('name'); ?></a>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
               <i class="fas fa-search fa-fw"></i>
             </button>
           </div>
-        </div>
+        </div>  
       </div>
 
       <!-- Sidebar Menu -->

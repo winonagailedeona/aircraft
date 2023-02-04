@@ -36,6 +36,7 @@ class SigninController extends Controller
                     return redirect()->to('/signin');
                 }
                 else if ($data['usertype'] == 'ADMIN'){
+                    $session->set($ses_data);
                     return redirect()->to('/admin');
                 }
                 else{
