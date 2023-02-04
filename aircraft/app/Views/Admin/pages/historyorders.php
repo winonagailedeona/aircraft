@@ -15,7 +15,7 @@
             <div class="col-12">
               <div class="card" >
                 <div class="card-header">
-                  <h3 class="card-title"><b>New Orders</b></h3>
+                  <h3 class="card-title"><b>History Orders</b></h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- <div class="card-body" style="background-color: #3C8DBC"> -->
@@ -29,13 +29,12 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
-                        <th>Status</th>
                         <th>Order-Date</th>
-                        <th>Actions</th>
+                        <th>Order-Completed</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($placeorder as $orders): ?>
+                    <?php foreach($historyorders as $orders): ?>
                     <tr>
                         <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
                         <td><?= $orders['productname']?></td>
@@ -43,15 +42,10 @@
                         <td><?= $orders['contactno']?></td>
                         <td><?= $orders['quantity']?></td>
                         <td><?= $orders['total']?></td>
-                        <td> <button type="button" class="btn btn-danger"><span></span>PENDING</button></td>
                         <td><?= $orders['createdd_at']?></td>
+                        <td><?= $orders['updatedd_at']?></td>
 
-                        <td>
-                        <a href="<?= site_url('accept/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Confirm</a>
-                        <a href="<?= site_url('cancel/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-secondary"><i class="fas fa-times"> </i> Cancel</a>
-                        <!-- <a href=""class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Process</a>
-                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a> -->
-                        </td>
+                        
                     </tr>
                     <?php endforeach; ?>
                     <!-- <tr>

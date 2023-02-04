@@ -9,6 +9,14 @@ use App\Models\UserModel;
 
 class AdminController extends BaseController
 {
+
+  protected $db;
+  public function __construct()
+  {
+    helper(['url', 'form']);
+    $this->db = \Config\Database::connect();
+  }
+
   public function admlogin()
   {
     return view('adminlogin');
@@ -18,12 +26,10 @@ class AdminController extends BaseController
     {
         $usermodel = new UserModel();
         $data['users'] = $usermodel->selectCount('id', 'totalusers')->first(); 
+
         $menumodel = new MenuModel();
         $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
-        // $pendingmodel = new PlaceOrderModel();
-        // $data['pending'] = $pendingmodel->selectCount('id', 'totalpending')->first(); 
-        // $processedmodel = new MenuModel();
-        // $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
+
         return view('Admin/index', $data);
     }
 
@@ -146,9 +152,23 @@ class AdminController extends BaseController
       return view('Admin/pages/orders', $data);
     }
 
+    public function myhistory()
+    {
+      $order_model = new PlaceOrderModel();
+        $data = [
+            'historyorders' => $order_model->select('*')
+            ->join('product', 'product.id = orders.menuid', 'right')
+            ->join('users', 'users.id = orders.user_id', 'right')
+            ->where('status', 'Ready To Serve')
+            ->get()->getResultArray()
+        ];
+        // var_dump($data);
+      return view('Admin/pages/historyorders', $data);
+    }
+
     public function accept($id, $user_id){
-      $placeorder = new PlaceOrderModel();
-      $placeorder->set('status', 'Order Confirmed')->where('user_id', $user_id)
+      $place = new PlaceOrderModel();
+      $place->set('status', 'Order Confirmed')->where('user_id', $user_id)
       ->where('menuid', $id)->update();
 
       return redirect()->route('adorders');
@@ -164,15 +184,17 @@ class AdminController extends BaseController
 
   public function processing()
   {
-    $order_model = new PlaceOrderModel();
+    $ord = new PlaceOrderModel();
         $data = [
-            'placeorder' => $order_model->select('*')
+            'myplaceorder' => $ord->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
             ->where('status', 'Order Confirmed')
             ->get()->getResultArray()
         ];
-      return view('Admin/pages/processorders', $data);
+        // var_dump($data);
+
+      return view('Admin/pages/processorders', $data);  
   }
   
   public function processed($id, $user_id){

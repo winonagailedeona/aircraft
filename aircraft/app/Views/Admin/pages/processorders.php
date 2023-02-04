@@ -16,7 +16,7 @@
             <div class="col-12">
               <div class="card" >
                 <div class="card-header">
-                  <h3 class="card-title"><b>All Orders</b></h3>
+                  <h3 class="card-title"><b>Processing Orders</b></h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- <div class="card-body" style="background-color: #3C8DBC"> -->
@@ -35,19 +35,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($placeorder as $orders): ?>
+                    <?php foreach($myplaceorder as $ord): ?>
                     <tr>
-                        <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
-                        <td><?= $orders['productname']?></td>
-                        <td><?= $orders['name']?></td>
-                        <td><?= $orders['contactno']?></td>
-                        <td><?= $orders['quantity']?></td>
-                        <td><?= $orders['total']?></td>
+                        <td><img src="<?= base_url(). '/'.$ord['image']?>" width="40px" height="40px"></td>
+                        <td><?= $ord['productname']?></td>
+                        <td><?= $ord['name']?></td>
+                        <td><?= $ord['contactno']?></td>
+                        <td><?= $ord['quantity']?></td>
+                        <td><?= $ord['total']?></td>
                         <td><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
 
                         
                         <td>
-                        <a href="<?= site_url('processed/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Ready To Serve</a>
+                        <a href="<?= site_url('processed/') . $ord['menuid'] . '/' . $ord['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Ready To Serve</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

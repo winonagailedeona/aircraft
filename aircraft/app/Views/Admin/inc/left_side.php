@@ -107,6 +107,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?= base_url('historyorders'); ?>" class="nav-link">
+              <i class="nav-icon fas fa-history"></i>
+              <p>
+                History Orders
+              </p>
+            </a>
+          </li>
 <br><br>
           <li class="nav-header">SETTINGS</li>
           <!-- <li class="nav-item">

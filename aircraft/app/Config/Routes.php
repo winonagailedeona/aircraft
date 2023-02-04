@@ -78,6 +78,8 @@ $routes->post('/saveCustomer', 'AdminController::saveCustomer');
 $routes->get('/adorders', 'AdminController::myorders');
 $routes->get('/processorders', 'AdminController::processing');
 $routes->get('/cancelorders', 'AdminController::cancelled');
+$routes->get('/historyorders', 'AdminController::myhistory');
+
 
 
 //USER

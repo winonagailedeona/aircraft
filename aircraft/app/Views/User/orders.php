@@ -174,7 +174,7 @@ Cancelled Orders
         
                                                         <a class="btn btn-sm btn-danger" href="<?= site_url('cancelledbyuser/') . $orders['menuid'] . '/' . $orders['user_id']  ?> ">CANCEL</a>
                                                     </div>
-                                                    <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Total:</span> ₱<?= $orders['total'] ?>
+                                                    <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Total:</span> ₱ <?= $orders['total'] ?>
                                                     </p>
                                                 </div>
                                             </div>

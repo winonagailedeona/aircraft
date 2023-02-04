@@ -8,13 +8,13 @@ class PlaceOrderModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'orders';
-    protected $primaryKey       = 'cartid';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'menuid', 'status', 'total'];
+    protected $allowedFields    = ['user_id', 'cartid', 'menuid', 'status', 'total'];
 
     // Dates
     protected $useTimestamps = true;
