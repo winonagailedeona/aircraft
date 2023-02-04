@@ -15,26 +15,43 @@
         <div class="wrapper mt-sm-5">
 
 
-            <form action="<?=base_url('/updateprofile')?>" method="post">
-            <input type="hidden" class="form-control" id="id" name="id" value="<?=session()->get('id'); ?>">
+            <form action="<?=site_url('updatepro/'.$pro['id'])?>" method="post">
+            <?php foreach($pro as $prof): ?>
+            <input type="hidden" class="form-control" name="id" value="<?= $prof['id']; ?>"/>
                 <h4 class="pb-4 border-bottom">Account settings</h4>
                 <div class="py-2">
+                
                     <div>
                         <label for="username">Full Name</label>
-                        <input type="text" name="username"
+                        <input type="text" name="name"
                             class="bg-light form-control"
-                            value="<?=session()->get('name'); ?>">
+                            value="<?= $prof['name']; ?>">
 
                     </div>
                     <div>
                         <label for="username">Email</label>
-                        <input type="email" name="username"
+                        <input type="email" name="email"
                             class="bg-light form-control"
-                            value="<?=session()->get('email'); ?>">
+                            value="<?=$prof['email']; ?>">
 
                     </div>
+                    <div>
+                        <label for="username">Contact Number</label>
+                        <input type="number" name="contactno"
+                            class="bg-light form-control"
+                            value="<?=$prof['contactno']; ?>">
+
+                    </div>
+                    <div>
+                        <label for="username">Address</label>
+                        <input type="text" name="address"
+                            class="bg-light form-control"
+                            value="<?=$prof['address']; ?>">
+
+                    </div>
+                    <?php endforeach; ?>
                     <div class="py-3 pb-4 border-bottom">
-                        <input type="submit" name="updateprofile" value="Save Changes" class="btn btn-primary mr-3"></input>
+                        <input type="submit" value="Save Changes" class="btn btn-primary mr-3"></input>
                         <a href="<?php echo base_url('profile');?>" class="btn border button">Cancel</a>
                     </div>
                 </div>

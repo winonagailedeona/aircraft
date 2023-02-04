@@ -15,9 +15,15 @@ class UserController extends Controller
 
   public function profile()
   {
-    
-    return view('User/profile');
+    $id = session()->get('id');
+    $user_model = new UserModel();
+
+    $data["pro"] = $user_model->select('*')
+    ->where('id', $id)->get()->getResultArray();
+
+    return view('User/profile', $data);
   }
+
 
   public function about()
   {

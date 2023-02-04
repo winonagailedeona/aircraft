@@ -22,16 +22,31 @@ class AdminController extends BaseController
     return view('adminlogin');
   }
 
-    public function index()
-    {
-        $usermodel = new UserModel();
-        $data['users'] = $usermodel->selectCount('id', 'totalusers')->first(); 
+  public function index()
+  {
+    $db = \Config\Database::connect();
+    $builder = $db->table('product');
+    $countpro = $builder->countAll();
 
-        $menumodel = new MenuModel();
-        $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
+      $productmodel = new MenuModel();
+      $placeordermodel = new PlaceOrderModel();
 
-        return view('Admin/index', $data);
-    }
+      $data = [
+        'products' => $productmodel->where('id')->get()->getNumRows(),
+        'orderstat' => $placeordermodel->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $placeordermodel->where('status', 'Order Placed')->get()->getNumRows(),
+        'product' => $countpro,
+      ];
+      
+      // ['users'] = $usermodel->selectCount('id', 'totalusers')->first(); 
+      // $menumodel = new MenuModel();
+      // $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
+      // $pendingmodel = new PlaceOrderModel();
+      // $data['pending'] = $pendingmodel->selectCount('id', 'totalpending')->first(); 
+      // $processedmodel = new MenuModel();
+      // $data['products'] = $menumodel->selectCount('id', 'totalproduct')->first(); 
+      return view('Admin/index', $data);
+  }
 
         public function profile()
     {
