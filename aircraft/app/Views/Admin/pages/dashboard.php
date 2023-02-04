@@ -32,10 +32,10 @@
 
               <p>Total Users</p>
             </div>
-            <div class="icon">
+            <div class="icon" style="height: 30px;">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -47,10 +47,10 @@
 
               <p>Total Products</p>
             </div>
-            <div class="icon">
+            <div class="icon" style="height: 30px;">
               <i class=" ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
           </div>
         </div>
         <!-- ./col -->
@@ -63,10 +63,10 @@
 
               <p>Total Processing Orders</p>
             </div>
-            <div class="icon">
+            <div class="icon" style="height: 30px;">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
           </div>
         </div>
         <!-- ./col -->
@@ -78,10 +78,10 @@
 
               <p>Pending Orders</p>
             </div>
-            <div class="icon">
+            <div class="icon" style="height: 30px;">
               <i class=" ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
           </div>
         </div>
       </div>

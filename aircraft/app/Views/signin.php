@@ -137,6 +137,11 @@ body {
                        <?= session()->getFlashdata('msg') ?>
                     </div>
                 <?php endif;?>
+                <?php if(session()->getFlashdata('msssg')):?>
+                    <div class="alert alert-danger">
+                       <?= session()->getFlashdata('msssg') ?>
+                    </div>
+                <?php endif;?>
         <div class="login-wrapper my-auto">
           <form action="<?php echo base_url(); ?>/SigninController/loginAuth" method="post">
             <div class="form-group">

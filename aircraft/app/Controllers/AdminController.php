@@ -55,7 +55,12 @@ class AdminController extends BaseController
     public function menuTable()
     {
       $me = new MenuModel();
+      $order_model = new PlaceOrderModel();
+
       $data = [
+        'orderstat' => $order_model->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $order_model->where('status', 'Order Placed')->get()->getNumRows(),
+        'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
         'menu' => $me->findAll()
       ];
       return view('Admin/pages/menu', $data);
@@ -125,9 +130,17 @@ class AdminController extends BaseController
 
     public function customers()
     {
+      $db = \Config\Database::connect();
+      $placeordermodel = new PlaceOrderModel();
+
+
+      
       $cus = new UserModel();
       $data = [
-        'users' => $cus->findAll()
+        'users' => $cus->findAll(),
+        'orderstat' => $placeordermodel->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $placeordermodel->where('status', 'Order Placed')->get()->getNumRows(),
+        'cancelled' => $placeordermodel->where('status', 'Cancelled by User')->get()->getNumRows(),
       ];
       return view('Admin/pages/customers', $data);
     }
@@ -154,6 +167,9 @@ class AdminController extends BaseController
     {
       $order_model = new PlaceOrderModel();
         $data = [
+            'orderstat' => $order_model->where('status', 'Order Confirmed')->get()->getNumRows(),
+            'pending' => $order_model->where('status', 'Order Placed')->get()->getNumRows(),
+            'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
             'placeorder' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
@@ -168,6 +184,9 @@ class AdminController extends BaseController
     {
       $order_model = new PlaceOrderModel();
         $data = [
+            'orderstat' => $order_model->where('status', 'Order Confirmed')->get()->getNumRows(),
+            'pending' => $order_model->where('status', 'Order Placed')->get()->getNumRows(),
+            'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
             'historyorders' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')

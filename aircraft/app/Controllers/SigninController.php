@@ -31,8 +31,14 @@ class SigninController extends Controller
                     'email' => $data['email'],
                     'isLoggedIn' => TRUE
                 ];
-                $session->set($ses_data);
-                return redirect()->to('/profile');
+                if($data['state'] == 'BLOCKED'){
+                    $session->setFlashdata('msssg', 'Your account has been blocked by admin.');
+                    return redirect()->to('/signin');
+                }
+                else{
+                    $session->set($ses_data);
+                    return redirect()->to('/profile');
+                }
 
             }else{
                 $session->setFlashdata('msg', 'Password is incorrect.');

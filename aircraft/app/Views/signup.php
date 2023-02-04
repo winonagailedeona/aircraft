@@ -130,6 +130,7 @@ body {
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 login-section-wrapper">
+      <h1 class="text-center"><img  src="<?= base_url() ?>/img/logo.jpg"  alt="logo" style="border-radius: 50%; width: 150px;"></h1>
         <h1 class="login-title font-weight-bold text-center text-dark"><b>Register Account</b></h1>
         <?php if(isset($validation)):?>
                 <div class="alert alert-warning">
