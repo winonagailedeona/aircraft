@@ -21,10 +21,10 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
+
       <div class="row">
         <div class="col-lg-3 col-6">
-          <!-- small box -->
+
           <div class="small-box bg-info">
             <div class="inner">
             <h3><?= $users; ?></h3>
@@ -38,9 +38,9 @@
             <a href="#" class="small-box-footer"></i></a>
           </div>
         </div>
-        <!-- ./col -->
+
         <div class="col-lg-3 col-6">
-          <!-- small box -->
+
           <div class="small-box bg-success">
             <div class="inner">
               <h3><?= $products; ?></h3>
@@ -53,10 +53,9 @@
             <a href="#" class="small-box-footer"></a>
           </div>
         </div>
-        <!-- ./col -->
-        <!-- ./col -->
+
         <div class="col-lg-3 col-6">
-          <!-- small box -->
+
           <div class="small-box bg-danger">
             <div class="inner">
               <h3><?= $orderstat; ?></h3>
@@ -69,9 +68,8 @@
             <a href="#" class="small-box-footer"></a>
           </div>
         </div>
-        <!-- ./col -->
         <div class="col-lg-3 col-6">
-          <!-- small box -->
+
           <div class="small-box bg-warning">
             <div class="inner">
               <h3><?= $pending; ?></h3>
@@ -85,13 +83,13 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
-      <!-- Main row -->
+
+
       <div class="row">
         <div class="col-lg-6">
 
 
-          <div class="card">
+          <!-- <div class="card">
             <div class="card-header border-0">
               <h3 class="card-title">Products</h3>
               <div class="card-tools">
@@ -267,8 +265,8 @@
         </div>
 
 
-      </div>
-
+      </div> -->
+        </div> </div>
 
 
       <div class="card">
@@ -330,7 +328,7 @@
         </div>
 
         <div class="card-footer clearfix">
-          <a href="" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+          <a href="<?= base_url('adorders'); ?>" class="btn btn-sm btn-secondary float-right">View All Orders</a>
         </div>
 
       </div>
