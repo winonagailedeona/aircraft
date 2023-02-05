@@ -60,7 +60,7 @@ $routes->get('/adlogin', 'AdminController::admlogin');
 $routes->match(['get', 'post'], 'SigninController/signinAuth', 'SigninController::signinAuth');
 $routes->get('/signin', 'SigninController::admin');
 $routes->get('/reviewnf', 'AdminController::reviewnewsfeed', ['filter' => 'adminGuard']);
-$routes->get('/adprofile', 'ProfileController::admin',, ['filter' => 'adminGuard']);
+$routes->get('/adprofile', 'ProfileController::admin',['filter' => 'adminGuard']);
 
 //This is dashboard
 $routes->get('/admin', 'AdminController::index', ['filter' => 'adminGuard']);
