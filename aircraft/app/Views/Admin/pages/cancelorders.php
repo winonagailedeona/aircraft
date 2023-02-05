@@ -30,6 +30,7 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
+                        <th></th>
                         <th>Cancelled On</th>
                         <th>Status</th>
                     </tr>
@@ -41,8 +42,18 @@
                         <td style="font-size: 15px;"><?= $orders['productname']?></td>
                         <td style="font-size: 15px;"><?= $orders['name']?></td>
                         <td style="font-size: 15px;"><?= $orders['contactno']?></td>
-                        <td style="font-size: 15px;"><?= $orders['quantity']?></td>
+                        <td style="font-size: 15px;"><?= $orders['orquantity']?></td>
                         <td style="font-size: 15px;">₱<?= $orders['total']?>.00</td>
+                        <?php $status = $orders['type'];
+                                                    if ($status == "D" or $status == "P") { ?>
+
+                                                        <?php if ($status == "D") { ?>
+                                                            <td>Pick-up</td>
+                                                        <?php } ?>
+                                                        <?php if ($status == "P") { ?>
+                                                          <td>Dine-in</td>
+                                                        <?php } ?>
+                                                    <?php } ?>
                         <td style="font-size: 15px;"><?= $orders['updatedd_at']?></td>
                         <td><button type="button" class="btn btn-secondary"> CANCELLED</button></td>
 

@@ -127,13 +127,17 @@ class ProductsController extends BaseController
         $order_model = new PlaceOrderModel();
         $cart_model = new CartModel();
         $menuid = $this->request->getPost('menuid[]');
+        $quan = $this->request->getPost('bilang[]');
         $total = $this->request->getPost('total[]');
-
+        $type = $this->request->getPost('type');
         for($i = 0; $i < count($menuid); $i++){
             $data = [
                 'menuid' => $menuid[$i],
                 'user_id' => session()->get('id'),
-                'total' => $total[$i]      
+                'orquantity' => $quan[$i],
+                'total' => $total[$i],
+                'type' => $type[$i]
+
             ];
             if($order_model->insert($data) == 0){
                 

@@ -299,7 +299,7 @@
                 <tr>
                   <td><?= $orders['name']?></td>
                   <td><?= $orders['productname']?></td>
-                  <td><?= $orders['quantity']?></td>
+                  <td><?= $orders['orquantity']?></td>
                   <?php $status=$orders['status']; 
                             if($status=="Receive" or $status=="Order Placed" or $status=="Ready To Serve" or $status=="Cancelled by User" ) { ?>
 

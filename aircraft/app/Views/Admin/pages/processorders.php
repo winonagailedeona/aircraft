@@ -30,6 +30,7 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
+                        <th></th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -41,8 +42,18 @@
                         <td><?= $ord['productname']?></td>
                         <td><?= $ord['name']?></td>
                         <td><?= $ord['contactno']?></td>
-                        <td><?= $ord['quantity']?></td>
+                        <td><?= $ord['orquantity']?></td>
                         <td>₱<?= $ord['total']?>.00</td>
+                        <?php $status = $orders['type'];
+                                                    if ($status == "D" or $status == "P") { ?>
+
+                                                        <?php if ($status == "D") { ?>
+                                                            <td>Pick-up</td>
+                                                        <?php } ?>
+                                                        <?php if ($status == "P") { ?>
+                                                          <td>Dine-in</td>
+                                                        <?php } ?>
+                                                    <?php } ?>
                         <td><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
 
                         

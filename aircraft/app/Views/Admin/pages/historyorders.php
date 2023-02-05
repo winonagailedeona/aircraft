@@ -29,6 +29,7 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
+                        <th></th>
                         <th>Order-Date</th>
                         <th>Order-Completed</th>
                     </tr>
@@ -40,8 +41,18 @@
                         <td><?= $orders['productname']?></td>
                         <td><?= $orders['name']?></td>
                         <td><?= $orders['contactno']?></td>
-                        <td><?= $orders['quantity']?></td>
+                        <td><?= $orders['orquantity']?></td>
                         <td>₱<?= $orders['total']?>.00</td>
+                        <?php $status = $orders['type'];
+                                                    if ($status == "D" or $status == "P") { ?>
+
+                                                        <?php if ($status == "D") { ?>
+                                                            <td>Pick-up</td>
+                                                        <?php } ?>
+                                                        <?php if ($status == "P") { ?>
+                                                          <td>Dine-in</td>
+                                                        <?php } ?>
+                                                    <?php } ?>
                         <td><?= $orders['createdd_at']?></td>
                         <td><?= $orders['updatedd_at']?></td>
 
