@@ -499,14 +499,14 @@ button.btn-link {
     position: relative;
     min-height: 70%;
     padding-top: 0.5%;
-    padding-left: 10%;
-    color: #999;
+    padding-left: 5%;
+    color: black;
     z-index: 0;
 }
 
 .activity__list__body {
-    padding-top:5%;
-    padding-left: 10%;
+    padding-top:2%;
+    padding-left: 5%;
 }
 
 .entry-content .gallery {
@@ -894,8 +894,9 @@ li.list-group-item:first-child {
                     <li>
                         <i class="activity__list__icon fa fa-question-circle-o"></i>
                         <div class="activity__list__header">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" />
-                            <a href="#"><?= $nf['name']?></a> Posted:
+                            <!-- <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" /> -->
+                            <i class="fas fa-user"></i>
+                            <a><?= $nf['name']?></a> Posted:
                         </div>
                         <div class="activity__list__body entry-content">
                             <p>
@@ -903,7 +904,7 @@ li.list-group-item:first-child {
                             </p>
                         </div>
                         <div class="activity__list__footer">
-                            <a href="#"> <i class="fa fa-star"></i><?= $nf['nf_rating']?>/5</a>
+                            <a> <i class="fa fa-star"></i><?= $nf['nf_rating']?>/5</a>
                             <span> <i class="fa fa-clock"></i><?= $nf['nf_createdon']?></span>
                         </div>
                     </li>
