@@ -23,26 +23,26 @@
             <div class="alert alert-success">
             <?= session()->getFlashdata('msg', 'Updated Successfully!')?></div>
             <?php endif; ?>
-            <?php if (!empty(session()->getFlashdata('mssg', 'Successfully Added!'))) : ?>
-              <div class="alert alert-success">
-                <?= session()->getFlashdata('mssg', 'Successfully Added!') ?>
-              </div>
-            <?php endif; ?>
+            <?php if(session()->getFlashdata('mssg')):?>
+                    <div class="alert alert-warning">
+                       <?= session()->getFlashdata('mssg') ?>
+                    </div>
+                <?php endif;?>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <button data-toggle="modal" data-target="#modal-default" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b>Add Product</b></button>
+                  <button data-toggle="modal" data-target="#modal-default" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><b><i class="fas fa-plus"> </i> Add Product</b></button>
                   <div class="modal fade" id="modal-default">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title">Add Author</h4>
+<h4 class="modal-title"></h4>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
 <div class="modal-body">
-                        <p><b>Add Product</b></p>
+                        <p><b>  Add Product</b></p>
                         <form action="saveMenu" method="post">
                           <div class="form-group mb-4">
                             <input type="text" name="productname" class="form-control" value="" placeholder="Product Name" required>
@@ -70,7 +70,7 @@
                           <div class="form-group mb-4">
                             <!-- <input type="text" name="image" class="form-control" placeholder="Upload Image"> -->
 
-                          <input type="file" name="menu" size="30" required/>
+                          <input type="file" name="image" size="30" required/>
                           </div>
 
 </div>

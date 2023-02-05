@@ -77,32 +77,44 @@ class AdminController extends BaseController
 
     public function saveMenu()
     {
-      $name = $this->request->getVar('name');
+      $productname = $this->request->getVar('productname');
       $description = $this->request->getVar('description');
       $price = $this->request->getVar('price');
       $quantity = $this->request->getVar('quantity');
       $category = $this->request->getVar('category');
       $image = $this->request->getVar('image');
 
-      $me = new MenuModel();
-      $data = [
-        'name' => $name,
-        'description' => $description,
-        'price' => $price,
-        'quantity' => $quantity,
-        'category' => $category,
-        'image' => $image
-      ];
-      $me->save($data);
-      $session = session();
-      $session->setFlashdata('mssg', 'Successfully Added!');
-      return redirect()->to($_SERVER['HTTP_REFERER']);
+
+
+            $prod = new MenuModel();
+            $data = [
+                'productname' => $productname,
+                'prices' => $price,
+                'category' => $category,
+                'image' => $image,
+                'description' => $description
+
+
+
+            ];
+
+            if ($prod->insert($data)) {
+              $session = session();               
+               $session->setFlashdata('mssg', 'Successfully Added!');
+              return redirect()->to($_SERVER['HTTP_REFERER']);
+            } else {
+             
+
+              return redirect()->to('menuTable');
+            }
+          
     }
 
     public function editMenu($id = null)
     {
       $menu = new MenuModel();
       $data['menu'] = $menu->where('id', $id)->first();
+      
       return view('Admin/pages/editmenu', $data);
     }
 
@@ -117,7 +129,12 @@ class AdminController extends BaseController
         $image = $this->request->getVar('image');
 
         $menu = new MenuModel();
+        $placeordermodel = new PlaceOrderModel();
+
         $data = [
+          'orderstat' => $placeordermodel->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $placeordermodel->where('status', 'Order Placed')->get()->getNumRows(),
+        'cancelled' => $placeordermodel->where('status', 'Cancelled by User')->get()->getNumRows(),
           'productname' => $productname,
           'description' => $description,
           'price' => $price,

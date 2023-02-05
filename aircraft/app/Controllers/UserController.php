@@ -110,7 +110,7 @@ class UserController extends Controller
       ->join('product', 'checkout.menuid = product.id', 'right')
       ->join('cart', 'checkout.menuid = cart.menuid', 'right')
       ->where('checkout.user_id', $id)->get()->getResultArray();
-
+      
      return view('User/checkout', $cart);
 
     }
