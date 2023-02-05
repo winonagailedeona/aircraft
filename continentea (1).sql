@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 05, 2023 at 04:23 AM
+-- Generation Time: Feb 05, 2023 at 05:11 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `nf` (
   `user_id` int NOT NULL,
   `nf_content` varchar(500) DEFAULT NULL,
   `nf_rating` varchar(20) NOT NULL,
-  `nf_status` varchar(10) NOT NULL DEFAULT 'to review',
+  `nf_status` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'To Review',
   `nf_createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`nf_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `nf` (
 --
 
 INSERT INTO `nf` (`nf_id`, `user_id`, `nf_content`, `nf_rating`, `nf_status`, `nf_createdon`) VALUES
-(1, 3, 'hi', '5', 'to review', '2023-02-05 12:12:32');
+(1, 3, 'hi', '5', 'To Review', '2023-02-05 12:12:32');
 
 -- --------------------------------------------------------
 

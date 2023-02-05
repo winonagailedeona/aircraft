@@ -100,10 +100,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="<?= base_url('reviewnf'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-star"></i>
               <p>
-                Product Reviews
+                Reviews
               </p>
             </a>
           </li>

@@ -58,6 +58,7 @@ $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 $routes->get('/adlogin', 'AdminController::admlogin');
 $routes->match(['get', 'post'], 'SigninController/signinAuth', 'SigninController::signinAuth');
 $routes->get('/signin', 'SigninController::admin');
+$routes->get('/reviewnf', 'AdminController::reviewnewsfeed');
 $routes->get('/adprofile', 'ProfileController::admin',['filter' => 'authGuard']);
 
 //This is dashboard

@@ -6,6 +6,7 @@ use App\Models\MenuModel;
 // use App\Models\CustomersModel;
 use App\Models\PlaceOrderModel;
 use App\Models\UserModel;
+use App\Models\NewsfeedModel;
 
 class AdminController extends BaseController
 {
@@ -267,6 +268,29 @@ public function cancelled()
     ->where('id', $id)->update();
     return redirect()->route('customers');
   }
+
+  public function reviewnewsfeed()
+  {
+    $user_model = new UserModel();
+
+    $data = [
+      // 'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
+      'newsf' => $user_model-> select('*')
+      ->join('nf', 'nf.user_id = users.id', 'right')
+      ->where('nf_status', 'To Review')
+      ->get()->getResultArray()
+    ];
+      return view('Admin/pages/newsfeed', $data);
+  }
+  
+  public function acceptpost($nf_id, $user_id){
+    $post = new NewsfeedModel();
+    $post->set('nf_status', 'Approved')->where('user_id', $user_id)
+    ->where('nf_id', $nf_id)
+    ->update();
+
+    return redirect()->route('reviewnewsfeed');
+}
 
 }
 
