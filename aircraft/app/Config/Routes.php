@@ -59,28 +59,28 @@ $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 $routes->get('/adlogin', 'AdminController::admlogin');
 $routes->match(['get', 'post'], 'SigninController/signinAuth', 'SigninController::signinAuth');
 $routes->get('/signin', 'SigninController::admin');
-$routes->get('/reviewnf', 'AdminController::reviewnewsfeed', ['filter' => 'adminGuard']);
-$routes->get('/adprofile', 'ProfileController::admin',['filter' => 'adminGuard']);
+$routes->get('/reviewnf', 'AdminController::reviewnewsfeed');
+$routes->get('/adprofile', 'ProfileController::admin');
 
 //This is dashboard
-$routes->get('/admin', 'AdminController::index', ['filter' => 'adminGuard']);
+$routes->get('/admin', 'AdminController::index');
 
 //This is menu
-$routes->get('/menuTable', 'AdminController::menuTable', ['filter' => 'adminGuard']);
+$routes->get('/menuTable', 'AdminController::menuTable');
 $routes->get('/editMenu/(:any)', 'AdminController::editMenu/$1');
 $routes->post('/saveMenu', 'AdminController::saveMenu');
 $routes->post('/updateMenu', 'AdminController::updateMenu');
 
 
 //This is for the Customers Section
-$routes->get('/customers', 'AdminController::customers', ['filter' => 'adminGuard']);
+$routes->get('/customers', 'AdminController::customers');
 $routes->post('/saveCustomer', 'AdminController::saveCustomer');
 
 //Orders
-$routes->get('/adorders', 'AdminController::myorders', ['filter' => 'adminGuard']);
-$routes->get('/processorders', 'AdminController::processing', ['filter' => 'adminGuard']);
-$routes->get('/cancelorders', 'AdminController::cancelled', ['filter' => 'adminGuard']);
-$routes->get('/historyorders', 'AdminController::myhistory', ['filter' => 'adminGuard']);
+$routes->get('/adorders', 'AdminController::myorders');
+$routes->get('/processorders', 'AdminController::processing');
+$routes->get('/cancelorders', 'AdminController::cancelled');
+$routes->get('/historyorders', 'AdminController::myhistory');
 
 
 
