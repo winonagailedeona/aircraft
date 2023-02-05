@@ -30,18 +30,20 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
+                        <th>Cancelled On</th>
                         <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach($placeorder as $orders): ?>
                     <tr>
-                        <td><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
-                        <td><?= $orders['productname']?></td>
-                        <td><?= $orders['name']?></td>
-                        <td><?= $orders['contactno']?></td>
-                        <td><?= $orders['quantity']?></td>
-                        <td><?= $orders['total']?></td>
+                        <td style="font-size: 15px;"><img src="<?= base_url(). '/'.$orders['image']?>" width="40px" height="40px"></td>
+                        <td style="font-size: 15px;"><?= $orders['productname']?></td>
+                        <td style="font-size: 15px;"><?= $orders['name']?></td>
+                        <td style="font-size: 15px;"><?= $orders['contactno']?></td>
+                        <td style="font-size: 15px;"><?= $orders['quantity']?></td>
+                        <td style="font-size: 15px;"><?= $orders['total']?></td>
+                        <td style="font-size: 15px;"><?= $orders['updatedd_at']?></td>
                         <td><button type="button" class="btn btn-secondary"> CANCELLED</button></td>
 
                     </tr>

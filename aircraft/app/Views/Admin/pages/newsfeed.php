@@ -42,21 +42,21 @@
                                         <tbody>
                                             <?php foreach ($newsf as $nf) : ?>
                                                 <tr>
-                                                    <td style="font-size: 14px;"><?= $nf['name'] ?></td>
-                                                    <td style="font-size: 14px;"><?= $nf['nf_content'] ?></td>
-                                                    <td style="font-size: 14px;"><?= $nf['nf_rating'] ?>/5</td>
+                                                    <td style="font-size: 15px;"><?= $nf['name'] ?></td>
+                                                    <td style="font-size: 15px;"><?= $nf['nf_content'] ?></td>
+                                                    <td style="font-size: 15px;"><?= $nf['nf_rating'] ?>/5</td>
                                                     <?php $status=$nf['nf_status']; 
                                                     if($status=="To Review" or $status=="Approved") { ?>
                                                     <?php if($status=="To Review") { ?>
                                                     <td> <span> To Review</span></td>
                                                     <?php }?>
                                                     <?php if($status=="Approved") { ?>
-                                                    <td> <span>Approved</span></td>
+                                                    <td> <span>Posted</span></td>
                                                     <?php }} ?>
-                                                    <td style="font-size: 14px;"><?= $nf['nf_createdon'] ?></td>
+                                                    <td style="font-size: 15px;"><?= $nf['nf_createdon'] ?></td>
                                                     <?php if($status=="To Review") { ?>
                         
-                                                        <td style="font-size: 14px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="<?= site_url('acceptpost/') . $nf['nf_id']  ?> " class="text-dark" >Approve</a></button>
+                                                        <td class="text-center" style="font-size: 17px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="<?= site_url('acceptpost/') . $nf['nf_id']  ?> " class="text-white" ><i class="fas fa-check"></i> Approve</a></button>
                                                     </td>
                         <?php } ?>
 

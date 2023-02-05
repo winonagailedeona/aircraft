@@ -62,6 +62,8 @@
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
+                      <th>Address</th>
+                      <th>Contact No.</th>
                       <th>Status</th>
                       <th>Account Created On</th>
                       <th>Action</th>
@@ -70,25 +72,27 @@
                     <tbody>
                       <?php foreach ($users as $cus): ?>
                     <tr>
-                      <td><?= $cus['name']?></td>
-                      <td><?= $cus['email']?></td>
+                      <td style="font-size: 15px;"><?= $cus['name']?></td>
+                      <td style="font-size: 15px;"><?= $cus['email']?></td>
+                      <td style="font-size: 15px;"><?= $cus['address']?></td>
+                      <td style="font-size: 15px;"><?= $cus['contactno']?></td>
                       <?php $status=$cus['state']; 
                             if($status=="ACTIVE" or $status=="BLOCKED") { ?>
                     <?php if($status=="ACTIVE") { ?>
-                        <td> <span class="badge bg-success"> ACTIVE</span></td>
+                        <td class="text-center"> <span style="font-size: 15px;" class="badge bg-success"> ACTIVE</span></td>
                         <?php }?>
                         <?php if($status=="BLOCKED") { ?>
-                        <td> <span class="badge bg-danger">BLOCKED</span></td>
+                        <td class="text-center"> <span  style="font-size: 15px;" class="badge bg-danger">BLOCKED</span></td>
                         <?php }} ?>
-                      <td><?= $cus['created_at']?></td>
+                      <td  style="font-size: 15px;"><?= $cus['created_at']?></td>
                       <?php if($status=="ACTIVE") { ?>
                         
-                   <td>
-                   <a href="<?= site_url('blocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Block</a>
+                   <td class="text-center">
+                   <a href="<?= site_url('blocked/') . $cus['id']  ?> " style="font-size: 20px;" class="btn-sm btn-secondary">Block</a>
                    </td>
                    <?php } else {?>
-                    <td>
-                   <a href="<?= site_url('unblocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Unlock</a>
+                    <td class="text-center">
+                   <a href="<?= site_url('unblocked/') . $cus['id']  ?> " style="font-size: 20px;" class="btn-sm btn-secondary">Unlock</a>
                    </td>
 
                     <?php }?>

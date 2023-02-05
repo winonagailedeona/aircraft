@@ -249,7 +249,7 @@ public function cancelled()
             'placeorder' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
-            ->where('status', 'Cancelled by Seller')
+            ->where('status', 'Cancelled by User')
             ->get()->getResultArray()
         ];
       return view('Admin/pages/cancelorders', $data);

@@ -46,7 +46,7 @@
                         <td> <button type="button" class="btn btn-danger"><span></span>PENDING</button></td>
                         <td><?= $orders['createdd_at']?></td>
 
-                        <td>
+                        <td class="text-center" style="font-size: 18px;">
                         <a href="<?= site_url('accept/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Confirm</a>
                         <a href="<?= site_url('cancel/') . $orders['menuid'] . '/' . $orders['user_id']  ?> " class="btn-sm btn-secondary"><i class="fas fa-times"> </i> Cancel</a>
                         <!-- <a href=""class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Process</a>

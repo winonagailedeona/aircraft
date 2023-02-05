@@ -46,7 +46,7 @@
                         <td><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
 
                         
-                        <td>
+                        <td class="text-center" style="font-size: 18px;">
                         <a href="<?= site_url('processed/') . $ord['menuid'] . '/' . $ord['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Ready To Serve</a>
                         </td>
                     </tr>
