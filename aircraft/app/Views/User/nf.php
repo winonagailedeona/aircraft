@@ -904,68 +904,38 @@ li.list-group-item:first-child {
                             </p>
                         </div>
                         <div class="activity__list__footer">
-                            <a> <i class="fa fa-star"></i><?= $nf['nf_rating']?>/5</a>
+                            <a> <?php $star=$nf['nf_rating']; 
+                            if($star=="1" or $star=="2" or $star=="3" or $star=="4" or $star=="5") { ?>
+                    <?php if($star=="5") { ?>
+                        <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
+                        <i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php }?>
+                        <?php if($star=="4") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
+                        <i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php } ?>
+                        <?php if($star=="3") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
+                         <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php }?>
+                        <?php if($star=="2") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php } ?>
+                        <?php if($star=="1") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php }} ?>
+                        </a>
                             <span> <i class="fa fa-clock"></i><?= $nf['nf_createdon']?></span>
                         </div>
                     </li>
-                    <!-- <li>
-                        <i class="activity__list__icon fa fa-image"></i>
-                        <div class="activity__list__header">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                            <a href="#">John Doe</a> Uploaded 4 Image: <a href="#">Office Working Time</a>
-                        </div>
-                        <div class="activity__list__body entry-content">
-                            <ul class="gallery">
-                                <li>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                                </li>
-                                <li>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" />
-                                </li>
-                                <li>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-                                </li>
-                                <li>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" />
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="activity__list__footer">
-                            <a href="#"> <i class="fa fa-thumbs-up"></i>123</a>
-                            <a href="#"> <i class="fa fa-comments"></i>23</a>
-                            <span> <i class="fa fa-clock"></i>2 hours ago</span>
-                        </div>
-                    </li> -->
+            
                 </ul>
             </div>
         </div>
     </div>
 </div>
 <?php endforeach; ?>
-<!-- <div class="container">
-    <div class="col-lg-12">
-        <div class="panel">
-            <div class="panel-content panel-activity">
-                <ul class="panel-activity__list">
-                    <li>
-                        <i class="activity__list__icon fa fa-lightbulb-o"></i>
-                        <div class="activity__list__header">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                            <a href="#">John Doe</a> bookmarked a page: <a href="#">Awesome Idea</a>
-                        </div>
-                        <div class="activity__list__footer">
-                            <a href="#"> <i class="fa fa-thumbs-up"></i>123</a>
-                            <a href="#"> <i class="fa fa-comments"></i>23</a>
-                            <span> <i class="fa fa-clock"></i>2 hours ago</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div> -->
 
-<!-- Footer Start -->
 <div class="container-fluid footer bg-light py-1" style="margin-top: 40px;">
     <div class="container text-center py-5">
         <div class="row">

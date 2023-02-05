@@ -30,9 +30,8 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
-                        <th></th>
                         <th>Cancelled On</th>
-                        <th>Status</th>
+                        <th class="text-center">Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -48,14 +47,14 @@
                                                     if ($status == "D" or $status == "P") { ?>
 
                                                         <?php if ($status == "D") { ?>
-                                                            <td>Pick-up</td>
+                                                            <td><i class="fas fa-utensils"> </i> Dine-in</td>
                                                         <?php } ?>
                                                         <?php if ($status == "P") { ?>
-                                                          <td>Dine-in</td>
+                                                          <td ><i class="fas fa-shopping-bag"> </i> Pick-up</td>
                                                         <?php } ?>
                                                     <?php } ?>
                         <td style="font-size: 15px;"><?= $orders['updatedd_at']?></td>
-                        <td><button type="button" class="btn btn-secondary"> CANCELLED</button></td>
+                        <td class="text-center"><p class="badge text-center bg-secondary" style="font-size: 17px;"> CANCELLED</p></td>
 
                     </tr>
                     <?php endforeach; ?>

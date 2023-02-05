@@ -36,7 +36,7 @@
                                                 <th>Rating</th>
                                                 <th>Status</th>
                                                 <th>Created On</th>
-                                                <th>Action</th>
+                                                <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -44,7 +44,30 @@
                                                 <tr>
                                                     <td style="font-size: 15px;"><?= $nf['name'] ?></td>
                                                     <td style="font-size: 15px;"><?= $nf['nf_content'] ?></td>
-                                                    <td style="font-size: 15px;"><?= $nf['nf_rating'] ?>/5</td>
+
+                                                    <?php $star=$nf['nf_rating']; 
+                            if($star=="1" or $star=="2" or $star=="3" or $star=="4" or $star=="5") { ?>
+                    <?php if($star=="5") { ?>
+                        <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
+                        <i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php }?>
+                        <?php if($star=="4") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
+                        <i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php } ?>
+                        <?php if($star=="3") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
+                         <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php }?>
+                        <?php if($star=="2") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php } ?>
+                        <?php if($star=="1") { ?>
+                            <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
+                        <?php }} ?>
+                        
+
+                        
                                                     <?php $status=$nf['nf_status']; 
                                                     if($status=="To Review" or $status=="Approved") { ?>
                                                     <?php if($status=="To Review") { ?>
@@ -56,7 +79,7 @@
                                                     <td style="font-size: 15px;"><?= $nf['nf_createdon'] ?></td>
                                                     <?php if($status=="To Review") { ?>
                         
-                                                        <td class="text-center" style="font-size: 17px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="<?= site_url('acceptpost/') . $nf['nf_id']  ?> " class="text-white" ><i class="fas fa-check"></i> Approve</a></button>
+                                                        <td class="text-center" style="font-size: 17px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="<?= site_url('acceptpost/') . $nf['nf_id']  ?> " class="text-white" ><i class="fas fa-check"></i> Post</a></button>
                                                     </td>
                         <?php } ?>
 

@@ -181,9 +181,9 @@
                         </table>
                         <div class="text-right" style="padding-right: 5%; padding-left: 65%; background-color: none; border:none; padding-bottom: 3%;">
                               <input type="radio" id="html" name="type" value="Dine-in">
-                              <label for="">Dine-in</label>
+                              <label for=""><i class="fas fa-utensils"> </i> Dine-in</label>
                               <input type="radio" id="javascript" name="type" value="Pick-up">
-                              <label for="">Pick-up</label></div>
+                              <label for=""><i class="fas fa-shopping-bag"> </i> Pick-up</label></div>
                         </form>
                     </div>
                 </div>

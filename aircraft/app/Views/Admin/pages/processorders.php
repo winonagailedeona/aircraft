@@ -30,9 +30,9 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
-                        <th></th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Type of Order</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,22 +44,34 @@
                         <td><?= $ord['contactno']?></td>
                         <td><?= $ord['orquantity']?></td>
                         <td>₱<?= $ord['total']?>.00</td>
-                        <?php $status = $orders['type'];
+                        <?php $status = $ord['type'];
                                                     if ($status == "D" or $status == "P") { ?>
 
                                                         <?php if ($status == "D") { ?>
-                                                            <td>Pick-up</td>
+                                                            <td>Dine-in</td>
                                                         <?php } ?>
                                                         <?php if ($status == "P") { ?>
-                                                          <td>Dine-in</td>
+                                                          <td>Pick-up</td>
                                                         <?php } ?>
                                                     <?php } ?>
-                        <td><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
+                        <td class="text-center"><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
 
                         
-                        <td class="text-center" style="font-size: 18px;">
-                        <a href="<?= site_url('processed/') . $ord['menuid'] . '/' . $ord['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-check"> </i> Ready To Serve</a>
+                        <?php if($status=="D") { ?>
+                        
+                        <td class="text-center" style="font-size: 20px;">
+                        <a href="<?= site_url('processed/') . $ord['menuid'] . '/' . $ord['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-utensils"> </i> &nbsp;Ready For Dine-in</a>
                         </td>
+                        <?php } else {?>
+                         <td class="text-center" style="font-size: 20px;">
+                         <a href="<?= site_url('processed/') . $ord['menuid'] . '/' . $ord['user_id']  ?> " class="btn-sm btn-primary"><i class="fas fa-shopping-bag"> </i> &nbsp;Ready For Pick-up</a>
+
+                        </td>
+     
+                         <?php }?>
+
+                         
+          
                     </tr>
                     <?php endforeach; ?>
                     

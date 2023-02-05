@@ -29,7 +29,7 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
-                        <th></th>
+                        <th>Type of Order</th>
                         <th>Order-Date</th>
                         <th>Order-Completed</th>
                     </tr>
@@ -47,10 +47,10 @@
                                                     if ($status == "D" or $status == "P") { ?>
 
                                                         <?php if ($status == "D") { ?>
-                                                            <td>Pick-up</td>
+                                                            <td><i class="fas fa-utensils"> </i> Pick-up</td>
                                                         <?php } ?>
                                                         <?php if ($status == "P") { ?>
-                                                          <td>Dine-in</td>
+                                                          <td><i class="fas fa-shopping-bag"> </i> Dine-in</td>
                                                         <?php } ?>
                                                     <?php } ?>
                         <td><?= $orders['createdd_at']?></td>

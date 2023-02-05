@@ -68,7 +68,9 @@
                             </select>
                           </div>
                           <div class="form-group mb-4">
-                            <input type="text" name="image" class="form-control" placeholder="Upload Image">
+                            <!-- <input type="text" name="image" class="form-control" placeholder="Upload Image"> -->
+
+                          <input type="file" name="menu" size="30" required/>
                           </div>
 
 </div>

@@ -48,7 +48,6 @@ class UserController extends Controller
     $user_model = new UserModel();
 
     $data = [
-      // 'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
       'newsf' => $user_model-> select('*')
       ->join('nf', 'nf.user_id = users.id', 'right')
       ->where('nf_status', 'Approved')

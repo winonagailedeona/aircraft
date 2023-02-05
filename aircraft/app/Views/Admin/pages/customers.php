@@ -25,7 +25,7 @@
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title">Add Author</h4>
+<h4 class="modal-title">Add Customer</h4>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -66,7 +66,7 @@
                       <th>Contact No.</th>
                       <th>Status</th>
                       <th>Account Created On</th>
-                      <th>Action</th>
+                      <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -92,7 +92,7 @@
                    </td>
                    <?php } else {?>
                     <td class="text-center">
-                   <a href="<?= site_url('unblocked/') . $cus['id']  ?> " style="font-size: 20px;" class="btn-sm btn-secondary">Unlock</a>
+                   <a href="<?= site_url('unblocked/') . $cus['id']  ?> " style="font-size: 20px;" class="btn-sm btn-secondary">Unblock</a>
                    </td>
 
                     <?php }?>

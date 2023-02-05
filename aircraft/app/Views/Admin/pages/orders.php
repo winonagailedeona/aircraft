@@ -29,7 +29,7 @@
                         <th>Contact No.</th>
                         <th>Qty</th>
                         <th>Total Price</th>
-                        <th></th>
+                        <th>Type of Order</th>
                         <th>Status</th>
                         <th>Order-Date</th>
                         <th>Actions</th>
