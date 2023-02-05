@@ -12,6 +12,7 @@ class UserModel extends Model{
         'password',
         'contactno',
         'address',
+        'state',
         'created_at',
     ];
 }

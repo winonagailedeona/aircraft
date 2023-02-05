@@ -133,11 +133,10 @@ class AdminController extends BaseController
       $db = \Config\Database::connect();
       $placeordermodel = new PlaceOrderModel();
 
-
-      
+    $session = session();
       $cus = new UserModel();
       $data = [
-        'users' => $cus->findAll(),
+        'users' => $cus->where('usertype', 'USER')->get()->getResultArray(),
         'orderstat' => $placeordermodel->where('status', 'Order Confirmed')->get()->getNumRows(),
         'pending' => $placeordermodel->where('status', 'Order Placed')->get()->getNumRows(),
         'cancelled' => $placeordermodel->where('status', 'Cancelled by User')->get()->getNumRows(),
@@ -217,6 +216,9 @@ class AdminController extends BaseController
   {
     $ord = new PlaceOrderModel();
         $data = [
+          'orderstat' => $ord->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $ord->where('status', 'Order Placed')->get()->getNumRows(),
+        'cancelled' => $ord->where('status', 'Cancelled by User')->get()->getNumRows(),
             'myplaceorder' => $ord->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
@@ -240,6 +242,9 @@ public function cancelled()
   {
     $order_model = new PlaceOrderModel();
         $data = [
+          'orderstat' => $order_model->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $order_model->where('status', 'Order Placed')->get()->getNumRows(),
+        'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
             'placeorder' => $order_model->select('*')
             ->join('product', 'product.id = orders.menuid', 'right')
             ->join('users', 'users.id = orders.user_id', 'right')
@@ -249,13 +254,19 @@ public function cancelled()
       return view('Admin/pages/cancelorders', $data);
   }
 
-//   public function blocked($id, $user_id){
-//     $cus = new UserModel();
-//     $cus->set('status', 'BLOCKED')->where('id',id)
-//     ->where('user_id', $id)->update();
+  public function blocked($id){
+    $cus = new UserModel();
+    $cus->set('state', 'BLOCKED')
+    ->where('id', $id)->update();
+    return redirect()->route('customers');
+  }
 
-//     return redirect()->route('customers');
-// }
+  public function unblocked($id){
+    $cus = new UserModel();
+    $cus->set('state', 'ACTIVE')
+    ->where('id', $id)->update();
+    return redirect()->route('customers');
+  }
 
 }
 

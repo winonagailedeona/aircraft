@@ -37,13 +37,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 //USER INTERFACE
-$routes->get('/cont', 'ProductsController::mycont');
-$routes->get('/pasta', 'ProductsController::products');
-$routes->get('/sandwich', 'ProductsController::sandwichProducts');
-$routes->get('/pica', 'ProductsController::picaProducts');
-$routes->get('/rice', 'ProductsController::mealsProducts');
-$routes->get('/dessert', 'ProductsController::dessertProducts');
-$routes->get('/others', 'ProductsController::allProducts');
+$routes->get('/cont', 'ProductsController::mycont',['filter' => 'authGuard']);
+$routes->get('/pasta', 'ProductsController::products',['filter' => 'authGuard']);
+$routes->get('/sandwich', 'ProductsController::sandwichProducts',['filter' => 'authGuard']);
+$routes->get('/pica', 'ProductsController::picaProducts',['filter' => 'authGuard']);
+$routes->get('/rice', 'ProductsController::mealsProducts',['filter' => 'authGuard']);
+$routes->get('/dessert', 'ProductsController::dessertProducts',['filter' => 'authGuard']);
+$routes->get('/others', 'ProductsController::allProducts',['filter' => 'authGuard']);
 $routes->match(['get', 'post'], 'ProductController/store', 'ProductController::store');
 
 //LOGIN AND REGISTER USER
@@ -95,7 +95,7 @@ $routes->get('/cancelledorders', 'UserController::cancelledorders');
 $routes->get('/ordershistory', 'UserController::ordershistory');
 $routes->get('/search', 'UserController::search');
 $routes->post('/search', 'UserController::search');
-$routes->get('/showcart', 'UserController::showcart');
+$routes->get('/showcart', 'UserController::showcart',['filter' => 'authGuard']);
 $routes->post('/placeorder', 'ProductsController::placeorder');
 $routes->get('/accept/(:any)', 'AdminController::accept/$1');
 $routes->get('/cancel/(:any)', 'AdminController::cancel/$1');
@@ -103,6 +103,7 @@ $routes->get('/cancelledbyuser/(:any)', 'UserController::cancelledbyuser/$1');
 $routes->get('/receive/(:any)', 'UserController::receive/$1');
 
 $routes->get('/blocked/(:any)', 'AdminController::blocked/$1');
+$routes->get('/unblocked/(:any)', 'AdminController::unblocked/$1');
 
 $routes->get('/processed/(:any)', 'AdminController::processed/$1');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');

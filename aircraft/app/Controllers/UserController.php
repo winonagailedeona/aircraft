@@ -150,6 +150,8 @@ class UserController extends Controller
 
   public function showcart()
   {
+    $session = session();
+
     session()->set('checkout', 'here');
     $id = session()->get('id');
     $cart_model = new CartModel();

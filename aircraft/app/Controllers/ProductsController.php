@@ -11,6 +11,7 @@ class ProductsController extends BaseController
 
   public function mycont()
   {
+    $session = session();
     $con = new MenuModel();
     $data = [
       'milktea' => $con->where('category', 'milktea')->findAll()
