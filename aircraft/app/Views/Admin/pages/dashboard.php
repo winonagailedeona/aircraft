@@ -306,7 +306,13 @@
                             if($status=="Receive" or $status=="Order Placed" or $status=="Ready To Serve" or $status=="Cancelled by User" ) { ?>
 
                     <?php if($status=="Receive") { ?>
-                        <td> <button type="button" style="border: none" class="badge badge-success"> Received</button></td>
+                        <td> <button type="button" style="border: none" class="badge badge-danger"> Received</button></td>
+                        <?php }?>
+                        <?php if($status=="Ready To Serve") { ?>
+                        <td> <button type="button" style="border: none" class="badge badge-primary"> Ready To Serve</button></td>
+                        <?php }?>
+                        <?php if($status=="Cancelled by User") { ?>
+                        <td> <button type="button" style="border: none" class="badge badge-danger"> Cancelled</button></td>
                         <?php }?>
                         <?php if($status=="Order Placed") { ?>
                         <td> <button type="button" style="border: none" class="badge badge-warning"> Pending</button>
