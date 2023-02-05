@@ -45,10 +45,23 @@
                                                     <td style="font-size: 14px;"><?= $nf['name'] ?></td>
                                                     <td style="font-size: 14px;"><?= $nf['nf_content'] ?></td>
                                                     <td style="font-size: 14px;"><?= $nf['nf_rating'] ?>/5</td>
-                                                    <td style="font-size: 14px;"><?= $nf['nf_status'] ?></td>
+                                                    <?php $status=$nf['nf_status']; 
+                                                    if($status=="To Review" or $status=="Approved") { ?>
+                                                    <?php if($status=="To Review") { ?>
+                                                    <td> <span> To Review</span></td>
+                                                    <?php }?>
+                                                    <?php if($status=="Approved") { ?>
+                                                    <td> <span>Approved</span></td>
+                                                    <?php }} ?>
                                                     <td style="font-size: 14px;"><?= $nf['nf_createdon'] ?></td>
-                                                    <td style="font-size: 14px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="<?= site_url('acceptpost/') . $nf['nf_id'] . '/' . $nf['user_id'] ?> " style=" color: white;"><i class="fas fa-check"></i> Approved</a></button>
+                                                    <?php if($status=="To Review") { ?>
+                        
+                                                        <td style="font-size: 14px;"><button id="myBtn" type="button" name="button" style="background-color: #0bbb42; border-radius: 3px; border-color: #0bbb42; color: white;"><a href="<?= site_url('acceptpost/') . $nf['nf_id']  ?> " class="text-dark" >Approve</a></button>
                                                     </td>
+                        <?php } ?>
+
+
+                                                   
                                                 </tr>
                                             <?php endforeach; ?>
                                     </table>

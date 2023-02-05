@@ -106,6 +106,8 @@ $routes->get('/receive/(:any)', 'UserController::receive/$1');
 
 $routes->get('/blocked/(:any)', 'AdminController::blocked/$1');
 $routes->get('/unblocked/(:any)', 'AdminController::unblocked/$1');
+$routes->get('/acceptpost/(:any)', 'AdminController::acceptpost/$1');
+
 
 $routes->get('/processed/(:any)', 'AdminController::processed/$1');
 $routes->get('/deletecart/(:any)', 'UserController::deletecart/$1');

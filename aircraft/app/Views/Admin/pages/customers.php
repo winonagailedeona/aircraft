@@ -63,7 +63,7 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Status</th>
-                      <th>Created On</th>
+                      <th>Account Created On</th>
                       <th>Action</th>
                     </tr>
                     </thead>
@@ -81,10 +81,22 @@
                         <td> <span class="badge bg-danger">BLOCKED</span></td>
                         <?php }} ?>
                       <td><?= $cus['created_at']?></td>
-                      <td>
-                        <a href="<?= site_url('blocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Block</a>
+                      <?php if($status=="ACTIVE") { ?>
                         
-                        </td>
+                   <td>
+                   <a href="<?= site_url('blocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Block</a>
+                   </td>
+                   <?php } else {?>
+                    <td>
+                   <a href="<?= site_url('unblocked/') . $cus['id']  ?> " class="btn-sm btn-secondary">Unlock</a>
+                   </td>
+
+                    <?php }?>
+
+
+               
+                        
+                        
                     </tr>
                       <?php endforeach; ?>
 

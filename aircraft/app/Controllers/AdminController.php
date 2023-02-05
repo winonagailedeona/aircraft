@@ -272,24 +272,25 @@ public function cancelled()
   public function reviewnewsfeed()
   {
     $user_model = new UserModel();
+    $order_model = new PlaceOrderModel();
 
     $data = [
-      // 'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
+      'orderstat' => $order_model->where('status', 'Order Confirmed')->get()->getNumRows(),
+        'pending' => $order_model->where('status', 'Order Placed')->get()->getNumRows(),
+        'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
       'newsf' => $user_model-> select('*')
       ->join('nf', 'nf.user_id = users.id', 'right')
-      ->where('nf_status', 'To Review')
       ->get()->getResultArray()
     ];
       return view('Admin/pages/newsfeed', $data);
   }
   
-  public function acceptpost($nf_id, $user_id){
+  public function acceptpost($nf_id){
     $post = new NewsfeedModel();
-    $post->set('nf_status', 'Approved')->where('user_id', $user_id)
-    ->where('nf_id', $nf_id)
-    ->update();
+    $post->set('nf_status', 'Approved')
+    ->where('nf_id', $nf_id)->update();
 
-    return redirect()->route('reviewnewsfeed');
+    return redirect()->route('reviewnf');
 }
 
 }
