@@ -72,7 +72,7 @@ class UserController extends Controller
     ];
     $nf->save($data);
     $session = session();
-    $session->setFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be approved!');
+    $session->setFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be posted!');
     return redirect('nf');
   }
 

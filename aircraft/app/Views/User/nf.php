@@ -854,13 +854,9 @@ li.list-group-item:first-child {
             <div class="panel-heading">
                 <h3 class="panel-title">Activity Feed</h3>
             </div>
-            <?php if(session()->getFlashdata('msg', 'Updated Successfully!')):?>
-            <div class="alert alert-success">
-            <?= session()->getFlashdata('msg', 'Updated Successfully!')?></div>
-            <?php endif; ?>
-            <?php if (!empty(session()->getFlashdata('mssg', 'Successfully Added!'))) : ?>
-              <div class="alert alert-success">
-                <?= session()->getFlashdata('mssg', 'Successfully Added!') ?>
+            <?php if (!empty(session()->getFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be posted!'))) : ?>
+              <div style="padding-left: 2%; padding-right: 2%;" class="alert alert-success">
+                <?= session()->getFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be posted!') ?>
               </div>
             <?php endif; ?>
             <div class="panel-content panel-activity">
