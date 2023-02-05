@@ -87,6 +87,7 @@ $routes->get('/userprofile', 'UserController::profile');
 $routes->match(['get', 'post'], '/userprofile/(:any)', 'UserController::profile/$1');
 $routes->match(['get', 'post'], '/checkout', 'UserController::checkout');
 
+$routes->get('/nf', 'UserController::newsfeed');
 $routes->get('/orders', 'UserController::orders');
 $routes->get('/confirmedorders', 'UserController::confirmedorders');
 $routes->get('/readyorders', 'UserController::readyorders');

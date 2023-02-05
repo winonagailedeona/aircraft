@@ -35,21 +35,15 @@ class UserController extends Controller
       return redirect()->route('userprofile', $data);
   }
 
-  // public function profile()
-  // {
-  //   $id = session()->get('id');
-  //   $user_model = new UserModel();
-
-  //   $data["pro"] = $user_model->select('*')
-  //   ->where('id', $id)->get()->getResultArray();
-
-  //   return view('User/profile', $data);
-  // }
-
 
   public function about()
   {
     return view('about');
+  }
+
+  public function newsfeed()
+  {
+    return view('User/nf');
   }
 
   public function faqs()
