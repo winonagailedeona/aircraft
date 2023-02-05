@@ -42,6 +42,7 @@ class AdminController extends BaseController
         'placeorder' => $placeordermodel->select('*')
         ->join('product', 'product.id = orders.menuid', 'right')
         ->join('users', 'users.id = orders.user_id', 'right')
+        // ->where('status', 'Order Placed')
         ->get()->getResultArray()
       ];
       
