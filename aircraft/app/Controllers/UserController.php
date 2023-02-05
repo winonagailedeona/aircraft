@@ -8,6 +8,7 @@ use App\Models\MenuModel;
 use App\Models\UserModel;
 use App\Models\CheckoutModel;
 use App\Models\PlaceOrderModel;
+use App\Models\NewsfeedModel;
 
 class UserController extends Controller
 {
@@ -43,7 +44,36 @@ class UserController extends Controller
 
   public function newsfeed()
   {
-    return view('User/nf');
+    $nf = new NewsfeedModel();
+    $user_model = new UserModel();
+
+    $data = [
+      // 'cancelled' => $order_model->where('status', 'Cancelled by User')->get()->getNumRows(),
+      'newsf' => $user_model-> select('*')
+      ->join('nf', 'nf.user_id = users.id', 'right')
+      ->where('nf_status', 'Approved')
+      ->get()->getResultArray()
+    ];
+    return view('User/nf', $data);
+  }
+
+ 
+  public function savepost()
+  {
+    $user_id = session()->get('id');
+    $nf_content = $this->request->getVar('nf_content');
+    $nf_rating = $this->request->getVar('nf_rating');
+    
+    $nf = new NewsfeedModel();
+    $data = [
+      'user_id' => $user_id,
+      'nf_content' => $nf_content,
+      'nf_rating' => $nf_rating,
+    ];
+    $nf->save($data);
+    $session = session();
+    $session->setFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be approved!');
+    return redirect('nf');
   }
 
   public function faqs()

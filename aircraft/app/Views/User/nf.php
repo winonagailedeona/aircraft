@@ -854,9 +854,26 @@ li.list-group-item:first-child {
             <div class="panel-heading">
                 <h3 class="panel-title">Activity Feed</h3>
             </div>
+            <?php if(session()->getFlashdata('msg', 'Updated Successfully!')):?>
+            <div class="alert alert-success">
+            <?= session()->getFlashdata('msg', 'Updated Successfully!')?></div>
+            <?php endif; ?>
+            <?php if (!empty(session()->getFlashdata('mssg', 'Successfully Added!'))) : ?>
+              <div class="alert alert-success">
+                <?= session()->getFlashdata('mssg', 'Successfully Added!') ?>
+              </div>
+            <?php endif; ?>
             <div class="panel-content panel-activity">
-                <form action="#" class="panel-activity__status">
-                    <textarea name="user_activity" placeholder="Share what you've been up to..." class="form-control"></textarea>
+                <form action="savepost" class="panel-activity__status" method="post">
+                    <textarea name="nf_content" placeholder="Share what you've been up to..." class="form-control"></textarea>
+                   <div style="padding-left: 1%; padding-top: 2%; padding-bottom: 2%;"> <label for="value"><i class="fa fa-star"></i>Rating:</label>
+    <select  style="border: none" name="nf_rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><span>/5</span></div>
                     <div class="actions">
                         <div class="btn-group">
                             <button type="button" class="btn-link" title="" data-toggle="tooltip" data-original-title="Post an Image">
@@ -864,7 +881,7 @@ li.list-group-item:first-child {
                             </button>
                         </div>
                         <button type="submit" class="btn btn-sm btn-rounded btn-info">
-                            Post
+                            Submit
                         </button>
                     </div>
                 </form>
@@ -872,7 +889,7 @@ li.list-group-item:first-child {
                 </div>
                 </div>
                 </div>
-
+                <?php foreach ($newsf as $nf): ?>
                 <div class="container">
     <div class="col-lg-12">
         <div class="panel">
@@ -882,18 +899,16 @@ li.list-group-item:first-child {
                         <i class="activity__list__icon fa fa-question-circle-o"></i>
                         <div class="activity__list__header">
                             <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" />
-                            <a href="#">John Doe</a> Posted the question: <a href="#">How can I change my annual reports for the better effect?</a>
+                            <a href="#"><?= $nf['name']?></a> Posted:
                         </div>
                         <div class="activity__list__body entry-content">
                             <p>
-                                <strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit. Voluptatibus ab a nostrum repudiandae dolorem ut quaerat veniam asperiores, rerum voluptatem magni dolores corporis!
-                                <em>Molestiae commodi nesciunt a, repudiandae repellendus ea.</em>
+                                <em><?= $nf['nf_content']?></em>
                             </p>
                         </div>
                         <div class="activity__list__footer">
-                            <a href="#"> <i class="fa fa-thumbs-up"></i>123</a>
-                            <a href="#"> <i class="fa fa-comments"></i>23</a>
-                            <span> <i class="fa fa-clock"></i>2 hours ago</span>
+                            <a href="#"> <i class="fa fa-star"></i><?= $nf['nf_rating']?>/5</a>
+                            <span> <i class="fa fa-clock"></i><?= $nf['nf_createdon']?></span>
                         </div>
                     </li>
                     <!-- <li>
@@ -929,7 +944,7 @@ li.list-group-item:first-child {
         </div>
     </div>
 </div>
-
+<?php endforeach; ?>
 <!-- <div class="container">
     <div class="col-lg-12">
         <div class="panel">
