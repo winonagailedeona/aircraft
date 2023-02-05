@@ -126,7 +126,7 @@
             </a>
           </li> -->
           <li class="nav-item">
-            <a href="<?= base_url('adminsign'); ?>" class="nav-link active">
+            <a href="<?= base_url('logout'); ?>" class="nav-link active">
               <i class="nav-icon fas fa-power-off"></i>
               <p>
                 Logout

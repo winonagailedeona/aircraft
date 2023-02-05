@@ -60,6 +60,11 @@ class SigninController extends Controller
         echo view('adminlogin');
     }
 
+    public function logout()
+{
+    session()->destroy();
+    return redirect()->to(base_url('/signin'));
+}
 
     // public function loginAdmin()
     // {

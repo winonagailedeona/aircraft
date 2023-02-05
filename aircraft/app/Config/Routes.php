@@ -49,6 +49,7 @@ $routes->match(['get', 'post'], 'ProductController/store', 'ProductController::s
 //LOGIN AND REGISTER USER
 $routes->get('/', 'SigninController::index');
 $routes->get('/signup', 'SignupController::index');
+$routes->get('/logout', 'SigninController::logout');
 $routes->match(['get', 'post'], 'SignupController/store', 'SignupController::store');
 $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController::loginAuth');
 $routes->get('/signin', 'SigninController::index');

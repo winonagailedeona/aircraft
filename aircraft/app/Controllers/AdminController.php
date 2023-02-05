@@ -16,6 +16,9 @@ class AdminController extends BaseController
   {
     helper(['url', 'form']);
     $this->db = \Config\Database::connect();
+    
+    
+
   }
 
   public function admlogin()
@@ -25,6 +28,7 @@ class AdminController extends BaseController
 
   public function index()
   {
+    
     $db = \Config\Database::connect();
     $builder = $db->table('product');
     $builderr = $db->table('users');

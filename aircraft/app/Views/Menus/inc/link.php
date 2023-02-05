@@ -41,7 +41,7 @@
                 <hr>
                 <a class="dropdown-item" href="<?php echo base_url('ordershistory');?>"><i class="fas fa-clipboard-check"></i>  Purchased History</a>
                 <hr>
-                <a class="dropdown-item" href="<?php echo base_url('signin');?>"><i class="fas fa-power-off"></i>  Logout</a>
+                <a class="dropdown-item" href="<?php echo base_url('logout');?>"><i class="fas fa-power-off"></i>  Logout</a>
             </div>
         </a>&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="posi2 text-white" style="font-size: 16px;">|</span>
