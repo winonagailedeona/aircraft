@@ -31,8 +31,6 @@ class AdminController extends BaseController
     $countpro = $builder->countAll();
     $countuser = $builderr->countAll();
 
-      $usermodel = new UserModel();
-      $productmodel = new MenuModel();
       $placeordermodel = new PlaceOrderModel();
 
       $data = [
@@ -41,6 +39,10 @@ class AdminController extends BaseController
         'orderstat' => $placeordermodel->where('status', 'Order Confirmed')->get()->getNumRows(),
         'pending' => $placeordermodel->where('status', 'Order Placed')->get()->getNumRows(),
         'cancelled' => $placeordermodel->where('status', 'Cancelled by User')->get()->getNumRows(),
+        'placeorder' => $placeordermodel->select('*')
+        ->join('product', 'product.id = orders.menuid', 'right')
+        ->join('users', 'users.id = orders.user_id', 'right')
+        ->get()->getResultArray()
       ];
       
       return view('Admin/index', $data);

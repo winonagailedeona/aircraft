@@ -41,7 +41,7 @@
                         <td><?= $orders['name']?></td>
                         <td><?= $orders['contactno']?></td>
                         <td><?= $orders['quantity']?></td>
-                        <td><?= $orders['total']?></td>
+                        <td>₱<?= $orders['total']?>.00</td>
                         <td><?= $orders['createdd_at']?></td>
                         <td><?= $orders['updatedd_at']?></td>
 

@@ -42,7 +42,7 @@
                         <td><?= $ord['name']?></td>
                         <td><?= $ord['contactno']?></td>
                         <td><?= $ord['quantity']?></td>
-                        <td><?= $ord['total']?></td>
+                        <td>₱<?= $ord['total']?>.00</td>
                         <td><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
 
                         

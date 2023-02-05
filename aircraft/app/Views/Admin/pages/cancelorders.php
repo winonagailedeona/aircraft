@@ -42,7 +42,7 @@
                         <td style="font-size: 15px;"><?= $orders['name']?></td>
                         <td style="font-size: 15px;"><?= $orders['contactno']?></td>
                         <td style="font-size: 15px;"><?= $orders['quantity']?></td>
-                        <td style="font-size: 15px;"><?= $orders['total']?></td>
+                        <td style="font-size: 15px;">₱<?= $orders['total']?>.00</td>
                         <td style="font-size: 15px;"><?= $orders['updatedd_at']?></td>
                         <td><button type="button" class="btn btn-secondary"> CANCELLED</button></td>
 
