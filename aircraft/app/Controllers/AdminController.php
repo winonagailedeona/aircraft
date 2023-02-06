@@ -94,8 +94,6 @@ class AdminController extends BaseController
                 'image' => $image,
                 'description' => $description
 
-
-
             ];
 
             if ($prod->insert($data)) {

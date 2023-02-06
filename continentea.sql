@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 05, 2023 at 11:42 AM
+-- Generation Time: Feb 06, 2023 at 03:02 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -24,22 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `password` varchar(150) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cart`
 --
 
@@ -54,15 +38,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`),
   KEY `menuid` (`menuid`)
-) ENGINE=MyISAM AUTO_INCREMENT=241 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cartid`, `user_id`, `menuid`, `bilang`, `total`) VALUES
-(239, 14, 25, 1, 70),
-(240, 14, 22, 1, 140);
+) ENGINE=MyISAM AUTO_INCREMENT=242 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -117,36 +93,20 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `cartid` int NOT NULL,
   `orquantity` int NOT NULL,
   `total` int NOT NULL,
-  `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `note` varchar(500) NOT NULL,
+  `type` varchar(20) NOT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'Order Placed',
   `createdd_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedd_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`user_id`, `menuid`, `cartid`, `orquantity`, `total`, `type`, `status`, `createdd_at`, `updatedd_at`) VALUES
-(6, 26, 0, 0, 95, '', 'Ready To Serve', '2023-02-03 20:39:25', '2023-02-03 22:48:38'),
-(3, 23, 0, 0, 100, '', 'Cancelled by User', '2023-02-03 20:40:58', '2023-02-03 20:41:01'),
-(3, 19, 0, 0, 160, '', 'Receive', '2023-02-03 20:46:16', '2023-02-03 20:46:56'),
-(3, 22, 0, 0, 140, '', 'Order Placed', '2023-02-03 20:48:45', '2023-02-03 20:48:45'),
-(6, 26, 0, 0, 95, '', 'Order Placed', '2023-02-04 01:59:42', '2023-02-04 01:59:42'),
-(14, 14, 0, 0, 80, '', 'Cancelled by User', '2023-02-05 04:14:16', '2023-02-05 04:41:37'),
-(14, 19, 0, 0, 160, '', 'Cancelled by User', '2023-02-05 04:14:45', '2023-02-05 04:42:48'),
-(14, 22, 0, 0, 140, '', 'Cancelled by User', '2023-02-05 04:19:13', '2023-02-05 04:29:36'),
-(14, 19, 0, 0, 160, '', 'Cancelled by User', '2023-02-05 04:29:28', '2023-02-05 04:42:48'),
-(14, 14, 0, 0, 80, '', 'Cancelled by User', '2023-02-05 04:29:53', '2023-02-05 04:41:37'),
-(14, 14, 0, 1, 80, '', 'Cancelled by User', '2023-02-05 04:39:27', '2023-02-05 04:41:37'),
-(14, 24, 0, 1, 160, '', 'Cancelled by User', '2023-02-05 04:42:40', '2023-02-05 04:42:44'),
-(14, 19, 0, 1, 160, '', 'Cancelled by User', '2023-02-05 04:42:40', '2023-02-05 04:42:48'),
-(14, 14, 0, 1, 80, 'P', 'Order Placed', '2023-02-05 05:20:24', '2023-02-05 05:20:24'),
-(14, 19, 0, 1, 160, 'D', 'Order Placed', '2023-02-05 05:21:38', '2023-02-05 05:21:38'),
-(14, 21, 0, 1, 160, 'P', 'Order Placed', '2023-02-05 05:22:32', '2023-02-05 05:22:32'),
-(14, 12, 0, 1, 150, 'D', 'Order Placed', '2023-02-05 05:23:35', '2023-02-05 05:23:35'),
-(14, 24, 0, 1, 160, 'D', 'Order Placed', '2023-02-05 05:25:29', '2023-02-05 05:25:29'),
-(14, 25, 0, 1, 70, 'D', 'Order Placed', '2023-02-05 05:41:27', '2023-02-05 05:41:27');
+INSERT INTO `orders` (`user_id`, `menuid`, `cartid`, `orquantity`, `total`, `note`, `type`, `status`, `createdd_at`, `updatedd_at`) VALUES
+(14, 25, 0, 1, 70, '\r\nLarge Size for Americano', 'P', 'Cancelled by User', '2023-02-05 21:00:58', '2023-02-05 21:02:11'),
+(14, 29, 0, 1, 115, '\r\nLarge Size for Americano', 'i', 'Cancelled by User', '2023-02-05 21:00:58', '2023-02-05 21:02:13');
 
 -- --------------------------------------------------------
 
@@ -192,7 +152,7 @@ INSERT INTO `product` (`id`, `productname`, `description`, `price`, `quantity`, 
 (26, 'Wintermelon Milk Tea', 'Wintermelon Milk Tea has a very light and fresh flavour that\'s almost a bit grassy. The closest flavour match would be fresh cucumber.', 95, 15, '', 'img/menu/winter.jpg', 'milktea', '2022-12-18 17:42:52', '2023-02-04 15:59:31'),
 (27, 'Hokkaido Milk Tea', 'Hokkaido milk tea is earthy and sweet, but its authentic flavours depend on specific tea and sweetener ingredients. ', 105, 0, '', 'img/menu/hokkaido.jpg', 'milktea', '2022-12-18 17:49:06', '2023-01-29 18:57:16'),
 (28, 'Matcha Milk Tea', 'Matcha has a bright, vegetal, and slightly bitter taste, with notes of sweetness and umami. High quality ceremonial grade matcha is suitable to drink on its own, while culinary grade matcha can be added to lattes, smoothies, and more.', 105, 0, '', 'img/menu/matcha.jpg', 'milktea', '2022-12-18 17:49:57', '2023-01-30 19:28:13'),
-(29, 'Americano Coffee', 'An Americano is made by pouring hot water over one or two espresso shots, resulting in a drink of similar volume and strength to regular coffee.', 115, 19, '', 'img/menu/americano.jpg', 'milktea', '2022-12-18 18:00:16', '2023-01-30 20:03:45');
+(29, 'Americano Coffee', 'An Americano is made by pouring hot water over one or two espresso shots, resulting in a drink of similar volume and strength to regular coffee.', 115, 18, '', 'img/menu/americano.jpg', 'milktea', '2022-12-18 18:00:16', '2023-02-06 10:52:12');
 
 -- --------------------------------------------------------
 
