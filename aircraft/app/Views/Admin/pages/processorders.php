@@ -28,6 +28,7 @@
                         <th>Product Name</th>
                         <th>Customer Name</th>
                         <th>Contact No.</th>
+                        <th>Message</th>
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Type of Order</th>
@@ -42,6 +43,7 @@
                         <td><?= $ord['productname']?></td>
                         <td><?= $ord['name']?></td>
                         <td><?= $ord['contactno']?></td>
+                        <td style="font-size: 15px;"><?= $orders['note']?></td>
                         <td><?= $ord['orquantity']?></td>
                         <td>₱<?= $ord['total']?>.00</td>
                         <?php $status = $ord['type'];

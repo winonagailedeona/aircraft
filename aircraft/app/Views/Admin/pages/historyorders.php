@@ -27,6 +27,7 @@
                         <th>Product Name</th>
                         <th>Customer Name</th>
                         <th>Contact No.</th>
+                        <th>Message</th>
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Type of Order</th>
@@ -41,7 +42,8 @@
                         <td><?= $orders['productname']?></td>
                         <td><?= $orders['name']?></td>
                         <td><?= $orders['contactno']?></td>
-                        <td><?= $orders['orquantity']?></td>
+                        <td style="font-size: 15px;"><?= $orders['note']?></td>
+                        <td>x <?= $orders['orquantity']?></td>
                         <td>₱<?= $orders['total']?>.00</td>
                         <?php $status = $orders['type'];
                                                     if ($status == "D" or $status == "P") { ?>

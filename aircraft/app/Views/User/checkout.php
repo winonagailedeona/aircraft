@@ -179,13 +179,18 @@
                             </tbody>
                             <div>
                         </table>
-                        <div class="text-right" style="padding-right: 5%; padding-left: 65%; background-color: none; border:none; padding-bottom: 3%;">
-                              <input type="radio" id="html" name="type" value="Dine-in">
+                        <div style="padding-left: 5%; padding-bottom: 5%;"><label for="w3review">Leave a Message:</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" id="html" name="type" value="Dine-in">
                               <label for=""><i class="fas fa-utensils"> </i> Dine-in</label>
                               <input type="radio" id="javascript" name="type" value="Pick-up">
-                              <label for=""><i class="fas fa-shopping-bag"> </i> Pick-up</label></div>
+                              <label for=""><i class="fas fa-shopping-bag"> </i> Pick-up</label><br>
+
+<textarea  id="w3review" name="note" rows="4" cols="80" placeholder="">
+
+</textarea>  </div></div>
+                        
+                            
                         </form>
-                    </div>
+                 
                 </div>
             </aside>
             <aside class="col-lg-3">

@@ -33,8 +33,7 @@
             <div class="row">
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">About Us</h4>
-                    <h5 class="text-muted mb-3">Eos kasd eos dolor vero vero, lorem stet diam rebum. Ipsum amet sed vero dolor sea</h5>
-                    <p>Takimata sed vero vero no sit sed, justo clita duo no duo amet et, nonumy kasd sed dolor eos diam lorem eirmod. Amet sit amet amet no. Est nonumy sed labore eirmod sit magna. Erat at est justo sit ut. Labor diam sed ipsum et eirmod</p>
+                    <p>ContinenTea and Café is the very first airplane and flight attendant – inspired tea and café restaurant that a typical business mostly serves different kinds of tea and coffee, in addition to a variety of snacks. This is the only and first branch of business launched. The business was established last year October, 2021. It is located in 217 Yasmin St., Morning Breeze Subdivision, Tawiran, Calapan City, Oriental Mindoro. It is nearby different establishments such hospitals, small businesses, dormitories of students, and university college. An admirable spot to ponde and small but capacious place to get along with colleagues. A café that provide a friendly, comfortable atmosphere where customer can receive quality food, service and entertainment at a reasonable price. The recipe had a long journey in order to achieve and make it unique to other café restaurant. </p>
                 </div>
                 <div class="col-lg-4" style="min-height: 400px;">
                     <div class="position-relative h-100 rounded overflow-hidden">
@@ -43,11 +42,16 @@
                 </div>
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">Our Features</h4>
-                    <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est dolor</p>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                </div>
+                    <p>Owner come up with the idea of its recipe from its restaurant’s structure design that derived from the seven continents of the world that differ from its series such as </p>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>American</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Latin </h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>European</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>African</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Antarctican</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Asian</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Australian</h5>
+                    <p>This gives customers a highlight destination to fly according to what they ordered.</p>
+                </div>            
             </div>
         </div>
     </div>

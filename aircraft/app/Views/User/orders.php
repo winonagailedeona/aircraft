@@ -180,6 +180,8 @@
                                                             </p>
                                                         <?php } ?>
                                                     <?php } ?>
+                                                    <p class="text-dark">Note: <?= $orders['note'] ?>
+                                                            </p>
                                                     <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['createdd_at'] ?></p>
                                                     <hr>
                                                     <div class="float-right">

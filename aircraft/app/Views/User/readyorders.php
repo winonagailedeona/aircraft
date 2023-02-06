@@ -161,8 +161,19 @@
                                                     <img class="mr-4" src="<?= base_url() . '/' . $orders['image'] ?>" alt="Generic placeholder image">
                                                 </a>
                                                 <div class="media-body">
-                                                    <p><span class="float-right text-info"><?= $orders['status'] ?><i class="icofont-check-circled text-success"></i></span>
+                                                    
+                                                    <?php $status = $orders['type'];
+                                                    if ($status == "D" or $status == "P") { ?>
+
+                                                        <?php if ($status == "D") { ?>
+                                                            <p><span class="float-right text-info">Ready for Dine-in<i class="icofont-check-circled text-success"></i></span>
                                                     </p>
+                                                        <?php } ?>
+                                                        <?php if ($status == "P") { ?>
+                                                            <p><span class="float-right text-info">Ready for Pickup<i class="icofont-check-circled text-success"></i></span>
+                                                    </p>
+                                                        <?php } ?>
+                                                    <?php } ?>
                                                     <h6 class="mb-2">
                                                         <p class="text-black"><?= $orders['productname'] ?></p>
                                                     </h6>
@@ -181,6 +192,8 @@
                                                             </p>
                                                         <?php } ?>
                                                     <?php } ?>
+                                                    <p class="text-dark">Note: <?= $orders['note'] ?>
+                                                            </p>
                                                     <p class="text-info mb-3"><i class="icofont-list"></i>ORDER PLACED ON<i class="icofont-clock-time ml-2"></i> <?= $orders['createdd_at'] ?></p>
                                                     <hr>
                                                     <div class="float-right">

@@ -129,6 +129,7 @@ class ProductsController extends BaseController
         $menuid = $this->request->getPost('menuid[]');
         $quan = $this->request->getPost('bilang[]');
         $total = $this->request->getPost('total[]');
+        $note = $this->request->getPost('note');
         $type = $this->request->getPost('type');
         for($i = 0; $i < count($menuid); $i++){
             $data = [
@@ -136,6 +137,7 @@ class ProductsController extends BaseController
                 'user_id' => session()->get('id'),
                 'orquantity' => $quan[$i],
                 'total' => $total[$i],
+                'note' => $note,
                 'type' => $type[$i]
 
             ];
