@@ -855,10 +855,13 @@ li.list-group-item:first-child {
                 <h3 class="panel-title">Activity Feed</h3>
             </div>
             <?php if (!empty(session()->getFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be posted!'))) : ?>
-              <div style="padding-left: 2%; padding-right: 2%;" class="alert alert-success">
+              <div style="padding-left: 5%; padding-right: 5%;" class="alert alert-success">
                 <?= session()->getFlashdata('mssg', 'Successfully Submitted! Your Post is waiting to be posted!') ?>
               </div>
+              
+              
             <?php endif; ?>
+            
             <div class="panel-content panel-activity">
                 <form action="savepost" class="panel-activity__status" method="post">
                     <textarea name="nf_content" placeholder="Share what you've been up to..." class="form-control"></textarea>
