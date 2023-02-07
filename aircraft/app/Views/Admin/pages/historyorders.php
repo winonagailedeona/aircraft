@@ -31,6 +31,7 @@
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Type of Order</th>
+                        <th>Schedule of Order</th>
                         <th>Order-Date</th>
                         <th>Order-Completed</th>
                     </tr>
@@ -55,6 +56,7 @@
                                                           <td><i class="fas fa-shopping-bag"> </i> Dine-in</td>
                                                         <?php } ?>
                                                     <?php } ?>
+                                                    <td><?= $orders['datee']?> <?= $orders['timee']?> </td>
                         <td><?= $orders['createdd_at']?></td>
                         <td><?= $orders['updatedd_at']?></td>
 

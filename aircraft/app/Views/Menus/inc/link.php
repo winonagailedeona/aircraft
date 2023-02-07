@@ -3,7 +3,7 @@
 <div class="container-fluid bg-primary py-3 d-none d-md-block">
       <img class="logo"  src="<?= base_url() ?>/img/logo.jpg" style="border-radius: 50%; width: 80px; margin-right: 5%; position: relative;">
       <a class="posi2 text-white pr-3" href="<?php echo base_url('faqs');?>" style="font-size: 16px;">FAQs</a>
-      <span class="posi2 text-white" style="font-size: 16px;">|</span>
+      <span class="posi2 text-white" style="font-size: 16px;">|</span>&nbsp;&nbsp;&nbsp;
       <a class="posi2 text-white pr-3" href="<?php echo base_url('nf');?>" style="font-size: 16px;">Newsfeed</a>
       <span class="posi2 text-white" style="font-size: 16px;">|</span>
       <a class="posi2 text-white px-3" href="<?php echo base_url('about');?>" style="font-size: 16px;">About us</a>

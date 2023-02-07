@@ -15,50 +15,7 @@
             <h1 class="text-white display-3 mt-lg-5">Newsfeed</h1>
         </div>
     </div>
-    <!-- Header End -->
-
-
-    <!-- Contact Start -->
-    <!-- <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h1 class="section-title position-relative text-center mb-5">Contact Us For Any Query</h1>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="contact-form bg-light rounded p-5">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="form-row">
-                                <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Contact End -->
+    
 <style>
 
 body{
@@ -863,16 +820,10 @@ li.list-group-item:first-child {
             <?php endif; ?>
             
             <div class="panel-content panel-activity">
+                <br>
                 <form action="savepost" class="panel-activity__status" method="post">
                     <textarea name="nf_content" placeholder="Share what you've been up to..." class="form-control"></textarea>
-                   <div style="padding-left: 1%; padding-top: 2%; padding-bottom: 2%;"> <label for="value"><i class="fa fa-star"></i>Rating:</label>
-    <select  style="border: none" name="nf_rating">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select><span>/5</span></div>
+                   <br><br>
                     <div class="actions">
                         <div class="btn-group">
                             <button type="button" class="btn-link" title="" data-toggle="tooltip" data-original-title="Post an Image">
@@ -907,7 +858,7 @@ li.list-group-item:first-child {
                             </p>
                         </div>
                         <div class="activity__list__footer">
-                            <a> <?php $star=$nf['nf_rating']; 
+                            <!-- <a> <?php $star=$nf['nf_rating']; 
                             if($star=="1" or $star=="2" or $star=="3" or $star=="4" or $star=="5") { ?>
                     <?php if($star=="5") { ?>
                         <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
@@ -927,7 +878,7 @@ li.list-group-item:first-child {
                         <?php if($star=="1") { ?>
                             <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
                         <?php }} ?>
-                        </a>
+                        </a> -->
                             <span> <i class="fa fa-clock"></i><?= $nf['nf_createdon']?></span>
                         </div>
                     </li>

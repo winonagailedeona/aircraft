@@ -179,14 +179,33 @@
                             </tbody>
                             <div>
                         </table>
-                        <div style="padding-left: 5%; padding-bottom: 5%;"><label for="w3review">Leave a Message:</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" id="html" name="type" value="Dine-in">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <div style="padding-left: 5%; padding-bottom: 5%;"><label for="w3review">Leave a Message:</label> 
+                            <textarea  id="w3review" name="note" rows="4" cols="115" placeholder=""></textarea>                 </div>
+                            
+                        </div>
+                        <div style="padding-left: 5%; padding-bottom: 5%;"><label for="w3review">Type of Order:</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" id="html" name="type" value="Dine-in">
                               <label for=""><i class="fas fa-utensils"> </i> Dine-in</label>
                               <input type="radio" id="javascript" name="type" value="Pick-up">
-                              <label for=""><i class="fas fa-shopping-bag"> </i> Pick-up</label><br>
+                              <label for=""><i class="fas fa-shopping-bag"> </i> Pick-up</label>
+                            
+                            
+                            <br>
+                            <div class="row">
+                            <div class="col-md-12">
+                            <div ><label for="w3review">Schedule Order:</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                            <span>Date:</span>&nbsp;<input type="date" name="datee"></input>&nbsp; &nbsp; 
+                            <span>Time:</span>&nbsp;<input type="time" name="timee"></input>               </div>
+                            
+                        </div>
 
-<textarea  id="w3review" name="note" rows="4" cols="80" placeholder="">
 
-</textarea>  </div></div>
+
+</div>
+
+
+</div></div>
                         
                             
                         </form>

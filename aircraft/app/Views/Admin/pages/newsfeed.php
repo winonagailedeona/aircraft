@@ -33,7 +33,6 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Content</th>
-                                                <th>Rating</th>
                                                 <th>Status</th>
                                                 <th>Created On</th>
                                                 <th class="text-center">Action</th>
@@ -45,7 +44,7 @@
                                                     <td style="font-size: 15px;"><?= $nf['name'] ?></td>
                                                     <td style="font-size: 15px;"><?= $nf['nf_content'] ?></td>
 
-                                                    <?php $star=$nf['nf_rating']; 
+                                                    <!-- <?php $star=$nf['nf_rating']; 
                             if($star=="1" or $star=="2" or $star=="3" or $star=="4" or $star=="5") { ?>
                     <?php if($star=="5") { ?>
                         <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i><i class="fas fa-star text-warning" ></i>
@@ -64,7 +63,7 @@
                         <?php } ?>
                         <?php if($star=="1") { ?>
                             <td> <span style="font-size: 15px;"><i class="fas fa-star text-warning" ></i> <?= $nf['nf_rating'] ?>/5</span></td>
-                        <?php }} ?>
+                        <?php }} ?> -->
                         
 
                         

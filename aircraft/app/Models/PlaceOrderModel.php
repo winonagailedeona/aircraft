@@ -14,7 +14,7 @@ class PlaceOrderModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'cartid', 'menuid', 'orquantity', 'type', 'status', 'note', 'total'];
+    protected $allowedFields    = ['user_id', 'cartid', 'menuid', 'orquantity', 'type', 'status', 'note', 'datee', 'timee', 'total'];
 
     // Dates
     protected $useTimestamps = true;

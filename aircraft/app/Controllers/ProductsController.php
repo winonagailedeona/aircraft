@@ -130,6 +130,8 @@ class ProductsController extends BaseController
         $quan = $this->request->getPost('bilang[]');
         $total = $this->request->getPost('total[]');
         $note = $this->request->getPost('note');
+        $datee = $this->request->getPost('datee');
+        $timee = $this->request->getPost('timee');
         $type = $this->request->getPost('type');
         for($i = 0; $i < count($menuid); $i++){
             $data = [
@@ -138,6 +140,8 @@ class ProductsController extends BaseController
                 'orquantity' => $quan[$i],
                 'total' => $total[$i],
                 'note' => $note,
+                'datee' => $datee,
+                'timee' => $timee,  
                 'type' => $type[$i]
 
             ];

@@ -32,6 +32,7 @@
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Type of Order</th>
+                        <th>Schedule of Order</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
                     </tr>
@@ -56,6 +57,8 @@
                                                           <td>Pick-up</td>
                                                         <?php } ?>
                                                     <?php } ?>
+                        <td><?= $orders['datee']?> <?= $orders['timee']?> </td>
+
                         <td class="text-center"><button type="button" class="btn btn-success"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> PROCESSING</button></td>
 
                         

@@ -32,6 +32,7 @@
                         <th>Qty</th>
                         <th>Total Price</th>
                         <th>Type of Order</th>
+                        <th>Schedule of Order</th>
                         <th>Status</th>
                         <th>Order-Date</th>
                         <th>Actions</th>
@@ -57,6 +58,8 @@
                                                           <td>Dine-in</td>
                                                         <?php } ?>
                                                     <?php } ?>
+                        <td><?= $orders['datee']?> <?= $orders['timee']?> </td>
+
                         <td> <button type="button" class="btn btn-warning"><span></span>PENDING</button></td>
                         <td><?= $orders['createdd_at']?></td>
 
